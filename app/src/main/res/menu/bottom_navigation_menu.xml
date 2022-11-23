@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/homeFragment"
+            android:enabled="true"
+            android:icon="@drawable/styler_48px"
+            android:title="home" />
+        <item
+            android:id="@+id/searchFragment"
+            android:enabled="true"
+            android:icon="@drawable/search_48px"
+            android:title="search" />
+        <item
+            android:id="@+id/photoFragment"
+            android:enabled="true"
+            android:icon="@drawable/camera_enhance_48px"
+            android:title="photo" />
+        <item
+            android:id="@+id/calendarFragment"
+            android:enabled="true"
+            android:icon="@drawable/calendar_month_48px"
+            android:title="calendar" />
+        <item
+            android:id="@+id/personalFragment"
+            android:enabled="true"
+            android:icon="@drawable/account_circle_48px"
+            android:title="personal" />
+</menu>

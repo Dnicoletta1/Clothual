@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.welcome.LoginFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:paddingTop="16dp"
+        app:srcCompat="@drawable/clothual_ligth"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:hint="@string/username_login"
+        android:layout_centerHorizontal="true"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/account_circle_48px"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:inputType="text"
+            android:maxLength="20"
+            android:background="@drawable/border_edit_text"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/inputViewUsername"
+        android:layout_centerHorizontal="true"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/key_48px"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/password_login"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/inputViewPassword"
+        android:background="@drawable/border_button"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+    <TextView
+        android:id="@+id/textViewForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:linksClickable="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/credential_forgot"
+        android:layout_below="@id/buttonLogin"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="463dp"
+        tools:ignore="MissingConstraints"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:linksClickable="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"
+        android:layout_below="@id/textViewForgot"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="463dp"
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        android:textStyle="bold"/>
+
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/textViewRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="24dp"
+            android:layout_toStartOf="@id/textview_or"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/textview_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/or" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="24dp"
+            android:layout_toEndOf="@id/textview_or"
+            android:background="@color/black" />
+
+    </RelativeLayout>
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_layout"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:visibility="visible"
+        />
+
+</RelativeLayout>

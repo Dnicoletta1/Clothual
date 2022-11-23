@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.welcome.RegistrationFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:paddingTop="16dp"
+        app:srcCompat="@drawable/clothual_ligth"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        app:startIconDrawable="@drawable/mail_48px"
+        >
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:inputType="text"
+            android:maxLength="20"
+            android:hint="@string/email"
+            android:background="@drawable/border_edit_text"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputNomeCognome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputViewEmail"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        app:startIconDrawable="@drawable/person_48px"
+        >
+
+        <EditText
+            android:id="@+id/editTextNomeCognome"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/nome_cognome"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/inputNomeCognome"
+        android:layout_centerHorizontal="true"
+        app:startIconDrawable="@drawable/account_circle_48px"
+        >
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/username_registrazion"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/inputViewUsername"
+        android:layout_centerHorizontal="true"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/key_48px"
+        >
+
+        <EditText
+            android:id="@+id/editTxtPassword"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/password_registration"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/inputViewPassword"
+        android:background="@drawable/border_button"
+        android:text="@string/go_registration"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+</RelativeLayout>

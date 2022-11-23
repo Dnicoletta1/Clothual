@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Clothual</string>
+    <string name="username_login">Username</string>
+    <string name="password_login">Password</string>
+    <string name="login">Login</string>
+    <string name="credential_forgot">forgot credentials?</string>
+    <string name="or">OR</string>
+
+    <string name="register">Click here to Register</string>
+
+    <string name="nome_cognome">Nome e Cognome</string>
+    <string name="username_registrazion">Username</string>
+    <string name="password_registration">Password</string>
+    <string name="email">E-mail</string>
+    <string name="go_registration">Avanti</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
