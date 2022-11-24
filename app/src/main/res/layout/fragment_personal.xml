@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.core.PersonalFragment">
 
     <TextView
+        android:id="@+id/textHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Personal"
-        android:textSize="40sp"
+        android:text="Ciao, benvenuto"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome e Cognome"
+        android:textStyle="bold"
+        android:layout_below="@id/textHello"
+        android:layout_marginStart="20dp"
+        android:textSize="25sp"
         android:layout_gravity="center"/>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="300dp"
+        tools:src="@tools:sample/avatars" />
+
+</RelativeLayout>

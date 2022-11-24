@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.clothual.UI.core.MapFragment"
-        android:label="Search"
+        android:label="Map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/photoFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.example.clothual.UI.core.PersonalFragment"
-        android:label="Personal"
+        android:label="Me"
         tools:layout="@layout/fragment_personal" />
 
 
