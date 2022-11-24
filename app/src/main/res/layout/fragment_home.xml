@@ -5,19 +5,49 @@
     android:layout_height="match_parent"
     tools:context=".UI.core.HomeFragment">
 
-    <SearchView
-        android:id="@+id/simpleSearchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:queryHint="Search Here"/>
-
     <TextView
+        android:id="@+id/textViewSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_below="@id/simpleSearchView"
-        android:text="Home Fragment"
-        android:textSize="40sp" />
+        android:text="Search"
+        android:textSize="15sp"
+        android:textColor="@color/grey"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"/>
+    <TextView
+        android:id="@+id/textViewFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter"
+        android:textSize="15sp"
+        android:textColor="@color/grey"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="310dp"/>
 
+        <SearchView
+            android:id="@+id/simpleSearchView"
+            android:layout_width="263dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@id/textViewSearch"
+            android:background="@drawable/search_border"
+            android:queryHint="Search clothes..."/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/textViewSearch"
+        android:layout_marginStart="310dp"
+        android:background="@drawable/filter_botton"
+        android:text="Button" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/simpleSearchView"/>
 
 </RelativeLayout>

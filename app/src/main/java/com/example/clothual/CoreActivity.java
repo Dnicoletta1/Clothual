@@ -29,7 +29,7 @@ public class CoreActivity extends AppCompatActivity {
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.homeFragment, R.id.calendarFragment,
-                R.id.searchFragment, R.id.photoFragment, R.id.personalFragment).build();
+                R.id.photoFragment, R.id.photoFragment, R.id.personalFragment).build();
 
         // For the Toolbar
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
