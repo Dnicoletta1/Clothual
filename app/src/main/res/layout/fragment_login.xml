@@ -101,21 +101,7 @@
         tools:ignore="MissingConstraints"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/textViewRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:linksClickable="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/register"
-        android:layout_below="@id/textViewForgot"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="463dp"
-        android:textColor="@color/purple_700"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        android:textStyle="bold"/>
+
 
 
     <RelativeLayout
@@ -124,17 +110,19 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/textViewRegister"
+        android:layout_below="@id/textViewForgot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <View
+            android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="24dp"
             android:layout_toStartOf="@id/textview_or"
             android:background="@color/black" />
+
 
         <TextView
             android:id="@+id/textview_or"
@@ -155,12 +143,27 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:linksClickable="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"
+        android:layout_below="@id/relative_layout"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="463dp"
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        android:textStyle="bold"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/relative_layout"
+        android:layout_below="@id/textViewRegister"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
