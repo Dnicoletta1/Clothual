@@ -28,10 +28,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="300dp"
-        tools:src="@tools:sample/avatars" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/account_circle_48px" />
 
 </RelativeLayout>
