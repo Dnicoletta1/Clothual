@@ -1,4 +1,4 @@
-package com.example.clothual;
+package com.example.clothual.UI.core;
 
 import android.os.Bundle;
 
@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.clothual.R;
 import com.example.clothual.databinding.FragmentHomeBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

@@ -1,4 +1,4 @@
-package com.example.clothual.UI.welcome;
+package com.example.clothual.UI.welcome.LoginFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.clothual.CoreActivity;
 import com.example.clothual.R;
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.clothual.UI.core.CoreActivity;
 
 
 /**
@@ -23,9 +22,11 @@ import com.google.android.material.textfield.TextInputEditText;
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
 public class LoginFragment extends Fragment {
 
-
+  //  public FragmentLoginBinding binding;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -52,19 +53,21 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView text = view.findViewById(R.id.textViewRegister);
-        TextInputEditText inputTextUsername = view.findViewById(R.id.editTextUsername);
-        TextInputEditText inputTextPassword = view.findViewById(R.id.editTextPassword);
-        Button access = view.findViewById(R.id.buttonLogin);
-        access.setOnClickListener(new View.OnClickListener() {
+
+        Button buttonLogin = view.findViewById(R.id.buttonLogin);
+        TextView textViewRegister = view.findViewById(R.id.textViewRegister);
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intet = new Intent(requireContext(), CoreActivity.class);
-                startActivity(intet);
+                Intent intent = new Intent(requireContext(), CoreActivity.class);
+                startActivity(intent);
+
+
             }
         });
 
-        text.setOnClickListener(new View.OnClickListener() {
+       textViewRegister.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_fragment_registration);

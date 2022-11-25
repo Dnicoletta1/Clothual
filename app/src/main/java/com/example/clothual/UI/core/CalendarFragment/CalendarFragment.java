@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core;
+package com.example.clothual.UI.core.CalendarFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

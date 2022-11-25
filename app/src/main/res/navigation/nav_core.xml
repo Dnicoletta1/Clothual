@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.clothual.UI.core.HomeFragment"
+        android:name="com.example.clothual.UI.core.HomeFragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.clothual.UI.core.MapFragment"
+        android:name="com.example.clothual.UI.core.MapFragment.MapFragment"
         android:label="Map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/photoFragment"
-        android:name="com.example.clothual.UI.core.PhotoFragment"
+        android:name="com.example.clothual.UI.core.PhotoFragment.PhotoFragment"
         android:label="Photo"
         tools:layout="@layout/fragment_photo" />
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.clothual.UI.core.CalendarFragment"
+        android:name="com.example.clothual.UI.core.CalendarFragment.CalendarFragment"
         android:label="Calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
         android:id="@+id/personalFragment"
-        android:name="com.example.clothual.UI.core.PersonalFragment"
+        android:name="com.example.clothual.UI.core.PersonalFragment.PersonalFragment"
         android:label="Me"
         tools:layout="@layout/fragment_personal" />
 
