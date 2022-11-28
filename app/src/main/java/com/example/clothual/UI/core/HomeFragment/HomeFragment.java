@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import com.example.clothual.R;
 import com.example.clothual.databinding.FragmentHomeBinding;
 
 /**
@@ -54,13 +52,40 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.filter.setOnClickListener(new View.OnClickListener() {
+        /*binding.filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_filterFragment);
 
             }
+        });*/
+
+        binding.ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.viewFilter.setVisibility(View.INVISIBLE);
+            }
         });
+
+        binding.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.viewFilter.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+        binding.filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(binding.viewFilter.isShown()){
+                    binding.viewFilter.setVisibility(View.INVISIBLE);
+                }else{
+                    binding.viewFilter.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
     }
 }
