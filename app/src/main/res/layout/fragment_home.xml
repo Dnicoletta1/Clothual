@@ -10,11 +10,12 @@
         android:id="@+id/textViewSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:textSize="15sp"
-        android:textColor="@color/grey"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"/>
+        android:text="Search"
+        android:textColor="@color/grey"
+        android:textSize="15sp"
+        tools:ignore="TextContrastCheck" />
     <!--
     <androidx.cardview.widget.CardView
         android:id="@+id/viewFilter"
@@ -98,57 +99,75 @@
         android:background="@drawable/search_border"
         android:queryHint="Search clothes..."/>
 
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="611dp"
         android:layout_below="@id/simpleSearchView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
         android:scrollbars="none">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/allItem"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:background="@drawable/search_border"
-
-                android:text="All Items" />
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/menu_home_border"
+                android:text="All Item"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
 
             <Button
-            android:id="@+id/dress"
-                android:background="@drawable/search_border"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
+                android:id="@+id/dress"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/allItem"
+                android:background="@drawable/menu_home_border"
+                android:text="Dress"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
 
-            android:layout_height="50dp"
-            android:text="Dress"/>
-        <Button
-            android:id="@+id/hat"
-            android:background="@drawable/search_border"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Hat"/>
-        <Button
-            android:id="@+id/watch"
-            android:background="@drawable/search_border"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Watch"/>
-        <Button
-            android:id="@+id/jeans"
-            android:background="@drawable/search_border"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Jeans"/>
-        </LinearLayout>
-    </HorizontalScrollView>
+            <Button
+                android:id="@+id/hat"
+                android:layout_width="match_parent"
+                android:layout_below="@id/dress"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/menu_home_border"
+                android:text="Hat"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/watch"
+                android:layout_width="match_parent"
+                android:layout_below="@id/hat"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/menu_home_border"
+                android:text="Watch"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/jeans"
+                android:layout_below="@id/watch"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/menu_home_border"
+                android:text="Jeans"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+    </ScrollView>
 
 
 
@@ -162,7 +181,7 @@
             android:id="@+id/filter"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/tune_48px" />
+            android:src="@drawable/filter_list_48px"/>
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
