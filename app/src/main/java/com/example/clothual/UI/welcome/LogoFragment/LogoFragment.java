@@ -2,6 +2,7 @@ package com.example.clothual.UI.welcome.LogoFragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.example.clothual.R;
  * create an instance of this fragment.
  */
 public class LogoFragment extends Fragment {
+    Handler handler = new Handler();
 
     public LogoFragment() {
         // Required empty public constructor
@@ -38,7 +40,6 @@ public class LogoFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +57,20 @@ public class LogoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+       /* Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
                 Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
+            }
+        };
 
-
-
-
+        handler.*/
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
+            }
+        }, 500);
     }
+
 }

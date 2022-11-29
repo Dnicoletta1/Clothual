@@ -8,7 +8,8 @@
 
     <string name="register">Register</string>
 
-    <string name="nome_cognome">Nome e Cognome</string>
+    <string name="cognome">Cognome</string>
+    <string name="nome">Nome</string>
     <string name="username_registrazion">Username</string>
     <string name="password_registration">Password</string>
     <string name="email">E-mail</string>

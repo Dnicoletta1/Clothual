@@ -1,8 +1,10 @@
-package com.example.clothual;
+package com.example.clothual.UI.welcome;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.clothual.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

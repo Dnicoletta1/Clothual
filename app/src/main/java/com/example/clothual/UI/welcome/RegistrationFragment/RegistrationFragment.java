@@ -21,7 +21,7 @@ import com.example.clothual.databinding.FragmentRegistrationBinding;
 public class RegistrationFragment extends Fragment {
 
     private FragmentRegistrationBinding binding;
-
+    public RegistrationModel registrationModel;
     public RegistrationFragment() { }
 
     /**
@@ -38,6 +38,7 @@ public class RegistrationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registrationModel = new RegistrationModel(requireActivity().getApplication());
     }
 
     @Override
@@ -53,9 +54,15 @@ public class RegistrationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                registrationModel.createUser(binding.editTextUsername.getText().toString(),
+                        binding.editTextName.getText().toString(),
+                        binding.editTextSurname.getText().toString(),
+                        binding.editTxtPassword.getText().toString(),
+                        binding.editTextEmail.getText().toString());
                 Intent intet = new Intent(requireContext(), CoreActivity.class);
                 startActivity(intet);
             }

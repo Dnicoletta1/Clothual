@@ -41,7 +41,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/inputNomeCognome"
+        android:id="@+id/inputCognome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/inputViewEmail"
@@ -51,7 +51,7 @@
         >
 
         <EditText
-            android:id="@+id/editTextNomeCognome"
+            android:id="@+id/editTextSurname"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:background="@drawable/border_edit_text"
@@ -59,7 +59,34 @@
             android:inputType="text"
             android:maxLength="20"
             android:textColorHint="@color/black"
-            android:hint="@string/nome_cognome"
+            android:hint="@string/cognome"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputCognome"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        app:startIconDrawable="@drawable/person_48px"
+        >
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/nome"
             android:textStyle="bold"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -71,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/inputNomeCognome"
+        android:layout_below="@id/inputNome"
         android:layout_centerHorizontal="true"
         app:startIconDrawable="@drawable/account_circle_48px"
         >
