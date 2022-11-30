@@ -13,13 +13,13 @@ public class User {
 
     private String surname;
     private String name;
+    private int idAccount;
 
 
-
-    public User(String surname, String name) {
+    public User(String surname, String name, int idAccount) {
         this.surname = surname;
         this.name = name;
-        //this.idAccount = this.id;
+        this.idAccount = idAccount;
     }
 
     public int getId() {
@@ -46,15 +46,13 @@ public class User {
         this.name = name;
     }
 
-   /* public int getIdAccount() {
+    public int getIdAccount() {
         return idAccount;
     }
 
     public void setIdAccount(int idAccount) {
         this.idAccount = idAccount;
     }
-
-    */
 
     @NonNull
     @Override

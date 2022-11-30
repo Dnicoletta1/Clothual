@@ -1,11 +1,14 @@
 package com.example.clothual.UI.welcome.LoginFragment;
 
-import static com.example.clothual.Util.Constant.*;
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +32,11 @@ import com.example.clothual.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
 
+
     private FragmentLoginBinding binding;
     Handler handler = new Handler();
+    LoginModel loginModel;
+
 
     public LoginFragment() { }
 
@@ -41,6 +47,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loginModel = new LoginModel(requireActivity().getApplication());
 
        }
 
@@ -55,19 +62,15 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Context context = getActivity();
+        SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        String username = sharedPref.getString(USERNAME_PREFERENCE, "");
+        String password = sharedPref.getString(PASSWORD_PREFERENCE, "");
+        binding.editTextUsername.setText(username);
+        binding.editTextPassword.setText(password);
 
-       /* handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(binding.changeText.getText().toString().equals("come")){
-                    binding.changeText.setText("ciao");
-                }else{
-                    binding.changeText.setText("come");
-                }
-            }
-        }, 5000);
 
-        */
+        /*
         Runnable runnable = new Runnable() {
             int i = 0;
             String [] strings = {GIANNI_VERSACE, RALPH_LAUREN, PIER_CARDIN, DONATELLA_VERSACE, GIORGIO_ARMANI, COCO_CHANEL};
@@ -89,12 +92,27 @@ public class LoginFragment extends Fragment {
                 }while (true);
             }
         };
-        new Thread(runnable).start();
+
+        new Thread(runnable).start();*/
         binding.buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(requireContext(), CoreActivity.class);
-                startActivity(intent);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(USERNAME_PREFERENCE, binding.editTextUsername.getText().toString());
+                editor.putString(PASSWORD_PREFERENCE, binding.editTextPassword.getText().toString());
+                editor.apply();
+
+
+                if(loginModel.checkLogin(
+                        binding.editTextUsername.getText().toString(),
+                        binding.editTextPassword.getText().toString())
+                ) {
+                    Intent intent = new Intent(requireContext(), CoreActivity.class);
+                    startActivity(intent);
+                }else{
+                    binding.inputViewUsername.setError("Errore");
+                    binding.inputViewPassword.setError("Errore");
+                }
 
             }
         });
@@ -105,6 +123,15 @@ public class LoginFragment extends Fragment {
                Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_fragment_registration);
            }
        });
+
+       binding.signInButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(requireContext(), CoreActivity.class);
+               startActivity(intent);
+           }
+       });
+
     }
 
     @Override

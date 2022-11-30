@@ -68,6 +68,7 @@ public class LogoFragment extends Fragment {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
             }
         }, 500);

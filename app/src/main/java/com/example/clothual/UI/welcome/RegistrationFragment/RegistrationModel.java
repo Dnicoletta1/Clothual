@@ -28,10 +28,10 @@ public class RegistrationModel {
         RoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                User user = new User(surname, name);
-                Account account = new Account(user.getId(), username, email, passowrd);
-                userDao.insertUser(user);
+                Account account = new Account(username, email, passowrd);
                 accountDao.insertAccount(account);
+                User user = new User(surname, name, accountDao.getId(username));
+                userDao.insertUser(user);
             }
         });
 

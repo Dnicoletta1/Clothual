@@ -3,6 +3,11 @@ package com.example.clothual.Util;
 public class Constant {
 
     public static final String DATABASE_NAME = "clothual_db";
+    public static final String CREDENTIALS_LOGIN_FILE = "com.example.myapplication.credentials_preference";
+
+    //SharePreference
+    public static final String USERNAME_PREFERENCE = "Username";
+    public static final String PASSWORD_PREFERENCE = "Password";
 
     //Scritte iniziali
 

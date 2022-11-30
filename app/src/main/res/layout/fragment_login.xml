@@ -47,7 +47,6 @@
         android:id="@+id/inputViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:endIconMode="clear_text"
         app:errorEnabled="true"
         android:layout_marginTop="10dp"
         android:layout_below="@id/inputViewUsername"
