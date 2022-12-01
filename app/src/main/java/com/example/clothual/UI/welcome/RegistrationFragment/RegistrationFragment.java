@@ -1,6 +1,12 @@
 package com.example.clothual.UI.welcome.RegistrationFragment;
 
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,8 +58,9 @@ public class RegistrationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        Context context = getActivity();
+        SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +68,11 @@ public class RegistrationFragment extends Fragment {
                 registrationModel.createUser(binding.editTextUsername.getText().toString(),
                         binding.editTextName.getText().toString(),
                         binding.editTextSurname.getText().toString(),
-                        binding.editTxtPassword.getText().toString(),
+                        binding.editTextPassword.getText().toString(),
                         binding.editTextEmail.getText().toString());
+                editor.putString(USERNAME_PREFERENCE, binding.editTextUsername.getText().toString());
+                editor.putString(PASSWORD_PREFERENCE, binding.editTextPassword.getText().toString());
+                editor.apply();
                 Intent intet = new Intent(requireContext(), CoreActivity.class);
                 startActivity(intet);
             }
