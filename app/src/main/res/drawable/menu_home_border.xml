@@ -6,8 +6,8 @@
     <corners
         android:radius="10dp"
         />
-    <stroke
-        android:width="3dp"
-        android:color="@color/grey"
+
+    <solid
+        android:color="@color/grey_persona_layout"
         />
 </shape>

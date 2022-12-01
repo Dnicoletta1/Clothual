@@ -6,40 +6,240 @@
     android:layout_height="match_parent"
     tools:context=".UI.core.PersonalFragment.PersonalFragment">
 
-    <TextView
-        android:id="@+id/textHello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ciao, benvenuto"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:layout_gravity="center"/>
+    <ImageView
+        android:id="@+id/imagePersonal"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome e Cognome"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:layout_below="@id/textHello"
+        android:layout_below="@id/imagePersonal"
         android:layout_marginStart="20dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_gravity="center"/>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/account_circle_48px" />
-
     <Button
-        android:id="@+id/esci"
-        android:layout_width="wrap_content"
+        android:id="@+id/modificaProfilo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_button"
+        android:text="Modifica Profilo"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:layout_below="@id/textName"/>
+
+        <!--
+        <Button
+            android:id="@+id/impostazioni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Impostazioni"
+            android:layout_below="@id/modificaProfilo"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="150dp"
+            android:drawableStart="@drawable/settings_48px"/>
+
+        <Button
+            android:id="@+id/vestiti"
+            android:layout_width="match_parent"
+            android:layout_below="@id/impostazioni"
+            android:layout_height="wrap_content"
+            android:text="I tuoi Vestiti"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/list_48px"/>
+        <Button
+            android:id="@+id/attivita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="La tua attività"
+            android:layout_below="@id/vestiti"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/history_48px"/>
+        <Button
+            android:id="@+id/infromazioni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="infromazioni"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/attivita"
+            android:drawableStart="@drawable/help_48px"/>
+        <Button
+            android:id="@+id/suggerimenti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="suggerimenti"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/infromazioni"
+            android:drawableStart="@drawable/lightbulb_48px"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="esci"
+        android:layout_below="@id/modificaProfilo"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:background="@drawable/menu_home_border">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/settings_48px"
+            android:background="@color/grey_persona_layout"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Impostazioni"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@color/grey_persona_layout"/>
+        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="60dp"
+            android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/list_48px"
+                android:background="@color/grey_persona_layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I tuoi vestiti"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@color/grey_persona_layout"/>
+        </LinearLayout>
+        <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="60dp"
+        android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/history_48px"
+                android:background="@color/grey_persona_layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="La tua attività"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@color/grey_persona_layout"/>
+        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="60dp"
+            android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/help_48px"
+                android:background="@color/grey_persona_layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Infromazioni"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@color/grey_persona_layout"/>
+        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="60dp"
+            android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lightbulb_48px"
+                android:background="@color/grey_persona_layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Suggerimenti"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@color/grey_persona_layout"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
