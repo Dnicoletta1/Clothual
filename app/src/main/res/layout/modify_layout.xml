@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica Profilo"
+        android:textStyle="bold"
+        android:layout_marginTop="46dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/annulla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annulla"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/fine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fine"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/celeste"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"/>
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/modify"
+        android:background="@color/black" />
+
+    <ImageView
+        android:id="@+id/imagePersonal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/avatar"
+        android:layout_below="@id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+
+    <TextView
+        android:id="@+id/modifyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica Immagine"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/celeste"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/imagePersonal"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/modifyImage"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/mail_48px"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:inputType="text"
+            android:maxLength="20"
+            android:hint="@string/email"
+            android:background="@drawable/border_edit_text"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputViewEmail"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/account_circle_48px2"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSurname"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:hint="@string/username_login"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/inputPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputUsername"
+        android:layout_marginTop="10dp"
+        app:endIconMode="clear_text"
+        android:layout_centerHorizontal="true"
+        app:startIconDrawable="@drawable/key_48px"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_edit_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColorHint="@color/black"
+            android:hint="@string/password_registration"
+            android:textStyle="bold"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</RelativeLayout>

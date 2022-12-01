@@ -14,8 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:paddingBottom">8dp</item>
+
+    <!-- Style for TextInputLayout -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">?attr/colorOnSurface</item>
     </style>
 
 </resources>

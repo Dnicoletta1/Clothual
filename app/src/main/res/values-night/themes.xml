@@ -13,4 +13,15 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Styles for TextInputLayout -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined</item>
+        <item name="boxStrokeColor">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textCursorDrawable">@color/white</item>
+    </style>
 </resources>
