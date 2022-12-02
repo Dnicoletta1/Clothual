@@ -1,10 +1,6 @@
 package com.example.clothual.UI.welcome.RegistrationFragment;
 
-import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
-
 import android.app.Application;
-import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.example.clothual.Model.Account;
 import com.example.clothual.Model.User;
@@ -40,4 +36,6 @@ public class RegistrationModel {
         });
 
     }
+
+
 }

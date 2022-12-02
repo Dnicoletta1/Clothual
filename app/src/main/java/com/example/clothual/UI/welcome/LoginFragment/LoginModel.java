@@ -11,7 +11,7 @@ import java.util.List;
 
 public class LoginModel {
 
-    private boolean acces = false;
+
 
     public Application application;
     public RoomDatabase database;
@@ -40,16 +40,5 @@ public class LoginModel {
         return false;
     }
 
-    public void setTrueAccess(){
-        this.acces = true;
-    }
-
-    public  void setFalseAccess(){
-        this.acces = false;
-    }
-
-    public boolean getAccess(){
-        return acces;
-    }
 
 }

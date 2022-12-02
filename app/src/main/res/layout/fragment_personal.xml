@@ -38,55 +38,20 @@
         android:text="Modifica Profilo"
         android:textColor="@color/white"
         tools:ignore="TouchTargetSizeCheck" />
+    <Button
+        android:id="@+id/esci"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/modificaProfilo"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_button"
+        android:text="Esci"
+        android:textColor="@color/white"
+        tools:ignore="TouchTargetSizeCheck" />
 
-        <!--
-        <Button
-            android:id="@+id/impostazioni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Impostazioni"
-            android:layout_below="@id/modificaProfilo"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="150dp"
-            android:drawableStart="@drawable/settings_48px"/>
 
-        <Button
-            android:id="@+id/vestiti"
-            android:layout_width="match_parent"
-            android:layout_below="@id/impostazioni"
-            android:layout_height="wrap_content"
-            android:text="I tuoi Vestiti"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:drawableStart="@drawable/list_48px"/>
-        <Button
-            android:id="@+id/attivita"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="La tua attività"
-            android:layout_below="@id/vestiti"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:drawableStart="@drawable/history_48px"/>
-        <Button
-            android:id="@+id/infromazioni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="infromazioni"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@id/attivita"
-            android:drawableStart="@drawable/help_48px"/>
-        <Button
-            android:id="@+id/suggerimenti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="suggerimenti"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@id/infromazioni"
-            android:drawableStart="@drawable/lightbulb_48px"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

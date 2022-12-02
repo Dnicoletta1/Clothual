@@ -8,6 +8,7 @@ public class Constant {
     //SharePreference
     public static final String USERNAME_PREFERENCE = "Username";
     public static final String PASSWORD_PREFERENCE = "Password";
+    public static final String ACCESS_PREFERENCE = "Access";
 
     //Scritte iniziali
 

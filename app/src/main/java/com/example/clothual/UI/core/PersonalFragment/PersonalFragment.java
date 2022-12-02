@@ -1,5 +1,6 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
+import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
 import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.clothual.UI.welcome.WelcomeActivity;
 import com.example.clothual.databinding.FragmentPersonalBinding;
 
 /**
@@ -72,9 +74,18 @@ public class PersonalFragment extends Fragment {
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
         String username = sharedPref.getString(USERNAME_PREFERENCE, "");
-
         String nameSurname = personalModel.getName(username);
         binding.textName.setText(nameSurname);
+
+        binding.esci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean(ACCESS_PREFERENCE, false);
+                Intent intent = new Intent(requireContext(), WelcomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         binding.modificaProfilo.setOnClickListener(new View.OnClickListener() {
             @Override

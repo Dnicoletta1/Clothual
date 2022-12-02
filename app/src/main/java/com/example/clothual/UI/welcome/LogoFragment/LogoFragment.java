@@ -1,6 +1,12 @@
 package com.example.clothual.UI.welcome.LogoFragment;
 
 
+import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.clothual.R;
+import com.example.clothual.UI.core.CoreActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,8 +75,16 @@ public class LogoFragment extends Fragment {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                Context context = getActivity();
+                SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+                boolean check = sharedPref.getBoolean(ACCESS_PREFERENCE, false);
+                if(check == false){
+                    Intent intent = new Intent(requireContext(), CoreActivity.class);
+                    startActivity(intent);
+                }else{
+                    Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
+                }
 
-                Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
             }
         }, 500);
     }

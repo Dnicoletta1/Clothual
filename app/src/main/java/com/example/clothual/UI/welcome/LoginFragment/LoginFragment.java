@@ -1,5 +1,6 @@
 package com.example.clothual.UI.welcome.LoginFragment;
 
+import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
 import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
 import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
@@ -102,11 +103,12 @@ public class LoginFragment extends Fragment {
                 editor.putString(PASSWORD_PREFERENCE, binding.editTextPassword.getText().toString());
                 editor.apply();
 
-
                 if(loginModel.checkLogin(
                         binding.editTextUsername.getText().toString(),
                         binding.editTextPassword.getText().toString())
                 ) {
+                    editor.putBoolean(ACCESS_PREFERENCE, true);
+                    editor.apply();
                     Intent intent = new Intent(requireContext(), CoreActivity.class);
                     startActivity(intent);
                 }else{
