@@ -1,6 +1,11 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.clothual.UI.welcome.LoginFragment.LoginModel;
-import com.example.clothual.UI.welcome.WelcomeActivity;
 import com.example.clothual.databinding.FragmentPersonalBinding;
 
 /**
@@ -22,6 +25,7 @@ import com.example.clothual.databinding.FragmentPersonalBinding;
 public class PersonalFragment extends Fragment {
 
     private FragmentPersonalBinding binding;
+    private PersonalModel personalModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +53,7 @@ public class PersonalFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        personalModel = new PersonalModel(requireActivity().getApplication());
     }
 
     @Override
@@ -56,22 +61,29 @@ public class PersonalFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentPersonalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        /*
-        binding.esci.setOnClickListener(new View.OnClickListener() {
+
+        Context context = getActivity();
+        SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        String username = sharedPref.getString(USERNAME_PREFERENCE, "");
+
+        String nameSurname = personalModel.getName(username);
+        binding.textName.setText(nameSurname);
+
+        binding.modificaProfilo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               new LoginModel().setFalseAccess();
-                Intent intent = new Intent(requireContext(), WelcomeActivity.class);
-                startActivity(intent);
+              Intent intent = new Intent(requireContext(), ModifyActivity.class);
+              startActivity(intent);
             }
         });
 
-         */
+
     }
 }
