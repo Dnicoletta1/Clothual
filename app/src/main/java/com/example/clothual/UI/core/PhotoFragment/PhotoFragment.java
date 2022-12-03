@@ -22,7 +22,7 @@ import com.example.clothual.databinding.FragmentPhotoBinding;
 public class PhotoFragment extends Fragment {
 
     private FragmentPhotoBinding binding;
-    ImageView image;
+    ImageView imageView;
 
     public PhotoFragment() { }
 
@@ -63,6 +63,4 @@ public class PhotoFragment extends Fragment {
             }
         });
     }
-
-
 }

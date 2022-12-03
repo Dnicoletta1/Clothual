@@ -73,6 +73,7 @@ public class PersonalFragment extends Fragment {
 
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
         String username = sharedPref.getString(USERNAME_PREFERENCE, "");
         String nameSurname = personalModel.getName(username);
         binding.textName.setText(nameSurname);
@@ -80,8 +81,8 @@ public class PersonalFragment extends Fragment {
         binding.esci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean(ACCESS_PREFERENCE, false);
+                editor.putInt(ACCESS_PREFERENCE, 0);
+                editor.apply();
                 Intent intent = new Intent(requireContext(), WelcomeActivity.class);
                 startActivity(intent);
             }

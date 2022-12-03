@@ -40,5 +40,8 @@ public class LoginModel {
         return false;
     }
 
+    public int idAccount(String username){
+        return accountDao.getId(username);
+    }
 
 }

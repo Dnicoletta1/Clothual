@@ -95,6 +95,16 @@
         android:text="Nuova Email"
         android:layout_marginStart="30dp"/>
 
+    <TextView
+        android:id="@+id/modificaEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica"
+        android:layout_below="@id/nuovaEmail"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="300dp"
+        android:textStyle="bold"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputViewEmail"
         android:layout_width="wrap_content"
@@ -129,6 +139,16 @@
         android:text="Nuovo Username"
         android:layout_marginStart="30dp"/>
 
+    <TextView
+        android:id="@+id/modificaUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica"
+        android:layout_below="@id/nuovoUser"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="300dp"
+        android:textStyle="bold"/>
+
     <com.google.android.material.textfield.TextInputLayout
 
         android:id="@+id/inputUsername"
@@ -141,7 +161,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextSurname"
+            android:id="@+id/editTextUsername"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:hint="@string/username_login"
@@ -149,7 +169,7 @@
             android:inputType="text"
             android:maxLength="20"
             android:textColorHint="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,13 +183,15 @@
         android:text="Vecchia Password"
         android:layout_marginStart="30dp"/>
 
+
+
     <com.google.android.material.textfield.TextInputLayout
 
         android:id="@+id/inputPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/vecchiaPassword"
-        app:endIconMode="clear_text"
+        app:endIconMode="password_toggle"
         android:layout_marginStart="20dp"
         app:startIconDrawable="@drawable/key_48px"
         >
@@ -196,6 +218,15 @@
         android:text="Nuova Password"
         android:layout_marginStart="30dp"/>
 
+    <TextView
+        android:id="@+id/modificaPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica"
+        android:layout_below="@id/inputPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="300dp"
+        android:textStyle="bold"/>
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -203,7 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nuovaPasswordView"
-        app:endIconMode="clear_text"
+        app:endIconMode="password_toggle"
         android:layout_marginStart="20dp"
         app:startIconDrawable="@drawable/key_48px"
         >

@@ -41,4 +41,5 @@ public class CoreActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
 
     }
+
 }

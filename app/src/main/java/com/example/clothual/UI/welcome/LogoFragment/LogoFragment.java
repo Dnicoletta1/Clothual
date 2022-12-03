@@ -72,13 +72,15 @@ public class LogoFragment extends Fragment {
         };
 
         handler.*/
+
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Context context = getActivity();
                 SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
-                boolean check = sharedPref.getBoolean(ACCESS_PREFERENCE, false);
-                if(check == false){
+                int check = sharedPref.getInt(ACCESS_PREFERENCE, 0);
+                if(check == 1){
                     Intent intent = new Intent(requireContext(), CoreActivity.class);
                     startActivity(intent);
                 }else{

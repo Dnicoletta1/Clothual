@@ -1,6 +1,9 @@
 package com.example.clothual.database;
 
+import static com.example.clothual.Util.Query.GET_EMAIL;
 import static com.example.clothual.Util.Query.GET_ID;
+import static com.example.clothual.Util.Query.GET_PASSWORD;
+import static com.example.clothual.Util.Query.GET_USERNAME;
 import static com.example.clothual.Util.Query.SELECT_ALL_ACCOUNT;
 
 import androidx.room.Dao;
@@ -8,6 +11,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.clothual.Model.Account;
 
@@ -27,4 +31,17 @@ public interface AccountDao {
 
     @Query(GET_ID)
     int getId(String username);
+
+    @Query(GET_EMAIL)
+    String getEmail(int idAccount);
+
+    @Query(GET_USERNAME)
+    String getUsername(int idAccount);
+
+    @Query(GET_PASSWORD)
+    String getPassword(int idAccount);
+
+    @Update
+    void updateAccount(Account account);
+
 }

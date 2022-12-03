@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".UI.core.PersonalFragment.PersonalFragment">
 
+
     <ImageView
         android:id="@+id/imagePersonal"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/avatar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
-
+        android:layout_marginTop="16dp"
+        android:layout_height="150dp"
+        android:src="@drawable/avatar"/>
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
     <Button
         android:id="@+id/modificaProfilo"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_below="@id/textName"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -41,7 +41,7 @@
     <Button
         android:id="@+id/esci"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_below="@id/modificaProfilo"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"

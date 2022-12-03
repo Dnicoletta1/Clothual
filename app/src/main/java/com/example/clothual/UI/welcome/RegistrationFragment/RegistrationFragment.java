@@ -2,6 +2,7 @@ package com.example.clothual.UI.welcome.RegistrationFragment;
 
 import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.ID_ACCOUNT;
 import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
 import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
@@ -84,7 +85,8 @@ public class RegistrationFragment extends Fragment {
                             binding.editTextEmail.getText().toString());
                     editor.putString(USERNAME_PREFERENCE, binding.editTextUsername.getText().toString());
                     editor.putString(PASSWORD_PREFERENCE, binding.editTextPassword.getText().toString());
-                    editor.putBoolean(ACCESS_PREFERENCE, true);
+                    editor.putInt(ACCESS_PREFERENCE, 1);
+                    editor.putInt(ID_ACCOUNT, registrationModel.idAccount(binding.editTextUsername.getText().toString()));
                     editor.apply();
                     Intent intet = new Intent(requireContext(), CoreActivity.class);
                     startActivity(intet);
@@ -99,9 +101,9 @@ public class RegistrationFragment extends Fragment {
         //ChechEmail
         if(EmailValidator.getInstance().isValid(email)){
             binding.inputViewEmail.setError(null);
+            correct++;
         }else{
             binding.inputViewEmail.setError("Email non valida");
-            correct ++;
         }
 
         //Check Cognome
@@ -110,34 +112,31 @@ public class RegistrationFragment extends Fragment {
         }
         else{
             binding.inputCognome.setError(null);
-            correct ++;
+            correct++;
         }
 
         //Check Nome
         if(name.isEmpty()){
             binding.inputNome.setError("Inserire un valore");
-            correct ++;
         } else{
             binding.inputCognome.setError(null);
-            correct ++;
+            correct++;
         }
 
         //Check Username
         if(username.isEmpty()){
             binding.inputViewUsername.setError("Inserire un valore");
-            correct ++;
         } else{
             binding.inputCognome.setError(null);
-            correct ++;
+            correct++;
         }
 
         //Check Password
         if(password.isEmpty()){
             binding.inputViewPassword.setError("Inserire un valore");
-            correct ++;
         } else{
             binding.inputCognome.setError(null);
-            correct ++;
+            correct++;
         }
 
         if(correct == 5){
