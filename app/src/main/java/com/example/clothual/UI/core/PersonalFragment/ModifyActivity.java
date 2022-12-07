@@ -61,8 +61,43 @@ public class ModifyActivity extends AppCompatActivity {
         });
 
         binding.fine.setOnClickListener(new View.OnClickListener() {
+            /*  Salvo le informazioni in un sharePreference, passo i dati al model, crea l'oggetto con i dati nuovi nelle preference
+                o li recupera dal database.
+                In alternativa creare una classe DBfittizio che salva questi dati momentaneamente e si resetta ad ogni attivazione:
+                dubbio sull'allocazione di memoria che potrebbe non essere mai utilizzata
+            */
+
             @Override
             public void onClick(View view) {
+                int i = 0;
+                int j = 0;
+                if(binding.editTextEmail.isEnabled()){
+                    if(modifyModel.checkEmail(binding.editTextEmail.getText().toString())){
+                        binding.inputViewEmail.setError(null);
+                    }else{
+                        binding.inputViewEmail.setError("Mail non valida");
+                    }
+                }
+
+                if(binding.editTextUsername.isEnabled()){
+                    if(binding.editTextUsername.getText().toString().isEmpty()){
+                        binding.inputUsername.setError("Username non valido");
+                    }else{
+                        binding.inputUsername.setError(null);
+                    }
+                }
+
+                if(binding.editTextPassword.isEnabled()){
+                    if(modifyModel.checkPassword(binding.editTextUsername.getText().toString(), sharedPref.getInt(ID_ACCOUNT, 0))){
+                        if(binding.editTextPasswordNuovo.getText().toString().isEmpty()){
+                            binding.inputPassword.setError("Password non valida");
+                        }else{
+                            binding.inputPassword.setError(null);
+                        }
+                    }else{
+                        binding.inputPassword.setError("Password Errata");
+                    }
+                }
 
                 Intent intent = new Intent(ModifyActivity.this, CoreActivity.class);
                 startActivity(intent);

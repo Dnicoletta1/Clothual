@@ -7,6 +7,8 @@ import com.example.clothual.database.AccountDao;
 import com.example.clothual.database.RoomDatabase;
 import com.example.clothual.database.UserDao;
 
+import org.apache.commons.validator.routines.EmailValidator;
+
 import java.util.List;
 
 public class ModifyModel {
@@ -35,6 +37,13 @@ public class ModifyModel {
         return false;
     }
 
+    public boolean checkEmail(String email){
+        if(EmailValidator.getInstance().isValid(email)){
+            return true;
+        }
+        return false;
+    }
+
     public String getEmail(int id ){
         return accountDao.getEmail(id);
     }
@@ -43,7 +52,7 @@ public class ModifyModel {
         return accountDao.getUsername(id);
     }
 
-    /*
+
     public boolean update(String email, String username, String passwordNuova, String passwordVecchia, int id){
         if(passwordNuova.isEmpty() && passwordVecchia.isEmpty()){
             String password = accountDao.getPassword(id);
@@ -53,18 +62,17 @@ public class ModifyModel {
                     String newUsername = accountDao.getUsername(id);
                 }
             }
+        }else{
+            if(checkPassword(passwordVecchia, id)){
+                Account account = new Account(username, passwordNuova, email);
+                accountDao.updateAccount(account);
+                return true;
+            }
         }
 
-        if(checkPassword(passwordVecchia, id)){
-            Account account = new Account(username, passwordNuova, email);
-            accountDao.updateAccount(account);
-            return true;
-        }
+
         return false;
 
 
     }
-
-
-     */
 }
