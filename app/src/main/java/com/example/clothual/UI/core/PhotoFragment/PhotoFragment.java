@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.example.clothual.R;
 import com.example.clothual.databinding.FragmentPhotoBinding;
 
 /**
@@ -62,5 +64,20 @@ public class PhotoFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        binding.button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Navigation.findNavController(requireView()).navigate(R.id.action_photoFragment_to_addDressActivity);
+/*
+                Intent intent = new Intent(requireContext(), AddDressActivity.class);
+                startActivity(intent);
+
+ */
+
+            }
+        });
+
     }
 }

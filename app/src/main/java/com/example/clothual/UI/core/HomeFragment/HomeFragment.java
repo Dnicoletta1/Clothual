@@ -79,11 +79,9 @@ public class HomeFragment extends Fragment {
         binding.filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(binding.viewFilter.isShown()){
-                    binding.viewFilter.setVisibility(View.INVISIBLE);
-                }else{
+
                     binding.viewFilter.setVisibility(View.VISIBLE);
-                }
+
             }
         });
 

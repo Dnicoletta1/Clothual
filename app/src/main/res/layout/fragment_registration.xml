@@ -6,20 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".UI.welcome.RegistrationFragment.RegistrationFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/clothual"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:paddingTop="16dp"
-        app:srcCompat="@drawable/clothual_ligth"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:layout_height="wrap_content"
+        android:text="CLOTHUAL"
+        style="@style/textView"
+        android:fontFamily="@font/montserrat_subrayada"
+        android:textSize="65sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"/>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
+        android:layout_below="@id/clothual"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/mail_48px"
         >
@@ -146,19 +154,32 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/condizioni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iscrivendoti, accetti le nostre Condizioni.
+Scopri in che modo raccogliamo, usiamo e condividiamo i tuoi dati nella nostra
+Informativa sulla privacy e in che modo usiamo cookie e tecnologie simili nella nostra
+Normativa sui cookie."
+        android:layout_below="@id/inputViewPassword"
+        android:layout_marginStart="20dp"
+        android:textAlignment="center"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"/>
     <Button
         android:id="@+id/button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/inputViewPassword"
+        android:layout_below="@id/condizioni"
         android:background="@drawable/border_button"
         android:text="@string/go_registration"
         android:textColor="@color/white"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="396dp" />
+        />
+
+
 
 </RelativeLayout>

@@ -1,11 +1,17 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.EMAIL_CHANGE;
+import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.USERNAME_CHANGE;
+
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.example.clothual.Model.Account;
 import com.example.clothual.database.AccountDao;
 import com.example.clothual.database.RoomDatabase;
-import com.example.clothual.database.UserDao;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -15,15 +21,11 @@ public class ModifyModel {
 
     public Application application;
     public RoomDatabase database;
-    private final UserDao userDao;
     private final AccountDao accountDao;
 
     public ModifyModel(Application application) {
         this.application = application;
-        //database = Room.databaseBuilder(application,
-        //      RoomDatabase.class, DATABASE_NAME).build();
         database = RoomDatabase.getDatabase(application);
-        userDao = database.daoUser();
         accountDao = database.daoAccount();
     }
 
@@ -38,10 +40,7 @@ public class ModifyModel {
     }
 
     public boolean checkEmail(String email){
-        if(EmailValidator.getInstance().isValid(email)){
-            return true;
-        }
-        return false;
+        return EmailValidator.getInstance().isValid(email);
     }
 
     public String getEmail(int id ){
@@ -53,26 +52,11 @@ public class ModifyModel {
     }
 
 
-    public boolean update(String email, String username, String passwordNuova, String passwordVecchia, int id){
-        if(passwordNuova.isEmpty() && passwordVecchia.isEmpty()){
-            String password = accountDao.getPassword(id);
-            if(email.isEmpty()){
-                String newEmail = accountDao.getEmail(id);
-                if(username.isEmpty()){
-                    String newUsername = accountDao.getUsername(id);
-                }
-            }
-        }else{
-            if(checkPassword(passwordVecchia, id)){
-                Account account = new Account(username, passwordNuova, email);
-                accountDao.updateAccount(account);
-                return true;
-            }
-        }
-
-
-        return false;
-
-
+    public void update(int id){
+        SharedPreferences sharePref = application.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        Account account = new Account(sharePref.getString(USERNAME_CHANGE, ""), sharePref.getString(EMAIL_CHANGE, ""),
+                sharePref.getString(PASSWORD_PREFERENCE, ""));
+        account.setId(id);
+        accountDao.updateAccount(account);
     }
 }

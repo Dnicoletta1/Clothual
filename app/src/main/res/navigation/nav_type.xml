@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_type"
+    app:startDestination="@id/typedress">
+
+    <fragment
+        android:id="@+id/typedress"
+        android:name="com.example.clothual.UI.core.AddDress.TypedressFragment"
+        android:label="fragment_typedress"
+        tools:layout="@layout/fragment_typedress" >
+        <action
+            android:id="@+id/action_typedress_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.clothual.UI.core.AddDress.InformationFragment"
+        android:label="InformationFragment" >
+        <action
+            android:id="@+id/action_informationFragment_to_coreActivity"
+            app:destination="@id/coreActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/coreActivity"
+        android:name="com.example.clothual.UI.core.CoreActivity"
+        android:label="core_layout"
+        tools:layout="@layout/core_layout" />
+</navigation>

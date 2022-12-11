@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.core.AddDress.AddDressActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:scrollbars="none"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/scarpe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:text="scarpe"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/cappelli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:layout_below="@id/scarpe"
+                android:layout_marginTop="10dp"
+                android:text="cappelli"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                />
+
+            <Button
+                android:id="@+id/pantaloni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:layout_below="@id/cappelli"
+                android:layout_marginTop="10dp"
+                android:text="pantaloni"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/t_shirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:layout_below="@id/pantaloni"
+                android:layout_marginTop="10dp"
+                android:text="T-shirt"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/giacche"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:layout_below="@id/t_shirt"
+                android:layout_marginTop="10dp"
+                android:text="giacche"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/jeans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_dress_border"
+                android:layout_below="@id/giacche"
+                android:layout_marginTop="10dp"
+                android:text="jeans"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

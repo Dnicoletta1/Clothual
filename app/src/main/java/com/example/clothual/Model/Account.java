@@ -1,5 +1,6 @@
 package com.example.clothual.Model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -51,6 +52,7 @@ public class Account {
         this.password = password;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Account{" +

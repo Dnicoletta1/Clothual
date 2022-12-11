@@ -6,19 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".UI.welcome.LoginFragment.LoginFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/clothual"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:paddingTop="16dp"
-        app:srcCompat="@drawable/clothual_ligth"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:layout_height="wrap_content"
+        android:text="CLOTHUAL"
+        style="@style/textView"
+        android:fontFamily="@font/montserrat_subrayada"
+        android:textSize="65sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputViewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
+        android:layout_below="@id/clothual"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
@@ -72,11 +79,12 @@
         android:id="@+id/buttonLogin"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/inputViewPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:background="@drawable/border_button"
         android:text="@string/login"
+        android:fontFamily="@font/inter_semibold"
         android:textColor="@color/white"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
@@ -85,17 +93,17 @@
 
     <TextView
         android:id="@+id/textViewForgot"
+        style="@style/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:linksClickable="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/credential_forgot"
         android:layout_below="@id/buttonLogin"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="463dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:linksClickable="true"
+        android:text="@string/credential_forgot"
         tools:ignore="MissingConstraints"
-        android:textStyle="bold"/>
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="463dp" />
 
 
 
@@ -150,7 +158,7 @@
         android:layout_below="@id/relative_layout"
         tools:layout_editor_absoluteX="146dp"
         tools:layout_editor_absoluteY="463dp"
-        android:textColor="@color/black"
+        style="@style/textView"
         android:textSize="20sp"
         tools:ignore="MissingConstraints"
         android:textStyle="bold"/>

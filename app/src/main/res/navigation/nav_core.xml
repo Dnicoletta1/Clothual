@@ -19,7 +19,11 @@
         android:id="@+id/photoFragment"
         android:name="com.example.clothual.UI.core.PhotoFragment.PhotoFragment"
         android:label="Photo"
-        tools:layout="@layout/fragment_photo" />
+        tools:layout="@layout/fragment_photo" >
+        <action
+            android:id="@+id/action_photoFragment_to_addDressActivity"
+            app:destination="@id/addDressActivity" />
+    </fragment>
     <fragment
         android:id="@+id/calendarFragment"
         android:name="com.example.clothual.UI.core.CalendarFragment.CalendarFragment"
@@ -30,6 +34,10 @@
         android:name="com.example.clothual.UI.core.PersonalFragment.PersonalFragment"
         android:label="Me"
         tools:layout="@layout/fragment_personal" />
+    <activity
+        android:id="@+id/addDressActivity"
+        android:name="com.example.clothual.UI.core.AddDress.AddDressActivity"
+        android:label="AddDressActivity" />
 
 
 </navigation>
