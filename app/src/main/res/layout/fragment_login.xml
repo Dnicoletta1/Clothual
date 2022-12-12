@@ -41,7 +41,8 @@
             android:maxLength="20"
             android:hint="@string/username_login"
             android:textColorHint="@color/black"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
             tools:ignore="SpeakableTextPresentCheck"
             android:autofillHints="username"/>
 
@@ -69,7 +70,8 @@
             android:maxLength="20"
             android:textColorHint="@color/black"
             android:hint="@string/password_login"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -122,6 +124,7 @@
             android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
+            style="@style/textView"
             android:layout_centerVertical="true"
             android:layout_marginStart="24dp"
             android:layout_toStartOf="@id/textview_or"
@@ -135,11 +138,13 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            style="@style/textView"
             android:text="@string/or" />
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
+            style="@style/textView"
             android:layout_centerVertical="true"
             android:layout_marginEnd="24dp"
             android:layout_toEndOf="@id/textview_or"

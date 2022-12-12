@@ -42,7 +42,8 @@
             android:background="@drawable/border_edit_text"
             android:textColorHint="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
             android:importantForAutofill="no" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +70,8 @@
             android:maxLength="20"
             android:textColorHint="@color/black"
             android:hint="@string/cognome"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
              />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +99,8 @@
             android:maxLength="20"
             android:textColorHint="@color/black"
             android:hint="@string/nome"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -124,7 +127,8 @@
             android:maxLength="20"
             android:textColorHint="@color/black"
             android:hint="@string/username_registrazion"
-            android:textStyle="bold" />
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,9 +151,10 @@
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:maxLength="20"
-            android:textColorHint="@color/black"
             android:hint="@string/password_registration"
-            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_semibold"
+            android:textStyle="bold|italic"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

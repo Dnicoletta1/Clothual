@@ -55,13 +55,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/modificaProfilo"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="120dp"
+        android:layout_below="@id/esci"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/menu_home_border">
 
         <LinearLayout
@@ -81,10 +81,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Impostazioni"
+            style="@style/textView"
             android:layout_marginTop="10dp"
             android:layout_marginStart="40dp"
             android:textSize="20sp"
-            android:textColor="@color/black"
             android:textStyle="bold"
             android:background="@color/grey_persona_layout"/>
         </LinearLayout>
@@ -111,10 +111,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="I tuoi vestiti"
+                style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
                 android:textSize="20sp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/grey_persona_layout"/>
         </LinearLayout>
@@ -142,9 +142,9 @@
                 android:layout_height="match_parent"
                 android:text="La tua attività"
                 android:layout_marginTop="10dp"
+                style="@style/textView"
                 android:layout_marginStart="40dp"
                 android:textSize="20sp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/grey_persona_layout"/>
         </LinearLayout>
@@ -171,10 +171,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Infromazioni"
+                style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
                 android:textSize="20sp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/grey_persona_layout"/>
         </LinearLayout>
@@ -201,10 +201,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Suggerimenti"
+                style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
                 android:textSize="20sp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/grey_persona_layout"/>
         </LinearLayout>

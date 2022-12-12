@@ -12,7 +12,7 @@
         android:text="CLOTHUAL"
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_subrayada"
-        android:textSize="65sp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="16dp"

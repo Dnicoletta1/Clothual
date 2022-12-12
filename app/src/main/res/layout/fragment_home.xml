@@ -15,7 +15,6 @@
         android:layout_marginTop="20dp"
         android:text="Search"
         style="@style/textView"
-        android:textStyle="bold"
         android:textSize="15sp"
         tools:ignore="TextContrastCheck" />
 
@@ -33,7 +32,6 @@
             android:text="Filters"
             android:textSize="20sp"
             android:layout_marginStart="20dp"
-            android:textStyle="bold"
             android:textColor="@color/grey"/>
 
         <CheckBox
@@ -94,8 +92,7 @@
         android:layout_marginStart="310dp"
         android:layout_marginTop="20dp"
         style="@style/textView"
-        android:textStyle="bold"
-        android:text="Filter"
+        android:text="Filters"
         android:textSize="15sp" />
 
 
@@ -110,11 +107,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="611dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/simpleSearchView"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="60dp"
         android:scrollbars="none">
