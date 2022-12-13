@@ -27,7 +27,7 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/modificaProfilo"
+        android:id="@+id/editProfile"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/textName"
@@ -35,27 +35,28 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/border_button"
-        android:text="Modifica Profilo"
+        android:text="@string/edit_profile"
         android:textColor="@color/white"
         tools:ignore="TouchTargetSizeCheck" />
     <Button
-        android:id="@+id/esci"
+        android:id="@+id/go_out"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/modificaProfilo"
+        android:layout_below="@id/editProfile"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/border_button"
-        android:text="Esci"
+        android:text="@string/go_out"
         android:textColor="@color/white"
         tools:ignore="TouchTargetSizeCheck" />
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/esci"
+        android:layout_below="@id/go_out"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="70dp"
@@ -78,9 +79,10 @@
             android:layout_marginStart="10dp"
             />
         <TextView
+            android:id="@+id/settings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Impostazioni"
+            android:text="@string/settings"
             style="@style/textView"
             android:layout_marginTop="10dp"
             android:layout_marginStart="40dp"
@@ -110,7 +112,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="I tuoi vestiti"
+                android:text="@string/yourClothes"
                 style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
@@ -140,7 +142,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="La tua attività"
+                android:text="@string/history"
                 android:layout_marginTop="10dp"
                 style="@style/textView"
                 android:layout_marginStart="40dp"
@@ -170,7 +172,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Infromazioni"
+                android:text="@string/information"
                 style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
@@ -200,7 +202,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Suggerimenti"
+                android:text="@string/tips"
                 style="@style/textView"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"

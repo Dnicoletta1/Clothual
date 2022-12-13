@@ -15,6 +15,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.clothual.R;
 import com.example.clothual.UI.core.CoreActivity;
 import com.example.clothual.databinding.ModifyLayoutBinding;
 
@@ -47,9 +48,9 @@ public class ModifyActivity extends AppCompatActivity {
                 if(binding.editTextEmail.isEnabled()){
                     binding.editTextEmail.setEnabled(false);
                     binding.editTextEmail.setText("");
-                    binding.modificaEmail.setText("Modifica");
+                    binding.modificaEmail.setText(R.string.edit);
                 }else{
-                    binding.modificaEmail.setText("Annulla");
+                    binding.modificaEmail.setText(R.string.cancel);
                     binding.editTextEmail.setEnabled(true);
                 }
             }
@@ -61,9 +62,9 @@ public class ModifyActivity extends AppCompatActivity {
                 if(binding.editTextUsername.isEnabled()){
                     binding.editTextUsername.setEnabled(false);
                     binding.editTextUsername.setText("");
-                    binding.modificaUsername.setText("Modifica");
+                    binding.modificaUsername.setText(R.string.edit);
                 }else{
-                    binding.modificaUsername.setText("Annulla");
+                    binding.modificaUsername.setText(R.string.cancel);
                     binding.editTextUsername.setEnabled(true);
                 }
 
@@ -78,9 +79,9 @@ public class ModifyActivity extends AppCompatActivity {
                     binding.editTextPasswordNuovo.setEnabled(false);
                     binding.editTextPassword.setText("");
                     binding.editTextPasswordNuovo.setText("");
-                    binding.modificaPassword.setText("Modifica");
+                    binding.modificaPassword.setText(R.string.edit);
                 }else{
-                    binding.modificaPassword.setText("Annulla");
+                    binding.modificaPassword.setText(R.string.cancel);
                     binding.editTextPassword.setEnabled(true);
                     binding.editTextPasswordNuovo.setEnabled(true);
                 }
@@ -88,7 +89,7 @@ public class ModifyActivity extends AppCompatActivity {
             }
         });
 
-        binding.fine.setOnClickListener(new View.OnClickListener() {
+        binding.close.setOnClickListener(new View.OnClickListener() {
             /*  Salvo le informazioni in un sharePreference, passo i dati al model, crea l'oggetto con i dati nuovi nelle preference
                 o li recupera dal database.
                 In alternativa creare una classe DBfittizio che salva questi dati momentaneamente e si resetta ad ogni attivazione:
@@ -141,7 +142,7 @@ public class ModifyActivity extends AppCompatActivity {
             }
         });
 
-        binding.annulla.setOnClickListener(new View.OnClickListener() {
+        binding.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ModifyActivity.this, CoreActivity.class);

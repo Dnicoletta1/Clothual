@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.clothual.R;
+
 import com.example.clothual.databinding.FragmentPhotoBinding;
 
 import java.io.File;

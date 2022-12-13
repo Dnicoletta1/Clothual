@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:text="Search"
+        android:text="@string/search"
         style="@style/textView"
         android:textSize="15sp"
         tools:ignore="TextContrastCheck" />
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filters"
+            android:text="@string/filters"
             android:textSize="20sp"
             android:layout_marginStart="20dp"
             android:textColor="@color/grey"/>
@@ -92,7 +92,7 @@
         android:layout_marginStart="310dp"
         android:layout_marginTop="20dp"
         style="@style/textView"
-        android:text="Filters"
+        android:text="@string/filters"
         android:textSize="15sp" />
 
 

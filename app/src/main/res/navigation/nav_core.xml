@@ -33,11 +33,27 @@
         android:id="@+id/personalFragment"
         android:name="com.example.clothual.UI.core.PersonalFragment.PersonalFragment"
         android:label="Me"
-        tools:layout="@layout/fragment_personal" />
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <activity
         android:id="@+id/addDressActivity"
         android:name="com.example.clothual.UI.core.AddDress.AddDressActivity"
         android:label="AddDressActivity" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.clothual.UI.core.PersonalFragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_self"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
+    </fragment>
 
 
 </navigation>

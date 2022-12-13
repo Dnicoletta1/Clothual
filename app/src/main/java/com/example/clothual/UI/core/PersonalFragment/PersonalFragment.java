@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.example.clothual.R;
 import com.example.clothual.UI.welcome.WelcomeActivity;
 import com.example.clothual.databinding.FragmentPersonalBinding;
 
@@ -78,7 +80,7 @@ public class PersonalFragment extends Fragment {
         String nameSurname = personalModel.getName(username);
         binding.textName.setText(nameSurname);
 
-        binding.esci.setOnClickListener(new View.OnClickListener() {
+        binding.goOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editor.putInt(ACCESS_PREFERENCE, 0);
@@ -88,7 +90,7 @@ public class PersonalFragment extends Fragment {
             }
         });
 
-        binding.modificaProfilo.setOnClickListener(new View.OnClickListener() {
+        binding.editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               Intent intent = new Intent(requireContext(), ModifyActivity.class);
@@ -96,6 +98,16 @@ public class PersonalFragment extends Fragment {
             }
         });
 
+        binding.settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_settingsFragment);
+            }
+        });
+
 
     }
+
+
+
 }

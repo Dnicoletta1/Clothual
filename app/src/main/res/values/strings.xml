@@ -1,21 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Clothual</string>
-    <string name="username_login">Username</string>
-    <string name="password_login">Password</string>
-    <string name="login">Login</string>
-    <string name="credential_forgot">forgot credentials?</string>
-    <string name="or">OR</string>
-
+    <string name="app_name" translatable="false">Clothual</string>
+    <string name="clothual" translatable="false">CLOTHUAL</string>
+    <string name="username">Username</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email" translatable="false">E-mail</string>
+    <string name="or" translatable="false">OR</string>
     <string name="register">Register</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="forgot_credential">forgot credential?</string>
+    <string name="go_registration">Sing in</string>
 
+    <string name="design" translatable="false">designed by</string>
+    <string name="bdens" translatable="false">BDENS</string>
 
-    <string name="cognome">Cognome</string>
-    <string name="nome">Nome</string>
-    <string name="username_registrazion">Username</string>
-    <string name="password_registration">Password</string>
-    <string name="email">E-mail</string>
-    <string name="go_registration">Avanti</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filters">Filters</string>
+    <string name="search">Search</string>
 
+    <string name="edit_profile">Edit Profile</string>
+    <string name="go_out">Go out</string>
+
+    <string name="settings">Settings</string>
+    <string name="yourClothes">Your clothes</string>
+    <string name="history">History</string>
+    <string name="information">Information</string>
+    <string name="tips">Tips</string>
+
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="ediImmage">Edit Image</string>
+    <string name="edit">Edit</string>
+    <string name="newEmail">New E-mail</string>
+    <string name="newUsername">New Username</string>
+    <string name="newPassword">New Password</string>
+    <string name="oldPassword">Old Password</string>
+
+    <string-array name="spinner">
+        <item>Italian</item>
+        <item>English</item>
+    </string-array>
+    
 </resources>

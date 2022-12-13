@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Nome Utente</string>
+    <string name="name">Nome</string>
+    <string name="surname">Cognome</string>
+    <string name="register">Registrati</string>
+    <string name="forgot_credential">credenziali dimenticate?</string>
+    <string name="go_registration">Accedi</string>
+    <string name="filters">Filtri</string>
+    <string name="search">Cerca</string>
+    <string name="edit_profile">Modifica Profilo</string>
+    <string name="go_out">Esci</string>
+    <string name="settings">Impostazioni</string>
+    <string name="yourClothes">I tuoi vestiti</string>
+    <string name="history">La tua attività</string>
+    <string name="information">Informazioni</string>
+    <string name="tips">Suggerimenti</string>
+    <string name="close">Fine</string>
+    <string name="cancel">Annulla</string>
+    <string name="ediImmage">Modifica Immagine</string>
+    <string name="edit">Modifica</string>
+    <string name="newEmail">Nuova Email</string>
+    <string name="newUsername">Nuovo Nome Utente</string>
+    <string name="newPassword">Nuova Password</string>
+    <string name="oldPassword">Vecchia Password</string>
+
+    <string-array name="spinner">
+        <item>Italiano</item>
+        <item>Inglese</item>
+    </string-array>
+</resources>

@@ -67,7 +67,7 @@ public class RegistrationFragment extends Fragment {
         SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        binding.condizioni.setText(POLICY);
+        binding.policy.setText(POLICY);
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
