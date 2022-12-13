@@ -10,8 +10,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.clothual.Model.Account;
-import com.example.clothual.database.AccountDao;
-import com.example.clothual.database.RoomDatabase;
+import com.example.clothual.Database.AccountDao;
+import com.example.clothual.Database.RoomDatabase;
 
 import org.apache.commons.validator.routines.EmailValidator;
 

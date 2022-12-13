@@ -4,6 +4,7 @@ import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
 import static com.example.clothual.Util.Constant.ID_ACCOUNT;
 import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.POLICY;
 import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
 import android.content.Context;
@@ -66,7 +67,7 @@ public class RegistrationFragment extends Fragment {
         SharedPreferences sharedPref = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-
+        binding.condizioni.setText(POLICY);
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override

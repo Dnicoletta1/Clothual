@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.core.CoreActivity">
+    tools:context=".UI.core.CoreActivity"
+    >
 
 <!--
     <com.google.android.material.appbar.MaterialToolbar
@@ -53,12 +54,12 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.Clothual"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        android:theme="@style/Widget.App.BottomNavigationView"
         app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

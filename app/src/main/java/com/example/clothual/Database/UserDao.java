@@ -1,4 +1,4 @@
-package com.example.clothual.database;
+package com.example.clothual.Database;
 
 import static com.example.clothual.Util.Query.SELECT_ALL_USER;
 

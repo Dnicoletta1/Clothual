@@ -13,7 +13,7 @@
         android:text="CLOTHUAL"
         style="@style/textView"
         android:fontFamily="@font/montserrat_subrayada"
-        android:textSize="65sp"
+        android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
@@ -40,6 +40,7 @@
             android:inputType="text"
             android:maxLength="20"
             android:hint="@string/username_login"
+
             android:textColorHint="@color/black"
             android:fontFamily="@font/inter_semibold"
             android:textStyle="bold|italic"

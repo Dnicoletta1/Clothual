@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Clothual" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <!-- Base application theme. Theme.AppCompat.DayNight.NoActionBar -->
+    <style name="Theme.Clothual" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -15,15 +15,26 @@
     </style>
 
 
-    <!-- Style for TextInputLayout -->
+    <!-- Style for TextInputLayout-->
     <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextColor">?attr/colorOnSurface</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined</item>
+        <item name="boxStrokeColor">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textCursorDrawable">@color/black</item>
     </style>
 
     <style name="textView" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="hintTextColor">@color/black</item>
     </style>
 
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="backgroundTint">@color/white</item>
+        <item name="itemIconTint">@color/black</item>
+        <item name="itemTextColor">@color/black</item>
+    </style>
 
 
 </resources>

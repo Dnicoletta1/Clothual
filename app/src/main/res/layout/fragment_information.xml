@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,12 +12,13 @@
         android:layout_below="@id/view"
         android:scrollbars="none"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        tools:ignore="ObsoleteLayoutParam,UselessParent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            tools:ignore="ScrollViewSize">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputViewMarca"
@@ -25,6 +27,7 @@
             android:layout_centerHorizontal="true"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
+
             app:startIconDrawable="@drawable/account_circle_48px2"
             >
 
@@ -36,7 +39,7 @@
                 android:inputType="text"
                 android:maxLength="20"
                 android:hint="Marca"
-                android:textColorHint="@color/black"
+                style="@style/Widget.App.TextInputLayout"
                 android:fontFamily="@font/inter_semibold"
                 android:textStyle="bold|italic"
                 tools:ignore="SpeakableTextPresentCheck"
