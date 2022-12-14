@@ -24,8 +24,5 @@
     <string name="newPassword">Nuova Password</string>
     <string name="oldPassword">Vecchia Password</string>
 
-    <string-array name="spinner">
-        <item>Italiano</item>
-        <item>Inglese</item>
-    </string-array>
+
 </resources>

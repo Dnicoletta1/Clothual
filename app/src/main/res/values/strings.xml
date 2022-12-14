@@ -37,9 +37,10 @@
     <string name="newPassword">New Password</string>
     <string name="oldPassword">Old Password</string>
 
-    <string-array name="spinner">
-        <item>Italian</item>
-        <item>English</item>
-    </string-array>
+    <string name="italian" translatable="false">Italiano</string>
+    <string name="english" translatable="false">English</string>
+    <string name="french" translatable="false">Français</string>
+
+
     
 </resources>

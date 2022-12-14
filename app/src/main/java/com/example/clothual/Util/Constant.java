@@ -13,6 +13,7 @@ public class Constant {
     public static final String EMAIL_CHANGE = "email_change";
     public static final String USERNAME_CHANGE = "username_change";
     public static final String PASSWORD_CHANGE = "password_change";
+    public static final String LANGUAGE = "language";
 
     //Scritte iniziali
 

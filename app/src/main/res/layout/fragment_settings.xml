@@ -1,39 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.core.PersonalFragment.SettingsFragment">
 
-
-    <Button
-        android:id="@+id/changeLanguageEn"
-        android:layout_width="wrap_content"
+<!--
+    <RadioGroup
+        android:id="@+id/redioGroup"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/go_out"
-        android:text="Inglese"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp">
+        <RadioButton
+            android:drawableEnd="@drawable/italian_flag"
+            android:id="@+id/italian"
+            android:layout_width="match_parent"
+            android:textAlignment="textStart"
+            android:layout_height="50dp"
+            android:text="@string/italian"/>
+        <RadioButton
+            android:id="@+id/french"
+            android:drawableEnd="@drawable/french_flag"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/french"/>
+        <RadioButton
+            android:id="@+id/english"
+            android:drawableEnd="@drawable/united_kingdom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/english"/>
+    </RadioGroup>
+-->
+   <LinearLayout
+       android:id="@+id/viewButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="50dp"
+       android:background="@drawable/search_border"
+       android:orientation="vertical">
 
-    <Button
-        android:id="@+id/changeLanguageIt"
+    <LinearLayout
+        android:id="@+id/english"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_below="@id/go_out"
-        android:text="italiano"/>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"/>
+        <TextView
+            android:id="@+id/changeLanguageEn"
+            android:drawableEnd="@drawable/united_kingdom"
+            android:layout_width="100dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="wrap_content"
+            android:text="Inglese"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/changeLanguageFr"
+    <LinearLayout
+        android:id="@+id/italian"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
-        android:layout_below="@id/go_out"
-        android:text="Francese"/>
+        android:layout_height="wrap_content">
+
+       <ImageView
+           android:id="@+id/imageItalian"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="12dp"/>
+        <TextView
+            android:id="@+id/changeLanguageIt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="5dp"
+            android:drawableEnd="@drawable/italian_flag"
+            android:layout_below="@id/changeLanguageEn"
+            android:text="italiano"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/french"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/imageFrench"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="12dp"/>
+        <TextView
+            android:id="@+id/changeLanguageFr"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="5dp"
+            android:layout_below="@id/changeLanguageIt"
+            android:drawableEnd="@drawable/french_flag"
+            android:text="Francese"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+</LinearLayout>
 
     <Button
         android:id="@+id/esci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/viewButton"
         android:text="@string/go_out"
-        />
-</FrameLayout>
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

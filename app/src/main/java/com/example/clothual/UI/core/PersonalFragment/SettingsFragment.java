@@ -1,5 +1,10 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.LANGUAGE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,12 +48,16 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSettingsBinding.inflate(getLayoutInflater());
+        binding.imageEnglish.setImageResource(R.drawable.circle_48px);
+        binding.imageFrench.setImageResource(R.drawable.circle_48px);
+        binding.imageItalian.setImageResource(R.drawable.circle_48px);
         return binding.getRoot();
     }
 
@@ -56,26 +65,42 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.changeLanguageEn.setOnClickListener(new View.OnClickListener() {
+        Context context = getActivity();
+        SharedPreferences share = context.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = share.edit();
+
+        setImage(share.getString(LANGUAGE, " "));
+
+
+        binding.english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString(LANGUAGE, "en");
+                editor.apply();
                 setLocale("en");
             }
         });
 
-        binding.changeLanguageIt.setOnClickListener(new View.OnClickListener() {
+        binding.italian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString(LANGUAGE, "it");
+                editor.apply();
                 setLocale("it");
             }
         });
 
-        binding.changeLanguageFr.setOnClickListener(new View.OnClickListener() {
+        binding.french.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString(LANGUAGE, "fr");
+                editor.apply();
                 setLocale("fr");
             }
         });
+
+
+
 
         binding.esci.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,4 +120,29 @@ public class SettingsFragment extends Fragment {
         Navigation.findNavController(requireView()).navigate(R.id.action_settingsFragment_self);
 
     }
+
+    public void setImage(String lang){
+        switch (lang){
+            case "en" :
+                binding.imageEnglish.setImageResource(R.drawable.total_circle_48px__1_);
+                binding.imageItalian.setImageResource(R.drawable.circle_48px);
+                binding.imageFrench.setImageResource(R.drawable.circle_48px);
+                break;
+            case "it" :
+                binding.imageItalian.setImageResource(R.drawable.total_circle_48px__1_);
+                binding.imageEnglish.setImageResource(R.drawable.circle_48px);
+                binding.imageFrench.setImageResource(R.drawable.circle_48px);
+                break;
+            case "fr" :
+                binding.imageFrench.setImageResource(R.drawable.total_circle_48px__1_);
+                binding.imageItalian.setImageResource(R.drawable.circle_48px);
+                binding.imageEnglish.setImageResource(R.drawable.circle_48px);
+                break;
+            default:
+                binding.imageFrench.setImageResource(R.drawable.circle_48px);
+                binding.imageItalian.setImageResource(R.drawable.circle_48px);
+                binding.imageEnglish.setImageResource(R.drawable.circle_48px);
+        }
+    }
+
 }

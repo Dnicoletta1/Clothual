@@ -61,6 +61,8 @@ public class HomeFragment extends Fragment {
             }
         });*/
 
+
+
         binding.ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,4 +88,5 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
 }

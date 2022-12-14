@@ -23,4 +23,7 @@
     <string name="newUsername">Neuf  Nom d\'utilisateur</string>
     <string name="newPassword">Nouvelle Password</string>
     <string name="oldPassword">Vieux Password</string>
+
+
+
 </resources>

@@ -15,4 +15,6 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.welcome_layout);
 
     }
+
+
 }
