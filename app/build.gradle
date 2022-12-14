@@ -3,6 +3,7 @@ plugins {
 }
 
 
+
 android {
     namespace 'com.example.clothual'
     compileSdk 33
@@ -38,6 +39,7 @@ dependencies {
     def room_version = "2.4.3"
 
 
+    implementation 'org.osmdroid:osmdroid-android:6.1.2'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
