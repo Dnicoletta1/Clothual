@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.clothual.UI.core.PhotoFragment.PhotoModel;
 import com.example.clothual.databinding.FragmentCalendarBinding;
 
 /**
@@ -18,6 +19,8 @@ import com.example.clothual.databinding.FragmentCalendarBinding;
  */
 public class CalendarFragment extends Fragment {
 
+
+    public PhotoModel model;
     private FragmentCalendarBinding binding;
 
     public CalendarFragment() {
@@ -37,6 +40,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        model = new PhotoModel(requireActivity().getApplication());
     }
 
     @Override
@@ -50,6 +54,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
 
 

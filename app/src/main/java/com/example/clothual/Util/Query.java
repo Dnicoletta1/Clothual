@@ -15,4 +15,7 @@ public class Query {
     public static final String GET_EMAIL = "SELECT email FROM Account WHERE id LIKE :idAccount";
 
     public static final String GET_USERNAME = "SELECT username FROM Account WHERE id LIKE :idAccount";
+
+    //Query Image
+    public static final String SELECT_ALL_IMAGE = "SELECT * FROM Image";
 }

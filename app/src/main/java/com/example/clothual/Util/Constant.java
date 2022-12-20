@@ -39,4 +39,9 @@ public class Constant {
             "informativa sulla privacy e in che modo usiamo cookie e tecnologie simili nella nostra" +
             "normativa sui cookie.";
 
+
+    public static final String PATTERN_DATE_FORMAT = "dd.MM.yyyy";
+
+    public static final String PATTERN_HOUR_FORMAT = "HH_mm_ss";
+
 }

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 
@@ -86,58 +87,69 @@ public class MapFragment extends Fragment implements LocationListener {
 
         Context ctx = getContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (isStoragePermissionGranted()) {
-
-            }
-        }
 
         locationManager = (LocationManager) ctx.getSystemService(Context.LOCATION_SERVICE);
 
+        if(ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                            PackageManager.PERMISSION_GRANTED
+                                            &&
+                ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+                        PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
-        LocationListener locationListener = new LocationListener()
-        {
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onLocationChanged(Location location) {
-                // TODO Auto-generated method stub
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                double speed = location.getSpeed(); //spedd in meter/minute
-                speed = (speed*3600)/1000;      // speed in km/minute               Toast.makeText(GraphViews.this, "Current speed:" + location.getSpeed(),Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        }
 
 
 
+
+
+
+        System.out.println(latitude);
+        System.out.println(longitude);
         binding.mapView.setTileSource(TileSourceFactory.MAPNIK);
         binding.mapView.setMultiTouchControls(true);
         mapController = binding.mapView.getController();
-        mapController.setZoom(20);
-
-       GeoPoint startPoint = new GeoPoint( 45.4654219, 9.1859243);
-        binding.mapView.setZoomRounding(false);
+        mapController.setZoom(15);
+        GeoPoint startPoint = new GeoPoint(longitude, latitude);
+        binding.mapView.setZoomRounding(true);
         mapController.setCenter(startPoint);
+
+        binding.center.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 1,     new LocationListener()
+                {
+
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onProviderEnabled(String provider) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(String provider) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onLocationChanged(Location location) {
+                        // TODO Auto-generated method stub
+                        GeoPoint geo = new GeoPoint(location.getLatitude(), location.getLongitude());
+                        mapController.setCenter(geo);
+                    }
+                });
+
+
+            }
+        });
 
     }
 

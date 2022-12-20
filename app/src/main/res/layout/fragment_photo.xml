@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,48 +7,27 @@
     tools:context=".UI.core.PhotoFragment.PhotoFragment">
 
 
-    <ImageView
-        android:id="@+id/camera"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="TODO" />
 
-    <Button
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="capture"
-        android:layout_below="@id/camera"
-        android:layout_centerHorizontal="true"/>
-
-    <!--
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/celeste"
+        android:layout_gravity="end|bottom"
         android:src="@drawable/camera_enhance_48px"
         app:borderWidth="0dp"
         app:fabSize="normal"
-        tools:ignore="SpeakableTextPresentCheck" />-->
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Dress"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        app:layout_anchor="@+id/fab"
-        app:layout_anchorGravity="start|top" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"/>
 
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

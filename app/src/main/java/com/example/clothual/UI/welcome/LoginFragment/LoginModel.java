@@ -18,9 +18,6 @@ public class LoginModel {
     private UserDao userDao;
     private AccountDao accountDao;
 
-    public LoginModel() {
-    }
-
     public LoginModel(Application application) {
         this.application = application;
         //database = Room.databaseBuilder(application,

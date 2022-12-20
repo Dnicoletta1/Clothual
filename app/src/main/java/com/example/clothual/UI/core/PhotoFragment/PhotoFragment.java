@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.clothual.R;
-
+import com.example.clothual.UI.core.AddDress.AddDressActivity;
 import com.example.clothual.databinding.FragmentPhotoBinding;
 
-import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +33,8 @@ import java.io.File;
 public class PhotoFragment extends Fragment {
 
     private FragmentPhotoBinding binding;
+
+    public PhotoModel photoModel;
 
 
     public PhotoFragment() { }
@@ -50,6 +53,8 @@ public class PhotoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        photoModel = new PhotoModel(requireActivity().getApplication());
+
     }
 
     @Override
@@ -65,25 +70,47 @@ public class PhotoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         binding.fab.setOnClickListener(view1 -> {
-            File foto  = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "");
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(foto));
             startActivityForResult(intent, 0);
         });
 
-        binding.button2.setOnClickListener(view12 -> Navigation.findNavController(requireView()).navigate(R.id.action_photoFragment_to_addDressActivity));
+        RecyclerView.LayoutManager manager = new GridLayoutManager(requireContext(), 3);
+
+
+
+        try {
+            List<Bitmap> image = photoModel.getImageList(getActivity().getContentResolver());
+            RecyclerViewPhotoAdapter adapter = new RecyclerViewPhotoAdapter(image);
+            binding.recyclerView.setLayoutManager(manager);
+            binding.recyclerView.setAdapter(adapter);
+            binding.recyclerView.addItemDecoration(new RecyclerViewPhotoAdapter.GridSpacingItemDecoration
+                    (3, 20, true));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent databack) {
         assert databack != null;
         Bitmap immagine = (Bitmap) databack.getExtras().get("data");
-        // img è un componente imageView presente sul layout
-        binding.camera.setImageBitmap(immagine);
+        Uri uri;
+        try {
+            uri = photoModel.saveImage(getActivity().getContentResolver(), immagine, photoModel.getNameImage(), "");
+            Intent intent = new Intent(getActivity(), AddDressActivity.class);
+            intent.putExtra("uri", uri.toString());
+            startActivity(intent);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
 
     }
 
