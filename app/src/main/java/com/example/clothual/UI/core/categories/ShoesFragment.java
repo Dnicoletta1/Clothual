@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
+import com.example.clothual.R;
 import com.example.clothual.databinding.FragmentShoesBinding;
 
 import java.util.List;
@@ -65,6 +67,8 @@ public class ShoesFragment extends Fragment {
                     getActivity().getContentResolver());
             binding.recyclerViewShoes.setLayoutManager(manager);
             binding.recyclerViewShoes.setAdapter(adapter);
+
+            binding.back.setOnClickListener(view1 -> Navigation.findNavController(requireView()).navigate(R.id.action_shoesFragment_to_homeFragment));
 
     }
 

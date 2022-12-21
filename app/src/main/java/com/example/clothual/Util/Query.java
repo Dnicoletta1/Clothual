@@ -1,5 +1,7 @@
 package com.example.clothual.Util;
 
+import com.example.clothual.R;
+
 public class Query {
 
     //Query User
@@ -21,6 +23,8 @@ public class Query {
 
     //Query clothual
     public static final String SELECT_ALL_CLOTHAUL = "SELECT * FROM Clothual";
+
+    public static final String SELECT_ALL_SHOES = "SELECT * FROM Clothual WHERE type LIKE " + (char)34 + R.string.shoes + (char)34;
 
     public static final String GET_ID_BY_URI = "SELECT ID FROM Image WHERE uri LIKE  :uri";
 }

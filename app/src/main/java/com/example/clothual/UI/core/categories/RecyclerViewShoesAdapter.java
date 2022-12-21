@@ -62,7 +62,7 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
     public class ShoesViewHolder extends RecyclerView.ViewHolder{
 
         private final ImageView imageView;
-        private final TextView type;
+
         private final TextView brand;
         private final TextView template;
         private final TextView color;
@@ -71,7 +71,6 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
         public ShoesViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.imageViewAdapterClothual);
-            type = (TextView) itemView.findViewById(R.id.type);
             brand = (TextView) itemView.findViewById(R.id.brand);
             template = (TextView) itemView.findViewById(R.id.template);
             color = (TextView) itemView.findViewById(R.id.color);
@@ -79,7 +78,6 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
         }
 
         public void bind(Clothual clothual, String uri){
-            type.setText(clothual.getType());
             brand.setText(clothual.getBrand());
             template.setText(clothual.getTemplate());
             color.setText(clothual.getColor());

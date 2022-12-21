@@ -19,7 +19,6 @@ import com.example.clothual.databinding.FragmentMapBinding;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
@@ -77,8 +76,8 @@ public class MapFragment extends Fragment {
         IMapController mapController = binding.mapView.getController();
         mapController.setZoom(17);
 
-        GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
-        mapController.setCenter(startPoint);
+        //GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
+        //mapController.setCenter(startPoint);
         GpsMyLocationProvider provider = new GpsMyLocationProvider(ctx);
         provider.addLocationSource(LocationManager.NETWORK_PROVIDER);
         locationOverlay = new MyLocationNewOverlay(provider, binding.mapView);

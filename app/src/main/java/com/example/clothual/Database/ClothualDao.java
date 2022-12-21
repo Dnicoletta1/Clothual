@@ -1,6 +1,7 @@
 package com.example.clothual.Database;
 
 import static com.example.clothual.Util.Query.SELECT_ALL_CLOTHAUL;
+import static com.example.clothual.Util.Query.SELECT_ALL_SHOES;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -18,5 +19,8 @@ public interface ClothualDao {
 
     @Query(SELECT_ALL_CLOTHAUL)
     List<Clothual> getAllClothual();
+
+    @Query(SELECT_ALL_SHOES)
+    List<Clothual> getAllShoes();
 
 }
