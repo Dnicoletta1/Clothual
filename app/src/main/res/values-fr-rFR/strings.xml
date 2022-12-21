@@ -23,7 +23,14 @@
     <string name="newUsername">Neuf  Nom d\'utilisateur</string>
     <string name="newPassword">Nouvelle Password</string>
     <string name="oldPassword">Vieux Password</string>
-
+    <string name="description">Description</string>
+    <string name="color">Couleur</string>
+    <string name="template">Modèle</string>
+    <string name="brand">Marque</string>
+    <string name="save">Sauver</string>
+    <string name="jackets">Vestes</string>
+    <string name="trousers">Pantalon</string>
+    <string name="shoes">Chaussures</string>
 
 
 </resources>

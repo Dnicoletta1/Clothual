@@ -59,6 +59,7 @@ public class InformationFragment extends Fragment {
         binding.salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Navigation.findNavController(requireView()).navigate(R.id.action_informationFragment_to_coreActivity);
             }
         });

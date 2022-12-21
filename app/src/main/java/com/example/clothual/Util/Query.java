@@ -18,4 +18,9 @@ public class Query {
 
     //Query Image
     public static final String SELECT_ALL_IMAGE = "SELECT * FROM Image";
+
+    //Query clothual
+    public static final String SELECT_ALL_CLOTHAUL = "SELECT * FROM Clothual";
+
+    public static final String GET_ID_BY_URI = "SELECT ID FROM Image WHERE uri LIKE  :uri";
 }

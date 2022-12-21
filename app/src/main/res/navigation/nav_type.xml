@@ -2,18 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_type"
-    app:startDestination="@id/typedress">
+    app:startDestination="@id/informationFragment"
+    android:id="@+id/nav_type">
 
-    <fragment
-        android:id="@+id/typedress"
-        android:name="com.example.clothual.UI.core.AddDress.TypedressFragment"
-        android:label="fragment_typedress"
-        tools:layout="@layout/fragment_typedress" >
-        <action
-            android:id="@+id/action_typedress_to_informationFragment"
-            app:destination="@id/informationFragment" />
-    </fragment>
     <fragment
         android:id="@+id/informationFragment"
         android:name="com.example.clothual.UI.core.AddDress.InformationFragment"

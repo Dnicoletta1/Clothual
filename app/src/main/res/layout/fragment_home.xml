@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".UI.core.HomeFragment.HomeFragment"
     >
-
+<!--
     <TextView
         android:id="@+id/textViewSearch"
         android:layout_width="wrap_content"
@@ -85,6 +85,21 @@
 
     </androidx.cardview.widget.CardView>
 
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="310dp"
+        android:layout_below="@id/textViewSearch"
+        android:background="@drawable/search_border">
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/filter_list_48px"/>
+    </androidx.cardview.widget.CardView>
+
+
     <TextView
         android:id="@+id/textViewFilter"
         android:layout_width="wrap_content"
@@ -104,11 +119,10 @@
         android:layout_below="@id/textViewSearch"
         android:background="@drawable/search_border"
         android:queryHint="Search clothes..."/>
-
+-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/simpleSearchView"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
@@ -120,19 +134,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageView
                 android:id="@+id/scarpe"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/scarpe"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <Button
+            <ImageView
                 android:id="@+id/pantaloni"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="110dp"
                 android:layout_below="@id/scarpe"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/pantaloni"
@@ -141,7 +155,7 @@
             <Button
                 android:id="@+id/t_shirt"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/pantaloni"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/t_shirt"
@@ -150,7 +164,7 @@
             <Button
                 android:id="@+id/giacche"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/t_shirt"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/giacche"
@@ -160,7 +174,7 @@
                 android:id="@+id/jeans"
                 android:layout_below="@id/giacche"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/jeans"/>
 
@@ -170,17 +184,5 @@
 
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="310dp"
-        android:layout_below="@id/textViewSearch"
-        android:background="@drawable/search_border">
-        <ImageView
-            android:id="@+id/filter"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/filter_list_48px"/>
-    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

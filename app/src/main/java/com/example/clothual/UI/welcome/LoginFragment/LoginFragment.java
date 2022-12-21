@@ -1,13 +1,16 @@
 package com.example.clothual.UI.welcome.LoginFragment;
 
-import static com.example.clothual.Util.Constant.*;
+import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
+import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.ID_ACCOUNT;
+import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +38,7 @@ public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     Handler handler = new Handler();
     LoginModel loginModel;
-
+    private Thread thread;
 
     public LoginFragment() { }
 
@@ -68,7 +71,7 @@ public class LoginFragment extends Fragment {
         binding.editTextUsername.setText(username);
         binding.editTextPassword.setText(password);
 
-
+/*
         Runnable runnable = new Runnable() {
             int i = 0;
             String [] strings = {GIANNI_VERSACE, RALPH_LAUREN, PIER_CARDIN, DONATELLA_VERSACE, GIORGIO_ARMANI, COCO_CHANEL};
@@ -91,7 +94,8 @@ public class LoginFragment extends Fragment {
             }
         };
 
-        new Thread(runnable).start();
+        thread = new Thread(runnable);
+        thread.start();*/
         binding.buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,8 +122,12 @@ public class LoginFragment extends Fragment {
         });
 
        binding.textViewRegister.setOnClickListener(new View.OnClickListener() {
+           @SuppressWarnings("deprecation")
            @Override
            public void onClick(View view) {
+
+               //    thread.interrupt();
+
                Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_fragment_registration);
            }
        });

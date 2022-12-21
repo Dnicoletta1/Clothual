@@ -24,10 +24,9 @@
         android:id="@+id/imageViewDress"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:background="@drawable/menu_home_border"
         android:layout_below="@id/title"
         android:contentDescription="TODO"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,HardcodedText,MissingConstraints"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"/>
 
@@ -39,9 +38,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         tools:ignore="MissingConstraints"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/imageViewDress"/>
-
+<!--
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -52,6 +51,155 @@
         android:layout_marginTop="40dp"
         app:defaultNavHost="true"
         android:layout_below="@id/view"
-        app:navGraph="@navigation/nav_type" />
+        app:navGraph="@navigation/nav_type" />-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="none"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        tools:ignore="ObsoleteLayoutParam,UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="250dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:entries="@array/type"
+                android:background="@drawable/add_dress_border"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewMarca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
+
+                <EditText
+                    android:id="@+id/editTextBrand"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/brand"
+                    style="@style/Widget.App.TextInputLayout"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewModello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/inputViewMarca"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
+
+                <EditText
+                    android:id="@+id/editTextTemplate"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/template"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewColore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputViewModello"
+                android:layout_centerHorizontal="true"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
+
+                <EditText
+                    android:id="@+id/editTextColor"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/color"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewDescrizione"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:endIconMode="clear_text"
+                android:layout_below="@id/inputViewColore"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
+
+                <EditText
+                    android:id="@+id/editTextDescriprion"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/description"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_button"
+                android:layout_below="@id/inputViewDescrizione"
+                android:layout_centerHorizontal="true"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+    </ScrollView>
     
 </RelativeLayout>

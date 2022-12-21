@@ -1,5 +1,6 @@
 package com.example.clothual.Database;
 
+import static com.example.clothual.Util.Query.GET_ID_BY_URI;
 import static com.example.clothual.Util.Query.SELECT_ALL_IMAGE;
 
 import androidx.room.Dao;
@@ -19,5 +20,8 @@ public interface ImageDao {
 
     @Query(SELECT_ALL_IMAGE)
     List<Image> getAllImage();
+
+    @Query(GET_ID_BY_URI)
+    int getIDByUri(String uri);
 
 }

@@ -20,126 +20,137 @@
             android:layout_height="match_parent"
             tools:ignore="ScrollViewSize">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputViewMarca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-
-            app:startIconDrawable="@drawable/account_circle_48px2"
-            >
-
-            <EditText
-                android:id="@+id/editTextMarca"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="250dp"
+                android:layout_centerHorizontal="true"
                 android:layout_height="60dp"
-                android:background="@drawable/add_dress_border"
-                android:inputType="text"
-                android:maxLength="20"
-                android:hint="Marca"
-                style="@style/Widget.App.TextInputLayout"
-                android:fontFamily="@font/inter_semibold"
-                android:textStyle="bold|italic"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:autofillHints="username"
-                />
+                android:textAlignment="center"
+                android:entries="@array/type"
+                android:background="@drawable/add_dress_border"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewMarca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputViewModello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/inputViewMarca"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:startIconDrawable="@drawable/account_circle_48px2"
-            >
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
 
-            <EditText
-                android:id="@+id/editTextModello"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
-                android:background="@drawable/add_dress_border"
-                android:inputType="text"
-                android:maxLength="20"
-                android:hint="Modello"
-                android:textColorHint="@color/black"
-                android:fontFamily="@font/inter_semibold"
-                android:textStyle="bold|italic"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:autofillHints="username"/>
+                <EditText
+                    android:id="@+id/editTextMarca"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/brand"
+                    style="@style/Widget.App.TextInputLayout"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"
+                    />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputViewColore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inputViewModello"
-            android:layout_centerHorizontal="true"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:startIconDrawable="@drawable/account_circle_48px2"
-            >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewModello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/inputViewMarca"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
 
-            <EditText
-                android:id="@+id/editTextColore"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
-                android:background="@drawable/add_dress_border"
-                android:inputType="text"
-                android:maxLength="20"
-                android:hint="Colore"
-                android:textColorHint="@color/black"
-                android:fontFamily="@font/inter_semibold"
-                android:textStyle="bold|italic"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:autofillHints="username"/>
+                <EditText
+                    android:id="@+id/editTextModello"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/template"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputViewDescrizione"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            app:endIconMode="clear_text"
-            android:layout_below="@id/inputViewColore"
-            app:errorEnabled="true"
-            app:startIconDrawable="@drawable/account_circle_48px2"
-            >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewColore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputViewModello"
+                android:layout_centerHorizontal="true"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
 
-            <EditText
-                android:id="@+id/editTextDescrizione"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
-                android:background="@drawable/add_dress_border"
-                android:inputType="text"
-                android:maxLength="20"
-                android:hint="Descrizione"
-                android:textColorHint="@color/black"
-                android:fontFamily="@font/inter_semibold"
-                android:textStyle="bold|italic"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:autofillHints="username"/>
+                <EditText
+                    android:id="@+id/editTextColore"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/color"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/salva"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_button"
-            android:layout_below="@id/inputViewDescrizione"
-            android:layout_centerHorizontal="true"
-            android:text="Salva"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewDescrizione"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:endIconMode="clear_text"
+                android:layout_below="@id/inputViewColore"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                >
 
-        </RelativeLayout>
+                <EditText
+                    android:id="@+id/editTextDescrizione"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/add_dress_border"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/description"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textStyle="bold|italic"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="username"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/salva"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_button"
+                android:layout_below="@id/inputViewDescrizione"
+                android:layout_centerHorizontal="true"
+                android:text="Salva"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            </RelativeLayout>
     </ScrollView>
 </FrameLayout>
