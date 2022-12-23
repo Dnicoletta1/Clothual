@@ -35,6 +35,7 @@ public class PhotoFragment extends Fragment {
     private FragmentPhotoBinding binding;
 
     public PhotoModel photoModel;
+    private boolean isFABOpen;
 
 
     public PhotoFragment() { }
@@ -70,49 +71,128 @@ public class PhotoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.fab.setOnClickListener(view1 -> {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, 0);
+
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen){
+                    showFABMenu1();
+                }else{
+                    closeFABMenu();
+                }
+            }
         });
+
+
+
+
 
         RecyclerView.LayoutManager manager = new GridLayoutManager(requireContext(), 3);
 
 
 
-        try {
-            List<Bitmap> image = photoModel.getImageList(getActivity().getContentResolver());
+
+            List<Bitmap> image = photoModel.getImageList(getActivity(), getContext(), getActivity().getContentResolver());
             RecyclerViewPhotoAdapter adapter = new RecyclerViewPhotoAdapter(image);
             binding.recyclerView.setLayoutManager(manager);
             binding.recyclerView.setAdapter(adapter);
             binding.recyclerView.addItemDecoration(new RecyclerViewPhotoAdapter.GridSpacingItemDecoration
                     (3, 20, true));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+
+        binding.fab1Upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageChooser();
+            }
+        });
+
+        binding.fab2Make.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
+            }
+        });
 
     }
 
 
+
+    void imageChooser() {
+
+        // create an instance of the
+        // intent of the type image
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        // pass the constant to compare it
+        // with the returned requestCode
+        startActivityForResult(Intent.createChooser(i, "Select Picture"), 1);
+    }
+
+    private void showFABMenu1() {
+        isFABOpen = true;
+        binding.fab2Make.animate().translationY(-205);
+        binding.makePhoto.setVisibility(View.VISIBLE);
+        showFABMenu2();
+    }
+
+    private void showFABMenu2() {
+        isFABOpen = true;
+        binding.fab1Upload.animate().translationY(-415);
+        binding.upload.setVisibility(View.VISIBLE);
+    }
+
+        private void closeFABMenu () {
+            isFABOpen = false;
+            binding.fab1Upload.animate().translationY(0);
+            binding.fab2Make.animate().translationY(0);
+            binding.upload.setVisibility(View.INVISIBLE);
+            binding.makePhoto.setVisibility(View.INVISIBLE);
+        }
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent databack) {
-        assert databack != null;
-        Bitmap immagine = (Bitmap) databack.getExtras().get("data");
         Uri uri;
-        try {
-            uri = photoModel.saveImage(getActivity().getContentResolver(), immagine, photoModel.getNameImage(), "");
-            Intent intent = new Intent(getActivity(), AddDressActivity.class);
-            intent.putExtra("uri", uri.toString());
-            startActivity(intent);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(requestCode == 0) {
+            assert databack != null;
+            Bitmap immagine = (Bitmap) databack.getExtras().get("data");
 
+            try {
+                uri = photoModel.saveImage(getActivity().getContentResolver(), immagine, photoModel.getNameImage(), "");
+                Intent intent = new Intent(getActivity(), AddDressActivity.class);
+                intent.putExtra("uri", uri.toString());
+                startActivity(intent);
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }else{
+            uri = databack.getData();
+            if(uri != null){
+                try {
+                    Bitmap bitmap = photoModel.importImageFromMemory(getActivity(), getContext(), getActivity().getContentResolver(), uri);
+                    Uri newUri = photoModel.saveImage(getActivity().getContentResolver(), bitmap,
+                            photoModel.getNameImage(), "");
+                    Intent intent = new Intent(getActivity(), AddDressActivity.class);
+                    intent.putExtra("uri", newUri.toString());
+                    startActivity(intent);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
 
 
     }
+
 
 
 }

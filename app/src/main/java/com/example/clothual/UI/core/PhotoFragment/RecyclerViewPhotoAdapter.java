@@ -55,6 +55,7 @@ public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewP
 
         public void bind(Bitmap image){
             imageView.setImageBitmap(image);
+
         }
     }
 
@@ -92,5 +93,4 @@ public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewP
             }
         }
     }
-
 }

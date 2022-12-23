@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,59 @@
     tools:context=".UI.core.PhotoFragment.PhotoFragment">
 
 
+
+
+
+        <TextView
+            android:id="@+id/upload"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Scegli dalla galleria"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="250dp"
+            android:layout_marginEnd="100dp"
+            android:visibility="invisible"
+            style="@style/textView"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab1Upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="#D60707"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/upload_48px"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+       <TextView
+        android:id="@+id/makePhoto"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Scatta foto"
+        android:textAlignment="viewEnd"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="175dp"
+        android:layout_marginEnd="100dp"
+        android:visibility="invisible"
+        style="@style/textView"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2Make"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="#F29203"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/camera_enhance_48px"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -16,18 +70,20 @@
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/celeste"
         android:layout_gravity="end|bottom"
-        android:src="@drawable/camera_enhance_48px"
+        app:srcCompat="@drawable/add_48px"
         app:borderWidth="0dp"
         app:fabSize="normal"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginBottom="50dp"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

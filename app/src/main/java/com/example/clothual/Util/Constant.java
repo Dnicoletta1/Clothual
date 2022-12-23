@@ -14,6 +14,7 @@ public class Constant {
     public static final String USERNAME_CHANGE = "username_change";
     public static final String PASSWORD_CHANGE = "password_change";
     public static final String LANGUAGE = "language";
+    public static final String URI = "uri";
 
     //Scritte iniziali
 

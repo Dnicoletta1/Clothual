@@ -1,7 +1,9 @@
 package com.example.clothual.UI.core.MapFragment;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.clothual.databinding.FragmentMapBinding;
@@ -66,7 +70,16 @@ public class MapFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                &&
+        ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        ){
+
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+        }
+
         Context ctx = getActivity().getApplicationContext();
+
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
         binding.mapView.setTileSource(TileSourceFactory.MAPNIK);
@@ -76,24 +89,17 @@ public class MapFragment extends Fragment {
         IMapController mapController = binding.mapView.getController();
         mapController.setZoom(17);
 
-        //GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
-        //mapController.setCenter(startPoint);
+        assert ctx != null;
         GpsMyLocationProvider provider = new GpsMyLocationProvider(ctx);
         provider.addLocationSource(LocationManager.NETWORK_PROVIDER);
         locationOverlay = new MyLocationNewOverlay(provider, binding.mapView);
         locationOverlay.enableFollowLocation();
-        locationOverlay.runOnFirstFix(new Runnable() {
-            public void run() {
-                Log.d("MyTag", String.format("First location fix: %s", locationOverlay.getLastFix()));
-            }
-        });
+        locationOverlay.runOnFirstFix(() -> Log.d("MyTag", String.format("First location fix: %s", locationOverlay.getLastFix())));
         binding.mapView.getOverlayManager().add(locationOverlay);
 
-        binding.center.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                locationOverlay.enableFollowLocation();
-            }
+        binding.center.setOnClickListener(view1 -> {
+            locationOverlay.enableFollowLocation();
+            mapController.setZoom(17);
         });
 
     }

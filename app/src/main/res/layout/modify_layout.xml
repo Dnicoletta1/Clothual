@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/total"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -55,17 +56,43 @@
         android:id="@+id/imagePersonal"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/avatar"
         android:layout_below="@id/view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imagePersonal"
+        android:visibility="invisible"
+        >
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:text="Carica dal dispositivo"/>
+
+        <Button
+            android:id="@+id/makePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:text="Scatta Foto"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/modifyImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/edit_profile"
+        android:text="@string/ediImmage"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"

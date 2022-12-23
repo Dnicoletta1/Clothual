@@ -3,9 +3,13 @@ package com.example.clothual.UI.core.PhotoFragment;
 import static com.example.clothual.Util.Constant.PATTERN_DATE_FORMAT;
 import static com.example.clothual.Util.Constant.PATTERN_HOUR_FORMAT;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,6 +17,8 @@ import android.os.Build;
 import android.provider.MediaStore;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.clothual.Database.ImageDao;
 import com.example.clothual.Database.RoomDatabase;
@@ -33,7 +39,7 @@ public class PhotoModel {
 
     public Application application;
     public RoomDatabase database;
-    private ImageDao imageDao;
+    private final ImageDao imageDao;
 
     public PhotoModel(Application application) {
         this.application = application;
@@ -68,25 +74,24 @@ public class PhotoModel {
         return uri;
     }
 
-    public Bitmap getImage(ContentResolver contentResolver) throws FileNotFoundException {
-        List<Image> image = imageDao.getAllImage();
 
-        if(image.isEmpty()){
-            return null;
-        }else{
-            return importImageFromMemory(contentResolver, Uri.parse(image.get(0).getUri()));
+    public List<Bitmap> getImageList(Activity act, Context ctx, ContentResolver contentResolver) {
+        List<Image> image = imageDao.getAllImage();
+        for(int i = 0; i < image.size(); i++){
+            if(image.get(i).getDescription().equals("profile")){
+                image.remove(i);
+            }
         }
-
-    }
-
-    public List<Bitmap> getImageList(ContentResolver contentResolver) throws FileNotFoundException {
-        List<Image> image = imageDao.getAllImage();
         List<Bitmap> bitmaps = new ArrayList<>();
         if(image.isEmpty()){
             return null;
         }else{
             for(int i = 0; i < image.size(); i++){
-                bitmaps.add(importImageFromMemory(contentResolver, Uri.parse(image.get(i).getUri())));
+                try {
+                    bitmaps.add(importImageFromMemory(act, ctx, contentResolver, Uri.parse(image.get(i).getUri())));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
             return bitmaps;
         }
@@ -94,7 +99,11 @@ public class PhotoModel {
     }
 
 
-    public Bitmap importImageFromMemory(ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
+    public Bitmap importImageFromMemory(Activity act, Context ctx, ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
+        if(ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(act, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+        }
         InputStream inputStream = contentResolver.openInputStream(imageUri);
         return BitmapFactory.decodeStream(inputStream);
     }
