@@ -1,9 +1,15 @@
 package com.example.clothual.UI.welcome.LoginFragment;
 
 import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
+import static com.example.clothual.Util.Constant.COCO_CHANEL;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
+import static com.example.clothual.Util.Constant.DONATELLA_VERSACE;
+import static com.example.clothual.Util.Constant.GIANNI_VERSACE;
+import static com.example.clothual.Util.Constant.GIORGIO_ARMANI;
 import static com.example.clothual.Util.Constant.ID_ACCOUNT;
 import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
+import static com.example.clothual.Util.Constant.PIER_CARDIN;
+import static com.example.clothual.Util.Constant.RALPH_LAUREN;
 import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
 
 import android.content.Context;
@@ -11,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +46,7 @@ public class LoginFragment extends Fragment {
     Handler handler = new Handler();
     LoginModel loginModel;
     private Thread thread;
+    boolean check = true;
 
     public LoginFragment() { }
 
@@ -71,7 +79,7 @@ public class LoginFragment extends Fragment {
         binding.editTextUsername.setText(username);
         binding.editTextPassword.setText(password);
 
-/*
+
         Runnable runnable = new Runnable() {
             int i = 0;
             String [] strings = {GIANNI_VERSACE, RALPH_LAUREN, PIER_CARDIN, DONATELLA_VERSACE, GIORGIO_ARMANI, COCO_CHANEL};
@@ -90,12 +98,13 @@ public class LoginFragment extends Fragment {
                     }, 0);
                     //Add some downtime
                     SystemClock.sleep(5000);
-                }while (true);
+                }while (check);
             }
         };
 
         thread = new Thread(runnable);
-        thread.start();*/
+        thread.start();
+
         binding.buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +120,7 @@ public class LoginFragment extends Fragment {
                     editor.putInt(ACCESS_PREFERENCE, 1);
                     editor.putInt(ID_ACCOUNT, loginModel.idAccount(username));
                     editor.apply();
+                    check = false;
                     Intent intent = new Intent(requireContext(), CoreActivity.class);
                     startActivity(intent);
                 }else{
@@ -141,13 +151,4 @@ public class LoginFragment extends Fragment {
        });
 
     }
-
-    @Override
-    public void onDestroyView(){
-        super.onDestroyView();
-        binding = null;
-    }
-
-
-
 }

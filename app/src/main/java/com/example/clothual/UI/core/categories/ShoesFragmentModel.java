@@ -8,7 +8,6 @@ import com.example.clothual.Database.RoomDatabase;
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShoesFragmentModel {
@@ -30,8 +29,9 @@ public class ShoesFragmentModel {
     }
 
     public List<Clothual> getClothualList(){
-        List<Clothual> list = clothualDao.getAllClothual();
-        List<Clothual> shoes = new ArrayList<>();
+        //List<Clothual> list = clothualDao.getAllClothual();
+        return clothualDao.getAllClothual();
+        /*List<Clothual> shoes = new ArrayList<>();
         for(int i = 0; i < list.size(); i++){
             if(list.get(i).getType().equals("Shoes")){
                 shoes.add(list.get(i));
@@ -39,5 +39,6 @@ public class ShoesFragmentModel {
         }
         System.out.println(shoes.size());
         return shoes;
+    */
     }
 }

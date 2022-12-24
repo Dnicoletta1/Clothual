@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 import com.example.clothual.databinding.FragmentShoesBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -62,7 +63,12 @@ public class ShoesFragment extends Fragment {
             List<Image> image = model.getImageList();
             List<Clothual> clothual = model.getClothualList();
             RecyclerViewShoesAdapter adapter = new RecyclerViewShoesAdapter(clothual, image,
-                    getActivity().getContentResolver());
+                    getActivity().getContentResolver(), new RecyclerViewShoesAdapter.OnItemClickListener() {
+                @Override
+                public void onShoesClick(Clothual clothual) {
+                    Snackbar.make(view, clothual.getBrand(), Snackbar.LENGTH_LONG).show();
+                }
+            });
             binding.recyclerViewShoes.setLayoutManager(manager);
             binding.recyclerViewShoes.setAdapter(adapter);
 

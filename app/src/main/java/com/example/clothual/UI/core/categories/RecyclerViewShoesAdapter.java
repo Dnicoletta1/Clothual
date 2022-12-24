@@ -27,11 +27,17 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
     private final List<Clothual> clothualList;
     private final  List<Image> imageList;
     private final ContentResolver contentResolver;
+    private OnItemClickListener onItemClickListener;
+    public interface OnItemClickListener{
+        void onShoesClick(Clothual clothual);
+    }
 
-    public RecyclerViewShoesAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver){
+    public RecyclerViewShoesAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver,
+                                    OnItemClickListener onItemClickListener){
         this.clothualList = clothualList;
         this.imageList = imageList;
         this.contentResolver = contentResolver;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -59,7 +65,7 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
         return 0;
     }
 
-    public class ShoesViewHolder extends RecyclerView.ViewHolder{
+    public class ShoesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private final ImageView imageView;
 
@@ -67,14 +73,18 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
         private final TextView template;
         private final TextView color;
         private final TextView description;
+        private final ImageView edit;
 
         public ShoesViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageViewAdapterClothual);
-            brand = (TextView) itemView.findViewById(R.id.brand);
-            template = (TextView) itemView.findViewById(R.id.template);
-            color = (TextView) itemView.findViewById(R.id.color);
-            description = (TextView) itemView.findViewById(R.id.descritpion);
+            imageView = itemView.findViewById(R.id.imageViewAdapterClothual);
+            brand = itemView.findViewById(R.id.brand);
+            template = itemView.findViewById(R.id.template);
+            color = itemView.findViewById(R.id.color);
+            description = itemView.findViewById(R.id.descritpion);
+            edit = itemView.findViewById(R.id.edit);
+            itemView.setOnClickListener(this);
+
         }
 
         public void bind(Clothual clothual, String uri){
@@ -85,7 +95,6 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
             try {
                 imageView.setImageBitmap(importImageFromMemory(contentResolver, Uri.parse(uri)));
             } catch (FileNotFoundException e) {
-                imageView.setImageResource(R.drawable.ic_launcher_background);
             }
         }
 
@@ -94,5 +103,9 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
             return BitmapFactory.decodeStream(inputStream);
         }
 
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.onShoesClick(clothualList.get(getAdapterPosition()));
+        }
     }
 }

@@ -44,17 +44,23 @@ public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewP
         return 0;
     }
 
-    public class PhotoViewHolder extends RecyclerView.ViewHolder{
+    public class PhotoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private final ImageView imageView;
 
         public PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageViewAdapter);
+            imageView = itemView.findViewById(R.id.imageViewAdapter);
+
         }
 
         public void bind(Bitmap image){
             imageView.setImageBitmap(image);
+
+        }
+
+        @Override
+        public void onClick(View view) {
 
         }
     }
