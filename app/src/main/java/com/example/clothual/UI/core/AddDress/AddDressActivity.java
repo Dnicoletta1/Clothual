@@ -54,7 +54,24 @@ public class AddDressActivity extends AppCompatActivity {
         }
 
         buttonSave.setOnClickListener(view -> {
-            model.createClothual(spinner.getSelectedItem().toString(), brand.getText().toString(), description
+            int spinnerValue = 0;
+            if(spinner.getSelectedItem().toString().equals(getString(R.string.shoes))){
+                spinnerValue = 1;
+            }
+            if(spinner.getSelectedItem().toString().equals(getString(R.string.trousers))){
+                spinnerValue = 2;
+            }
+            if(spinner.getSelectedItem().toString().equals(getString(R.string.tshirt))){
+                spinnerValue = 3;
+            }
+            if(spinner.getSelectedItem().toString().equals(getString(R.string.jackets))){
+                spinnerValue = 4;
+            }
+            if(spinner.getSelectedItem().toString().equals(getString(R.string.jeans))){
+                spinnerValue = 5;
+            }
+
+            model.createClothual(spinnerValue, brand.getText().toString(), description
                     .getText().toString(), color.getText().toString(), template.getText().toString(), model.getIdByUri(uri));
             Intent intent = new Intent(AddDressActivity.this, CoreActivity.class);
             startActivity(intent);

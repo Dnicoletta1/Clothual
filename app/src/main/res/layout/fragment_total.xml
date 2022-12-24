@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.core.categories.Shoes.ShoesFragment">
-<!--
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/arrow_back_48px"
-        android:layout_marginTop="20dp"
-        tools:ignore="MissingConstraints" />-->
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewShoes"

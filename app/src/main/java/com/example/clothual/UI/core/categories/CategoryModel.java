@@ -8,16 +8,17 @@ import com.example.clothual.Database.RoomDatabase;
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ShoesFragmentModel {
+public class CategoryModel {
 
     public Application application;
     public RoomDatabase database;
     private ImageDao imageDao;
     private ClothualDao clothualDao;
 
-    public ShoesFragmentModel(Application application) {
+    public CategoryModel(Application application) {
         this.application = application;
         database = RoomDatabase.getDatabase(application);
         imageDao = database.imageDao();
@@ -28,17 +29,27 @@ public class ShoesFragmentModel {
         return imageDao.getAllImage();
     }
 
-    public List<Clothual> getClothualList(){
-        //List<Clothual> list = clothualDao.getAllClothual();
-        return clothualDao.getAllClothual();
-        /*List<Clothual> shoes = new ArrayList<>();
+   public List<Clothual> getShoesList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> shoes = new ArrayList<>();
         for(int i = 0; i < list.size(); i++){
-            if(list.get(i).getType().equals("Shoes")){
+            if(list.get(i).getType() == 1){
                 shoes.add(list.get(i));
             }
         }
-        System.out.println(shoes.size());
         return shoes;
-    */
+
+    }
+
+    public List<Clothual> getClothualList(){
+        return clothualDao.getAllClothual();
+    }
+
+    public void deleteClothual(Clothual clothual){
+        clothualDao.deleteClothual(clothual);
+    }
+
+    public void deleteImage(Image image){
+        imageDao.deleteImage(image);
     }
 }

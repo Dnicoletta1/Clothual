@@ -22,16 +22,26 @@
         <LinearLayout
             android:id="@+id/dati"
             android:layout_width="160dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             android:orientation="vertical"
             app:layout_constraintStart_toEndOf="@id/imageViewAdapterClothual"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/type"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/inter_semibold"
+                style="@style/textView"
+                android:textSize="20sp"/>
+
+            <TextView
                 android:id="@+id/brand"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

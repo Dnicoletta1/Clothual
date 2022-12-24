@@ -1,6 +1,7 @@
-package com.example.clothual.UI.core.categories;
+package com.example.clothual.UI.core.categories.Shoes;
 
 
+import android.app.Application;
 import android.content.ContentResolver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 import com.example.clothual.R;
+import com.example.clothual.UI.core.categories.CategoryModel;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -28,16 +31,19 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
     private final  List<Image> imageList;
     private final ContentResolver contentResolver;
     private OnItemClickListener onItemClickListener;
+    private Application application;
     public interface OnItemClickListener{
-        void onShoesClick(Clothual clothual);
+        //void onShoesClick(Clothual clothual);
+        void buttonDelete(String notify);
     }
 
     public RecyclerViewShoesAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver,
-                                    OnItemClickListener onItemClickListener){
+                                    OnItemClickListener onItemClickListener, Application application){
         this.clothualList = clothualList;
         this.imageList = imageList;
         this.contentResolver = contentResolver;
         this.onItemClickListener = onItemClickListener;
+        this.application = application;
     }
 
     @NonNull
@@ -73,7 +79,8 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
         private final TextView template;
         private final TextView color;
         private final TextView description;
-        private final ImageView edit;
+        private final Button delite;
+        private final CategoryModel model;
 
         public ShoesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,8 +89,10 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
             template = itemView.findViewById(R.id.template);
             color = itemView.findViewById(R.id.color);
             description = itemView.findViewById(R.id.descritpion);
-            edit = itemView.findViewById(R.id.edit);
+            delite = itemView.findViewById(R.id.delite);
+            model = new CategoryModel(application);
             itemView.setOnClickListener(this);
+            delite.setOnClickListener(this);
 
         }
 
@@ -105,7 +114,32 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
 
         @Override
         public void onClick(View view) {
-            onItemClickListener.onShoesClick(clothualList.get(getAdapterPosition()));
+           /* if(view.getId() == R.id.delite){
+                String string = clothualList.get(getAdapterPosition()).getBrand() + " " +
+                        clothualList.get(getAdapterPosition()).getTemplate();
+                model.deleteImage(imageList.get(getAdapterPosition()));
+                model.deleteClothual(clothualList.get(getAdapterPosition()));
+                imageList.remove(getAdapterPosition());
+                clothualList.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
+                onItemClickListener.buttonDelete(string);
+            }
+
+            */
+            switch (view.getId()){
+                case R.id.delite:
+                    String string = clothualList.get(getAdapterPosition()).getBrand() + " " +
+                            clothualList.get(getAdapterPosition()).getTemplate();
+                    model.deleteImage(imageList.get(getAdapterPosition()));
+                    model.deleteClothual(clothualList.get(getAdapterPosition()));
+                    imageList.remove(getAdapterPosition());
+                    clothualList.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+                    onItemClickListener.buttonDelete(string);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

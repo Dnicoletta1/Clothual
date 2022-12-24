@@ -9,14 +9,14 @@ public class Clothual {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String type;
+    private int type;
     private String brand;
     private String description;
     private String color;
     private String template;
     private int idImage;
 
-    public Clothual(String type, String brand, String description, String color, String template, int idImage) {
+    public Clothual(int type, String brand, String description, String color, String template, int idImage) {
         this.type = type;
         this.brand = brand;
         this.description = description;
@@ -33,11 +33,11 @@ public class Clothual {
         this.id = id;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

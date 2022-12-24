@@ -4,6 +4,7 @@ import static com.example.clothual.Util.Query.GET_ID_BY_URI;
 import static com.example.clothual.Util.Query.SELECT_ALL_IMAGE;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -23,5 +24,8 @@ public interface ImageDao {
 
     @Query(GET_ID_BY_URI)
     int getIDByUri(String uri);
+
+    @Delete
+    void deleteImage(Image image);
 
 }

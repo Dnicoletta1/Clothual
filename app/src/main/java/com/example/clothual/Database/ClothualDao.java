@@ -4,6 +4,7 @@ import static com.example.clothual.Util.Query.SELECT_ALL_CLOTHAUL;
 import static com.example.clothual.Util.Query.SELECT_ALL_SHOES;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -22,5 +23,8 @@ public interface ClothualDao {
 
     @Query(SELECT_ALL_SHOES)
     List<Clothual> getAllShoes();
+
+    @Delete
+    void deleteClothual(Clothual clothual);
 
 }

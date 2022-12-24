@@ -125,27 +125,38 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="60dp"
         android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp">
+            android:layout_height="match_parent">
 
-            <ImageView
+            <Button
+                android:id="@+id/total"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Tutto"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <Button
                 android:id="@+id/scarpe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/scarpe"
+                android:layout_below="@id/total"
+                android:layout_marginTop="30dp"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <ImageView
+            <Button
                 android:id="@+id/pantaloni"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/scarpe"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/pantaloni"
@@ -177,7 +188,21 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/jeans"/>
 
+            <Button
+                android:id="@+id/preferiti"
+                android:layout_below="@id/jeans"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Preferiti"
+                android:layout_marginTop="30dp"/>
 
+            <Button
+                android:id="@+id/mappa"
+                android:layout_below="@id/preferiti"
+                android:layout_width="match_parent"
+                android:text="Mappa"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"/>
         </RelativeLayout>
     </ScrollView>
 

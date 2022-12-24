@@ -90,13 +90,16 @@ public class HomeFragment extends Fragment {
         });
 */
 
-        binding.scarpe.setOnClickListener(new View.OnClickListener() {
+        binding.mappa.setOnClickListener(view12 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_mapFragment));
+
+        binding.scarpe.setOnClickListener(view1 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_shoesFragment));
+
+        binding.total.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_shoesFragment);
+                Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_totalFragment);
             }
         });
-
     }
 
 

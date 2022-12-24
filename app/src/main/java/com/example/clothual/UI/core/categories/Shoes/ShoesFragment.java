@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.categories;
+package com.example.clothual.UI.core.categories.Shoes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
+import com.example.clothual.UI.core.categories.CategoryModel;
 import com.example.clothual.databinding.FragmentShoesBinding;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,7 +27,7 @@ import java.util.List;
 public class ShoesFragment extends Fragment {
 
     private FragmentShoesBinding binding;
-    private ShoesFragmentModel model;
+    private CategoryModel model;
     public ShoesFragment() {
 
     }
@@ -45,7 +46,7 @@ public class ShoesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new ShoesFragmentModel(requireActivity().getApplication());
+        model = new CategoryModel(requireActivity().getApplication());
     }
 
     @Override
@@ -61,14 +62,14 @@ public class ShoesFragment extends Fragment {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(requireContext());
 
             List<Image> image = model.getImageList();
-            List<Clothual> clothual = model.getClothualList();
+            List<Clothual> clothual = model.getShoesList();
             RecyclerViewShoesAdapter adapter = new RecyclerViewShoesAdapter(clothual, image,
                     getActivity().getContentResolver(), new RecyclerViewShoesAdapter.OnItemClickListener() {
                 @Override
-                public void onShoesClick(Clothual clothual) {
-                    Snackbar.make(view, clothual.getBrand(), Snackbar.LENGTH_LONG).show();
+                public void buttonDelete(String notify) {
+                    Snackbar.make(view, notify, Snackbar.LENGTH_LONG).show();
                 }
-            });
+            }, getActivity().getApplication());
             binding.recyclerViewShoes.setLayoutManager(manager);
             binding.recyclerViewShoes.setAdapter(adapter);
 
