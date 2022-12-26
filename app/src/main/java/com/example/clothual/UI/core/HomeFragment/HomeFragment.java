@@ -94,12 +94,9 @@ public class HomeFragment extends Fragment {
 
         binding.scarpe.setOnClickListener(view1 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_shoesFragment));
 
-        binding.total.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_totalFragment);
-            }
-        });
+        binding.total.setOnClickListener(view13 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_totalFragment));
+
+        binding.preferiti.setOnClickListener(view14 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_preferiteFragment));
     }
 
 

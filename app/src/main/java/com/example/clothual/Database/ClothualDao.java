@@ -7,6 +7,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.clothual.Model.Clothual;
 
@@ -26,5 +27,8 @@ public interface ClothualDao {
 
     @Delete
     void deleteClothual(Clothual clothual);
+
+    @Update
+    void updateClothual(Clothual clothual);
 
 }

@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.categories.Total;
+package com.example.clothual.UI.core.categories.Preferite;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,22 +15,22 @@ import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 import com.example.clothual.UI.core.adapter.RecyclerViewClothualAdapter;
 import com.example.clothual.UI.core.categories.CategoryModel;
-import com.example.clothual.databinding.FragmentTotalBinding;
+import com.example.clothual.databinding.FragmentPreferiteBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TotalFragment#newInstance} factory method to
+ * Use the {@link PreferiteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TotalFragment extends Fragment {
+public class PreferiteFragment extends Fragment {
 
-   public FragmentTotalBinding binding;
-   public CategoryModel model;
+    private FragmentPreferiteBinding binding;
+    public CategoryModel model;
 
-    public TotalFragment() {
+    public PreferiteFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +38,11 @@ public class TotalFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment TotalFragment.
+     * @return A new instance of fragment PreferiteFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TotalFragment newInstance() {
-        return new TotalFragment();
+    public static PreferiteFragment newInstance() {
+       return new PreferiteFragment();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class TotalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentTotalBinding.inflate(getLayoutInflater());
+        binding = FragmentPreferiteBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 
@@ -64,7 +64,7 @@ public class TotalFragment extends Fragment {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(requireContext());
 
         List<Image> image = model.getImageList();
-        List<Clothual> clothual = model.getClothualList();
+        List<Clothual> clothual = model.getPreferiteList();
         RecyclerViewClothualAdapter adapter = new RecyclerViewClothualAdapter(clothual, image,
                 getActivity().getContentResolver(), new RecyclerViewClothualAdapter.OnItemClickListener() {
             @Override
@@ -77,9 +77,7 @@ public class TotalFragment extends Fragment {
                 Snackbar.make(view, favorite, Snackbar.LENGTH_LONG).show();
             }
         }, getActivity().getApplication());
-        binding.recyclerViewTotal.setLayoutManager(manager);
-        binding.recyclerViewTotal.setAdapter(adapter);
-
+        binding.recyclerViewPreferite.setLayoutManager(manager);
+        binding.recyclerViewPreferite.setAdapter(adapter);
     }
-
 }

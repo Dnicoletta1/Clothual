@@ -45,6 +45,17 @@ public class CategoryModel {
         return clothualDao.getAllClothual();
     }
 
+    public List<Clothual> getPreferiteList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> preferite = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).isPreferite()){
+                preferite.add(list.get(i));
+            }
+        }
+        return preferite;
+    }
+
     public void deleteClothual(Clothual clothual){
         clothualDao.deleteClothual(clothual);
     }
@@ -52,4 +63,9 @@ public class CategoryModel {
     public void deleteImage(Image image){
         imageDao.deleteImage(image);
     }
+
+    public void updateClothaulElement(Clothual clothual){
+        clothualDao.updateClothual(clothual);
+    }
+
 }

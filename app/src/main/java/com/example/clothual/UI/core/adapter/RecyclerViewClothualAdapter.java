@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.categories.Total;
+package com.example.clothual.UI.core.adapter;
 
 
 import android.app.Application;
@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,20 +25,21 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
-public class RecyclerViewTotalAdapter extends RecyclerView.Adapter<RecyclerViewTotalAdapter.ShoesViewHolder> {
+public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerViewClothualAdapter.ShoesViewHolder> {
 
     private final List<Clothual> clothualList;
     private final  List<Image> imageList;
     private final ContentResolver contentResolver;
     private OnItemClickListener onItemClickListener;
     private Application application;
+
     public interface OnItemClickListener{
-        //void onShoesClick(Clothual clothual);
         void buttonDelete(String notify);
+        void buttonFavorite(String favorite);
     }
 
-    public RecyclerViewTotalAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver,
-                                    OnItemClickListener onItemClickListener, Application application){
+    public RecyclerViewClothualAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver,
+                                       OnItemClickListener onItemClickListener, Application application){
         this.clothualList = clothualList;
         this.imageList = imageList;
         this.contentResolver = contentResolver;
@@ -74,14 +75,15 @@ public class RecyclerViewTotalAdapter extends RecyclerView.Adapter<RecyclerViewT
     public class ShoesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private final ImageView imageView;
-
+        private String favoriteString;
         private final TextView brand;
         private final TextView template;
         private final TextView color;
         private final TextView description;
-        private final Button delite;
+        private final ImageButton delite;
         private final CategoryModel model;
         private final TextView type;
+        private final ImageButton favorite;
 
         public ShoesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,13 +94,21 @@ public class RecyclerViewTotalAdapter extends RecyclerView.Adapter<RecyclerViewT
             description = itemView.findViewById(R.id.descritpion);
             delite = itemView.findViewById(R.id.delite);
             type = itemView.findViewById(R.id.type);
+            favorite = itemView.findViewById(R.id.favorite);
             model = new CategoryModel(application);
             itemView.setOnClickListener(this);
             delite.setOnClickListener(this);
-
+            favorite.setOnClickListener(this);
         }
 
         public void bind(Clothual clothual, String uri){
+
+            if(clothual.isPreferite()){
+                favorite.setImageResource(R.drawable.favorite_fil_48px);
+            }else{
+                favorite.setImageResource(R.drawable.favorite_48px);
+            }
+
             brand.setText(clothual.getBrand());
             template.setText(clothual.getTemplate());
             color.setText(clothual.getColor());
@@ -136,7 +146,7 @@ public class RecyclerViewTotalAdapter extends RecyclerView.Adapter<RecyclerViewT
             switch (view.getId()){
                 case R.id.delite:
                     String string = clothualList.get(getAdapterPosition()).getBrand() + " " +
-                            clothualList.get(getAdapterPosition()).getTemplate();
+                            clothualList.get(getAdapterPosition()).getTemplate() + " has been deleted";
                     model.deleteImage(imageList.get(getAdapterPosition()));
                     model.deleteClothual(clothualList.get(getAdapterPosition()));
                     imageList.remove(getAdapterPosition());
@@ -144,6 +154,25 @@ public class RecyclerViewTotalAdapter extends RecyclerView.Adapter<RecyclerViewT
                     notifyItemRemoved(getAdapterPosition());
                     onItemClickListener.buttonDelete(string);
                     break;
+
+                case R.id.favorite:
+                    if(!clothualList.get(getAdapterPosition()).isPreferite()){
+                        favorite.setImageResource(R.drawable.favorite_fil_48px);
+                        clothualList.get(getAdapterPosition()).setPreferite(true);
+                        model.updateClothaulElement(clothualList.get(getAdapterPosition()));
+                        notifyItemChanged(getAdapterPosition());
+                        favoriteString = "Add to Preferite";
+                    }else{
+                        favorite.setImageResource(R.drawable.favorite_fil_48px);
+                        clothualList.get(getAdapterPosition()).setPreferite(false);
+                        model.updateClothaulElement(clothualList.get(getAdapterPosition()));
+                        notifyItemChanged(getAdapterPosition());
+                        favoriteString = "Removed by Preferite";
+                    }
+                    onItemClickListener.buttonFavorite(favoriteString);
+                    break;
+
+
                 default:
                     break;
             }

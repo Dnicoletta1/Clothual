@@ -51,7 +51,7 @@
     <string name="shoes">Shoes</string>
     <string name="trousers">Trousers</string>
     <string name="tshirt" translatable="false">T-Shirt</string>
-    <string name="jackets">Jackets</string>
+    <string name="jackets">Jacket</string>
     <string name="jeans" translatable="false">Jeans</string>
 
     <array name="type">
@@ -61,7 +61,5 @@
         <item>@string/jackets</item>
         <item>@string/jeans</item>
     </array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

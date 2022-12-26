@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_totalFragment"
             app:destination="@id/totalFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_preferiteFragment"
+            app:destination="@id/preferiteFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -78,6 +81,11 @@
         android:id="@+id/totalFragment"
         android:name="com.example.clothual.UI.core.categories.Total.TotalFragment"
         android:label="TotalFragment" />
+    <fragment
+        android:id="@+id/preferiteFragment"
+        android:name="com.example.clothual.UI.core.categories.Preferite.PreferiteFragment"
+        android:label="fragment_preferite"
+        tools:layout="@layout/fragment_preferite" />
 
 
 </navigation>

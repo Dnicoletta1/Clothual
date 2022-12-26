@@ -33,7 +33,6 @@ public class RecyclerViewShoesAdapter extends RecyclerView.Adapter<RecyclerViewS
     private OnItemClickListener onItemClickListener;
     private Application application;
     public interface OnItemClickListener{
-        //void onShoesClick(Clothual clothual);
         void buttonDelete(String notify);
     }
 

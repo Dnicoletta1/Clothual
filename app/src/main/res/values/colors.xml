@@ -10,4 +10,5 @@
     <color name="grey">#818181</color>
     <color name="grey_persona_layout">#D4D5D5</color>
     <color name="celeste">#8DCDFF</color>
+    <color name="backGroundAdapter">#999999</color>
 </resources>
