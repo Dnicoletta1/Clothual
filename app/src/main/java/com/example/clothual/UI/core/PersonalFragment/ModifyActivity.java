@@ -1,11 +1,8 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
-import static com.example.clothual.Util.Constant.EMAIL_CHANGE;
 import static com.example.clothual.Util.Constant.ID_ACCOUNT;
-import static com.example.clothual.Util.Constant.PASSWORD_CHANGE;
 import static com.example.clothual.Util.Constant.URI;
-import static com.example.clothual.Util.Constant.USERNAME_CHANGE;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.clothual.Model.Account;
 import com.example.clothual.R;
 import com.example.clothual.UI.core.AddDress.AddDressActivity;
 import com.example.clothual.UI.core.CoreActivity;
@@ -44,7 +42,6 @@ public class ModifyActivity extends AppCompatActivity {
         modifyModel = new ModifyModel(getApplication());
         share = getSharedPreferences(CREDENTIALS_LOGIN_FILE, MODE_PRIVATE);
         SharedPreferences sharedPref = getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
 
         if(sharedPref.getString(URI, " ").equals(" ")){
             binding.imagePersonal.setImageResource(R.drawable.avatar);
@@ -125,24 +122,27 @@ public class ModifyActivity extends AppCompatActivity {
             dubbio sull'allocazione di memoria che potrebbe non essere mai utilizzata
         */
         binding.close.setOnClickListener(view18 -> {
-            int i = 0;
+            int id = sharedPref.getInt(ID_ACCOUNT, 0);
+            Account account = modifyModel.getAccountByID(id);
             if(binding.editTextEmail.isEnabled()){
                 if(modifyModel.checkEmail(binding.editTextEmail.getText().toString())){
                     binding.inputViewEmail.setError(null);
-                    editor.putString(EMAIL_CHANGE, binding.editTextEmail.getText().toString());
+                    //editor.putString(EMAIL_CHANGE, binding.editTextEmail.getText().toString());
+                    account.setEmail(binding.editTextEmail.getText().toString());
                 }else{
                     binding.inputViewEmail.setError("Mail non valida");
-                    editor.putString(EMAIL_CHANGE, modifyModel.getEmail(sharedPref.getInt(ID_ACCOUNT, 0)));
+                    //editor.putString(EMAIL_CHANGE, modifyModel.getEmail(sharedPref.getInt(ID_ACCOUNT, 0)));
                 }
             }
 
             if(binding.editTextUsername.isEnabled()){
                 if(binding.editTextUsername.getText().toString().isEmpty()){
                     binding.inputUsername.setError("Username non valido");
-                    i++;
+
                 }else{
                     binding.inputUsername.setError(null);
-                    editor.putString(USERNAME_CHANGE, binding.editTextUsername.getText().toString());
+                    account.setUsername(binding.editTextUsername.getText().toString());
+                    //editor.putString(USERNAME_CHANGE, binding.editTextUsername.getText().toString());
                 }
             }
 
@@ -150,22 +150,27 @@ public class ModifyActivity extends AppCompatActivity {
                 if(modifyModel.checkPassword(binding.editTextUsername.getText().toString(), sharedPref.getInt(ID_ACCOUNT, 0))){
                     if(binding.editTextPasswordNuovo.getText().toString().isEmpty()){
                         binding.inputPassword.setError("Password non valida");
-                        i++;
+
                     }else{
                         binding.inputPassword.setError(null);
-                        editor.putString(PASSWORD_CHANGE, binding.editTextPasswordNuovo.getText().toString());
+                        //editor.putString(PASSWORD_CHANGE, );
+                        account.setPassword(binding.editTextPasswordNuovo.getText().toString());
                     }
                 }else{
                     binding.inputPassword.setError("Password Errata");
-                    i++;
+
                 }
             }
 
-            if(i == 0){
+            /*if(i == 0){
                 modifyModel.update(sharedPref.getInt(ID_ACCOUNT, 0));
                 Intent intent = new Intent(ModifyActivity.this, CoreActivity.class);
                 startActivity(intent);
             }
+
+             */
+
+            modifyModel.upoloadEditAccount(account);
         });
 
         binding.cancel.setOnClickListener(view1 -> {
@@ -214,6 +219,8 @@ public class ModifyActivity extends AppCompatActivity {
             }
         }
     }
+
+
     void imageChooser() {
 
         // create an instance of the

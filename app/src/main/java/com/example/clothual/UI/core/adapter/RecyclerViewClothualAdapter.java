@@ -19,13 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 import com.example.clothual.R;
-import com.example.clothual.UI.core.categories.CategoryModel;
+import com.example.clothual.UI.core.Categories.CategoryModel;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
-public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerViewClothualAdapter.ShoesViewHolder> {
+public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerViewClothualAdapter.ClothualViewHolder> {
 
     private final List<Clothual> clothualList;
     private final  List<Image> imageList;
@@ -36,6 +36,7 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
     public interface OnItemClickListener{
         void buttonDelete(String notify);
         void buttonFavorite(String favorite);
+        void buttonEdit(String uri, int action , int id);
     }
 
     public RecyclerViewClothualAdapter(List<Clothual> clothualList, List<Image> imageList, ContentResolver contentResolver,
@@ -49,15 +50,15 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @NonNull
     @Override
-    public ShoesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ClothualViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.clothual_total_adapter,
                 parent, false);
-        return  new ShoesViewHolder(view);
+        return  new ClothualViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShoesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ClothualViewHolder holder, int position) {
         int image = clothualList.get(position).getIdImage();
         if(imageList.get(position).getID() == image){
             holder.bind(clothualList.get(position), imageList.get(position).getUri());
@@ -72,7 +73,7 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
         return 0;
     }
 
-    public class ShoesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ClothualViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private final ImageView imageView;
         private String favoriteString;
@@ -84,8 +85,9 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
         private final CategoryModel model;
         private final TextView type;
         private final ImageButton favorite;
+        private final ImageButton edit;
 
-        public ShoesViewHolder(@NonNull View itemView) {
+        public ClothualViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageViewAdapterClothual);
             brand = itemView.findViewById(R.id.brand);
@@ -95,14 +97,15 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
             delite = itemView.findViewById(R.id.delite);
             type = itemView.findViewById(R.id.type);
             favorite = itemView.findViewById(R.id.favorite);
+            edit = itemView.findViewById(R.id.edit);
             model = new CategoryModel(application);
             itemView.setOnClickListener(this);
             delite.setOnClickListener(this);
             favorite.setOnClickListener(this);
+            edit.setOnClickListener(this);
         }
 
         public void bind(Clothual clothual, String uri){
-
             if(clothual.isPreferite()){
                 favorite.setImageResource(R.drawable.favorite_fil_48px);
             }else{
@@ -172,6 +175,9 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
                     onItemClickListener.buttonFavorite(favoriteString);
                     break;
 
+                case R.id.edit:
+                    onItemClickListener.buttonEdit(imageList.get(getAdapterPosition()).getUri(), 1,
+                            clothualList.get(getAdapterPosition()).getId());
 
                 default:
                     break;

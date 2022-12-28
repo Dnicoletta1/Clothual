@@ -1,18 +1,13 @@
 package com.example.clothual.UI.core.PersonalFragment;
 
-import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
-import static com.example.clothual.Util.Constant.EMAIL_CHANGE;
-import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
 import static com.example.clothual.Util.Constant.PATTERN_DATE_FORMAT;
 import static com.example.clothual.Util.Constant.PATTERN_HOUR_FORMAT;
-import static com.example.clothual.Util.Constant.USERNAME_CHANGE;
 
 import android.app.Activity;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -21,10 +16,11 @@ import android.provider.MediaStore;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.clothual.Database.ImageDao;
-import com.example.clothual.Model.Account;
 import com.example.clothual.Database.AccountDao;
+import com.example.clothual.Database.ClothualDao;
+import com.example.clothual.Database.ImageDao;
 import com.example.clothual.Database.RoomDatabase;
+import com.example.clothual.Model.Account;
 import com.example.clothual.Model.Image;
 
 import org.apache.commons.validator.routines.EmailValidator;
@@ -45,12 +41,14 @@ public class ModifyModel {
     public RoomDatabase database;
     private final AccountDao accountDao;
     public final ImageDao imageDao;
+    public final ClothualDao clothualDao;
 
     public ModifyModel(Application application) {
         this.application = application;
         database = RoomDatabase.getDatabase(application);
         accountDao = database.daoAccount();
         imageDao = database.imageDao();
+        clothualDao = database.clothualDao();
     }
 
     public boolean checkPassword(String password, int id){
@@ -75,14 +73,6 @@ public class ModifyModel {
         return accountDao.getUsername(id);
     }
 
-
-    public void update(int id){
-        SharedPreferences sharePref = application.getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
-        Account account = new Account(sharePref.getString(USERNAME_CHANGE, ""), sharePref.getString(EMAIL_CHANGE, ""),
-                sharePref.getString(PASSWORD_PREFERENCE, ""));
-        account.setId(id);
-        accountDao.updateAccount(account);
-    }
 
     public Uri saveImage(ContentResolver contentResolver, Bitmap image, String title, String description) throws IOException {
         return saveImageToMemory( contentResolver,  image,  title,  description);
@@ -129,6 +119,14 @@ public class ModifyModel {
     public Bitmap importImageFromMemory(Activity act, Context ctx, ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
         InputStream inputStream = contentResolver.openInputStream(imageUri);
         return BitmapFactory.decodeStream(inputStream);
+    }
+
+    public Account getAccountByID(int id){
+        return accountDao.getAccountID(id);
+    }
+
+    public void upoloadEditAccount(Account account){
+        accountDao.updateAccount(account);
     }
 
 }

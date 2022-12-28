@@ -1,5 +1,6 @@
-package com.example.clothual.UI.core.categories.Total;
+package com.example.clothual.UI.core.Categories.Total;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
+import com.example.clothual.UI.core.AddDress.AddDressActivity;
 import com.example.clothual.UI.core.adapter.RecyclerViewClothualAdapter;
-import com.example.clothual.UI.core.categories.CategoryModel;
+import com.example.clothual.UI.core.Categories.CategoryModel;
 import com.example.clothual.databinding.FragmentTotalBinding;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -67,6 +69,16 @@ public class TotalFragment extends Fragment {
         List<Clothual> clothual = model.getClothualList();
         RecyclerViewClothualAdapter adapter = new RecyclerViewClothualAdapter(clothual, image,
                 getActivity().getContentResolver(), new RecyclerViewClothualAdapter.OnItemClickListener() {
+
+            @Override
+            public void buttonEdit(String uri, int action, int id) {
+                Intent intent = new Intent(getActivity(), AddDressActivity.class);
+                intent.putExtra("uri", uri);
+                intent.putExtra("action", 1);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+
             @Override
             public void buttonDelete(String notify) {
                 Snackbar.make(view, notify, Snackbar.LENGTH_LONG).show();

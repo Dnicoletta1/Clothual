@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.PhotoFragment;
+package com.example.clothual.UI.core.adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;

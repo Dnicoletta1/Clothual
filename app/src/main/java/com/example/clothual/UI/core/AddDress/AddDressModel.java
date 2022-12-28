@@ -45,4 +45,12 @@ public class AddDressModel {
         clothualDao.insertClothual(clothual);
     }
 
+    public Clothual getClothualByID(int id){
+        return clothualDao.getClothualByID(id);
+    }
+
+    public void update(Clothual clothual){
+        clothualDao.updateClothual(clothual);
+    }
+
 }

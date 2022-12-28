@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothual.UI.core.AddDress.AddDressActivity;
+import com.example.clothual.UI.core.adapter.RecyclerViewPhotoAdapter;
 import com.example.clothual.databinding.FragmentPhotoBinding;
 
 import java.io.FileNotFoundException;
@@ -166,6 +167,7 @@ public class PhotoFragment extends Fragment {
                 uri = photoModel.saveImage(getActivity().getContentResolver(), immagine, photoModel.getNameImage(), "");
                 Intent intent = new Intent(getActivity(), AddDressActivity.class);
                 intent.putExtra("uri", uri.toString());
+                intent.putExtra("action", 0);
                 startActivity(intent);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -180,6 +182,7 @@ public class PhotoFragment extends Fragment {
                             photoModel.getNameImage(), "");
                     Intent intent = new Intent(getActivity(), AddDressActivity.class);
                     intent.putExtra("uri", newUri.toString());
+                    intent.putExtra("action", 0);
                     startActivity(intent);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

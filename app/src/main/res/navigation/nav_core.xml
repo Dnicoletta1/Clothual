@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoesFragment"
-        android:name="com.example.clothual.UI.core.categories.Shoes.ShoesFragment"
+        android:name="com.example.clothual.UI.core.Categories.Shoes.ShoesFragment"
         android:label="fragment_shoes"
         tools:layout="@layout/fragment_shoes" />
     <fragment
@@ -79,11 +79,11 @@
         tools:layout="@layout/fragment_matching" />
     <fragment
         android:id="@+id/totalFragment"
-        android:name="com.example.clothual.UI.core.categories.Total.TotalFragment"
+        android:name="com.example.clothual.UI.core.Categories.Total.TotalFragment"
         android:label="TotalFragment" />
     <fragment
         android:id="@+id/preferiteFragment"
-        android:name="com.example.clothual.UI.core.categories.Preferite.PreferiteFragment"
+        android:name="com.example.clothual.UI.core.Categories.Preferite.PreferiteFragment"
         android:label="fragment_preferite"
         tools:layout="@layout/fragment_preferite" />
 

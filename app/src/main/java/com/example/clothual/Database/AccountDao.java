@@ -1,5 +1,6 @@
 package com.example.clothual.Database;
 
+import static com.example.clothual.Util.Query.GET_ACCOUNT_BY_ID;
 import static com.example.clothual.Util.Query.GET_EMAIL;
 import static com.example.clothual.Util.Query.GET_ID;
 import static com.example.clothual.Util.Query.GET_PASSWORD;
@@ -40,6 +41,9 @@ public interface AccountDao {
 
     @Query(GET_PASSWORD)
     String getPassword(int idAccount);
+
+    @Query(GET_ACCOUNT_BY_ID)
+    Account getAccountID(int idAccount);
 
     @Update
     void updateAccount(Account account);

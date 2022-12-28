@@ -12,13 +12,13 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.clothual.Model.Clothual;
 import com.example.clothual.R;
 import com.example.clothual.UI.core.CoreActivity;
 
 import java.io.FileNotFoundException;
 
 public class AddDressActivity extends AppCompatActivity {
-
 
     public AddDressModel model;
     public ImageView imageViewDress;
@@ -45,12 +45,22 @@ public class AddDressActivity extends AppCompatActivity {
         buttonSave = findViewById(R.id.save);
 
         String uri = getIntent().getExtras().getString("uri");
+        int action = getIntent().getExtras().getInt("action");
+        int id = getIntent().getExtras().getInt("id");
 
         try {
             Bitmap image = model.importImageFromMemory(getContentResolver(), Uri.parse(uri));
             imageViewDress.setImageBitmap(image);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+
+        if(action == 1){
+            Clothual clothual = model.getClothualByID(id);
+            brand.setText(clothual.getBrand());
+            template.setText(clothual.getTemplate());
+            color.setText(clothual.getColor());
+            description.setText(clothual.getDescription());
         }
 
         buttonSave.setOnClickListener(view -> {
@@ -71,15 +81,30 @@ public class AddDressActivity extends AppCompatActivity {
                 spinnerValue = 5;
             }
 
-            model.createClothual(spinnerValue, brand.getText().toString(), description
-                    .getText().toString(), color.getText().toString(), template.getText().toString(), model.getIdByUri(uri));
-            Intent intent = new Intent(AddDressActivity.this, CoreActivity.class);
-            startActivity(intent);
+            switch(action){
+                case 0:
+                    model.createClothual(spinnerValue, brand.getText().toString(), description
+                            .getText().toString(), color.getText().toString(), template.getText().toString(), model.getIdByUri(uri));
+                    Intent intentFirstAction = new Intent(AddDressActivity.this, CoreActivity.class);
+                    startActivity(intentFirstAction);
+                    break;
+
+                case 1:
+                    Clothual clothual = model.getClothualByID(id);
+                    clothual.setType(spinnerValue);
+                    clothual.setBrand(brand.getText().toString());
+                    clothual.setDescription(description.getText().toString());
+                    clothual.setColor(color.getText().toString());
+                    clothual.setTemplate(template.getText().toString());
+                    model.update(clothual);
+                    Intent intentSecondAction = new Intent(AddDressActivity.this, CoreActivity.class);
+                    startActivity(intentSecondAction);
+                    break;
+
+                default:
+                    break;
+
+            }
         });
-
-
-
     }
-
-
 }
