@@ -1,16 +1,6 @@
 package com.example.clothual.UI.welcome.LoginFragment;
 
-import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
-import static com.example.clothual.Util.Constant.COCO_CHANEL;
-import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
-import static com.example.clothual.Util.Constant.DONATELLA_VERSACE;
-import static com.example.clothual.Util.Constant.GIANNI_VERSACE;
-import static com.example.clothual.Util.Constant.GIORGIO_ARMANI;
-import static com.example.clothual.Util.Constant.ID_ACCOUNT;
-import static com.example.clothual.Util.Constant.PASSWORD_PREFERENCE;
-import static com.example.clothual.Util.Constant.PIER_CARDIN;
-import static com.example.clothual.Util.Constant.RALPH_LAUREN;
-import static com.example.clothual.Util.Constant.USERNAME_PREFERENCE;
+import static com.example.clothual.Util.Constant.*;
 
 import android.content.Context;
 import android.content.Intent;
@@ -80,6 +70,7 @@ public class LoginFragment extends Fragment {
         binding.editTextPassword.setText(password);
 
 
+
         Runnable runnable = new Runnable() {
             int i = 0;
             String [] strings = {GIANNI_VERSACE, RALPH_LAUREN, PIER_CARDIN, DONATELLA_VERSACE, GIORGIO_ARMANI, COCO_CHANEL};
@@ -131,24 +122,21 @@ public class LoginFragment extends Fragment {
             }
         });
 
-       binding.textViewRegister.setOnClickListener(new View.OnClickListener() {
-           @SuppressWarnings("deprecation")
-           @Override
-           public void onClick(View view) {
+       binding.textViewRegister.setOnClickListener(view12 -> {
 
-               //    thread.interrupt();
+           //    thread.interrupt();
 
-               Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_fragment_registration);
-           }
+           Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_fragment_registration);
        });
 
-       binding.signInButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent intent = new Intent(requireContext(), CoreActivity.class);
-               startActivity(intent);
-           }
+       binding.signInButton.setOnClickListener(view1 -> {
+           Intent intent = new Intent(requireContext(), CoreActivity.class);
+           startActivity(intent);
        });
+
+
+
+
 
     }
 }

@@ -15,5 +15,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation_logo_login_registration" />
+        app:navGraph="@navigation/nav_welcome" />
 </androidx.constraintlayout.widget.ConstraintLayout>

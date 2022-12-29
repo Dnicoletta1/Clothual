@@ -116,11 +116,6 @@ public class ModifyActivity extends AppCompatActivity {
         });
 
 
-        /*  Salvo le informazioni in un sharePreference, passo i dati al model, crea l'oggetto con i dati nuovi nelle preference
-            o li recupera dal database.
-            In alternativa creare una classe DBfittizio che salva questi dati momentaneamente e si resetta ad ogni attivazione:
-            dubbio sull'allocazione di memoria che potrebbe non essere mai utilizzata
-        */
         binding.close.setOnClickListener(view18 -> {
             int id = sharedPref.getInt(ID_ACCOUNT, 0);
             Account account = modifyModel.getAccountByID(id);
@@ -161,14 +156,6 @@ public class ModifyActivity extends AppCompatActivity {
 
                 }
             }
-
-            /*if(i == 0){
-                modifyModel.update(sharedPref.getInt(ID_ACCOUNT, 0));
-                Intent intent = new Intent(ModifyActivity.this, CoreActivity.class);
-                startActivity(intent);
-            }
-
-             */
 
             modifyModel.upoloadEditAccount(account);
         });

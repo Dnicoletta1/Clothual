@@ -17,7 +17,6 @@ public class Constant {
     public static final String URI = "uri";
 
     //Scritte iniziali
-
     public static final String GIANNI_VERSACE = (char)34 + "Non seguire i trend. Non lasciare che la moda ti possieda, sii tu a " +
             "decidere chi sei, ciò che vuoi esprimere nel modo in cui vesti e il modo in cui vivi" + (char)34 +" - Gianni Versace";
 
@@ -33,14 +32,15 @@ public class Constant {
 
     public static final String COCO_CHANEL = (char)34 + "Io non faccio la moda. Io sono la moda." + (char)34 + " – Coco Chanel";
 
-    //Stringa policy
 
+    //Stringa policy
     public static final String POLICY = "Iscrivendoti, accetti le nostre Condizioni. " +
             "Scopri in che modo raccogliamo, usiamo e condividiamo i tuoi dati nella nostra" +
             "informativa sulla privacy e in che modo usiamo cookie e tecnologie simili nella nostra" +
             "normativa sui cookie.";
 
 
+    //String save image
     public static final String PATTERN_DATE_FORMAT = "dd.MM.yyyy";
 
     public static final String PATTERN_HOUR_FORMAT = "HH_mm_ss";

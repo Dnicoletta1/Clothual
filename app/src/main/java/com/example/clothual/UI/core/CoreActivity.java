@@ -1,8 +1,10 @@
 package com.example.clothual.UI.core;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -15,8 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CoreActivity extends AppCompatActivity {
 
-    private long pressedTime;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,7 @@ public class CoreActivity extends AppCompatActivity {
 
         // For the BottomNavigationView
         NavigationUI.setupWithNavController(bottomNav, navController);
+
 
     }
 

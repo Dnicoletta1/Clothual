@@ -64,15 +64,6 @@ public class LogoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       /* Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                Navigation.findNavController(requireView()).navigate(R.id.action_logoFragment_to_loginFragment);
-            }
-        };
-
-        handler.*/
-
 
         handler.postDelayed(new Runnable() {
             @Override

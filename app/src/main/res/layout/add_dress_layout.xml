@@ -12,22 +12,23 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:fontFamily="@font/montserrat_subrayada"
-        android:textSize="50sp"
+        android:textSize="30sp"
         style="@style/textView"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="16dp"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
+        android:layout_marginStart="20dp"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageViewDress"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_below="@id/title"
         android:contentDescription="TODO"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"/>
 
     <View
@@ -38,7 +39,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         tools:ignore="MissingConstraints"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/imageViewDress"/>
 <!--
     <androidx.fragment.app.FragmentContainerView
@@ -52,27 +53,19 @@
         app:defaultNavHost="true"
         android:layout_below="@id/view"
         app:navGraph="@navigation/nav_type" />-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
-        android:scrollbars="none"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        tools:ignore="ObsoleteLayoutParam,UselessParent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/view"
+            android:layout_marginTop="10dp"
             tools:ignore="ScrollViewSize">
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="250dp"
                 android:layout_centerHorizontal="true"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
                 android:textAlignment="center"
                 android:entries="@array/type"
                 android:background="@drawable/add_dress_border"/>
@@ -86,14 +79,13 @@
                 android:layout_marginTop="15dp"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-
                 app:startIconDrawable="@drawable/account_circle_48px2"
                 >
 
                 <EditText
                     android:id="@+id/editTextBrand"
                     android:layout_width="250dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/add_dress_border"
                     android:inputType="text"
                     android:maxLength="20"
@@ -121,7 +113,7 @@
                 <EditText
                     android:id="@+id/editTextTemplate"
                     android:layout_width="250dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/add_dress_border"
                     android:inputType="text"
                     android:maxLength="20"
@@ -148,7 +140,7 @@
                 <EditText
                     android:id="@+id/editTextColor"
                     android:layout_width="250dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/add_dress_border"
                     android:inputType="text"
                     android:maxLength="20"
@@ -175,7 +167,7 @@
                 <EditText
                     android:id="@+id/editTextDescriprion"
                     android:layout_width="250dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/add_dress_border"
                     android:inputType="text"
                     android:maxLength="20"
@@ -197,9 +189,9 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/save"
                 android:textColor="@color/white"
+                android:layout_marginBottom="16dp"
                 android:textStyle="bold"/>
 
         </RelativeLayout>
-    </ScrollView>
     
 </RelativeLayout>

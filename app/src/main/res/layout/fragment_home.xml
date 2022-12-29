@@ -125,9 +125,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="55dp"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -139,6 +138,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:text="Tutto"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:background="@drawable/armadio"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -190,20 +192,30 @@
 
             <Button
                 android:id="@+id/preferiti"
-                android:layout_below="@id/jeans"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="Preferiti"
-                android:layout_marginTop="30dp"/>
+                android:layout_below="@id/jeans"
+                android:layout_marginTop="32dp"
+                android:text="Preferiti"/>
 
             <Button
                 android:id="@+id/mappa"
                 android:layout_below="@id/preferiti"
                 android:layout_width="match_parent"
                 android:text="Mappa"
+                android:background="@drawable/mappa"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:fontFamily="@font/inter_semibold"
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/mappa">
+            </LinearLayout>
         </RelativeLayout>
+
     </ScrollView>
 
 

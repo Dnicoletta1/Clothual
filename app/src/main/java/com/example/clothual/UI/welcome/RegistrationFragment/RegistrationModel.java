@@ -17,22 +17,17 @@ public class RegistrationModel {
 
     public RegistrationModel(Application application) {
         this.application = application;
-        //database = Room.databaseBuilder(application,
-        //      RoomDatabase.class, DATABASE_NAME).build();
         database = RoomDatabase.getDatabase(application);
         userDao = database.daoUser();
         accountDao = database.daoAccount();
     }
 
     public void createUser(String username, String name, String surname, String passowrd, String email){
-        RoomDatabase.databaseWriteExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                Account account = new Account(username, email, passowrd);
-                accountDao.insertAccount(account);
-                User user = new User(surname, name, accountDao.getId(username));
-                userDao.insertUser(user);
-            }
+        RoomDatabase.databaseWriteExecutor.execute(() -> {
+            Account account = new Account(username, email, passowrd);
+            accountDao.insertAccount(account);
+            User user = new User(surname, name, accountDao.getId(username));
+            userDao.insertUser(user);
         });
 
     }

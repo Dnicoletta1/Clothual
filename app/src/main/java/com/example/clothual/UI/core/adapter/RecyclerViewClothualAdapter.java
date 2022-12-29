@@ -30,8 +30,8 @@ public class RecyclerViewClothualAdapter extends RecyclerView.Adapter<RecyclerVi
     private final List<Clothual> clothualList;
     private final  List<Image> imageList;
     private final ContentResolver contentResolver;
-    private OnItemClickListener onItemClickListener;
-    private Application application;
+    private final OnItemClickListener onItemClickListener;
+    private final Application application;
 
     public interface OnItemClickListener{
         void buttonDelete(String notify);

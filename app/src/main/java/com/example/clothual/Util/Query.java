@@ -23,6 +23,7 @@ public class Query {
     //Query Image
     public static final String SELECT_ALL_IMAGE = "SELECT * FROM Image";
 
+
     //Query clothual
     public static final String SELECT_ALL_CLOTHAUL = "SELECT * FROM Clothual";
 
