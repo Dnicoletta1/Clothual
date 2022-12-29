@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.clothual.UI.core.HomeFragment.HomeFragment"
+        android:name="com.example.clothual.UI.core.Home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -25,12 +25,12 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.clothual.UI.core.MapFragment.MapFragment"
+        android:name="com.example.clothual.UI.core.Map.MapFragment"
         android:label="Map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/photoFragment"
-        android:name="com.example.clothual.UI.core.PhotoFragment.PhotoFragment"
+        android:name="com.example.clothual.UI.core.Photo.PhotoFragment"
         android:label="Photo"
         tools:layout="@layout/fragment_photo" >
         <action
@@ -39,17 +39,23 @@
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.clothual.UI.core.CalendarFragment.CalendarFragment"
+        android:name="com.example.clothual.UI.core.Calendar.CalendarFragment"
         android:label="Calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
         android:id="@+id/personalFragment"
-        android:name="com.example.clothual.UI.core.PersonalFragment.PersonalFragment"
+        android:name="com.example.clothual.UI.core.Personal.PersonalFragment"
         android:label="Me"
         tools:layout="@layout/fragment_personal" >
         <action
             android:id="@+id/action_personalFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
     </fragment>
     <activity
         android:id="@+id/addDressActivity"
@@ -57,15 +63,12 @@
         android:label="AddDressActivity" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.clothual.UI.core.PersonalFragment.SettingsFragment"
+        android:name="com.example.clothual.UI.core.Personal.Settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_self"
             app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_settingsFragment_to_personalFragment"
-            app:destination="@id/personalFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoesFragment"
@@ -83,9 +86,19 @@
         android:label="TotalFragment" />
     <fragment
         android:id="@+id/preferiteFragment"
-        android:name="com.example.clothual.UI.core.Categories.Preferite.PreferiteFragment"
+        android:name="com.example.clothual.UI.core.Categories.Favorite.FavoriteFragment"
         android:label="fragment_preferite"
-        tools:layout="@layout/fragment_preferite" />
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.clothual.UI.core.Personal.History.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.clothual.UI.core.Personal.Information.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" />
 
 
 </navigation>

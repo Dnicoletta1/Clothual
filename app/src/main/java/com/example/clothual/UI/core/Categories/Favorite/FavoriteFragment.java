@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.Categories.Preferite;
+package com.example.clothual.UI.core.Categories.Favorite;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,24 +13,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
-import com.example.clothual.UI.core.adapter.RecyclerViewPreferiteAdapter;
 import com.example.clothual.UI.core.Categories.CategoryModel;
-import com.example.clothual.databinding.FragmentPreferiteBinding;
+import com.example.clothual.UI.core.adapter.RecyclerViewPreferiteAdapter;
+import com.example.clothual.databinding.FragmentFavoriteBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PreferiteFragment#newInstance} factory method to
+ * Use the {@link FavoriteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PreferiteFragment extends Fragment {
+public class FavoriteFragment extends Fragment {
 
-    private FragmentPreferiteBinding binding;
+    private FragmentFavoriteBinding binding;
     public CategoryModel model;
 
-    public PreferiteFragment() {
+    public FavoriteFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +38,11 @@ public class PreferiteFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment PreferiteFragment.
+     * @return A new instance of fragment FavoriteFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PreferiteFragment newInstance() {
-       return new PreferiteFragment();
+    public static FavoriteFragment newInstance() {
+       return new FavoriteFragment();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class PreferiteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentPreferiteBinding.inflate(getLayoutInflater());
+        binding = FragmentFavoriteBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 

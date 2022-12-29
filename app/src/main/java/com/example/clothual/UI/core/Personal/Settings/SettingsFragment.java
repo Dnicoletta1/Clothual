@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.PersonalFragment;
+package com.example.clothual.UI.core.Personal.Settings;
 
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
 import static com.example.clothual.Util.Constant.LANGUAGE;
@@ -96,16 +96,6 @@ public class SettingsFragment extends Fragment {
                 editor.putString(LANGUAGE, "fr");
                 editor.apply();
                 setLocale("fr");
-            }
-        });
-
-
-
-
-        binding.esci.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.action_settingsFragment_to_personalFragment);
             }
         });
     }

@@ -1,13 +1,15 @@
-package com.example.clothual.UI.core.PersonalFragment;
+package com.example.clothual.UI.core.Photo;
 
 import static com.example.clothual.Util.Constant.PATTERN_DATE_FORMAT;
 import static com.example.clothual.Util.Constant.PATTERN_HOUR_FORMAT;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,15 +17,12 @@ import android.os.Build;
 import android.provider.MediaStore;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-import com.example.clothual.Database.AccountDao;
-import com.example.clothual.Database.ClothualDao;
 import com.example.clothual.Database.ImageDao;
 import com.example.clothual.Database.RoomDatabase;
-import com.example.clothual.Model.Account;
 import com.example.clothual.Model.Image;
-
-import org.apache.commons.validator.routines.EmailValidator;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,50 +32,25 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ModifyModel {
+public class PhotoModel {
 
     public Application application;
     public RoomDatabase database;
-    private final AccountDao accountDao;
-    public final ImageDao imageDao;
-    public final ClothualDao clothualDao;
+    private final ImageDao imageDao;
 
-    public ModifyModel(Application application) {
+    public PhotoModel(Application application) {
         this.application = application;
         database = RoomDatabase.getDatabase(application);
-        accountDao = database.daoAccount();
         imageDao = database.imageDao();
-        clothualDao = database.clothualDao();
     }
-
-    public boolean checkPassword(String password, int id){
-        List<Account> account = accountDao.getAllAccount();
-        for(int i = 0; i < account.size(); i++){
-            if(account.get(i).getId() == id && account.get(i).getPassword().equals(password)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean checkEmail(String email){
-        return EmailValidator.getInstance().isValid(email);
-    }
-
-    public String getEmail(int id ){
-        return accountDao.getEmail(id);
-    }
-
-    public String getUsername(int id ){
-        return accountDao.getUsername(id);
-    }
-
 
     public Uri saveImage(ContentResolver contentResolver, Bitmap image, String title, String description) throws IOException {
         return saveImageToMemory( contentResolver,  image,  title,  description);
     }
+
 
     public Uri saveImageToMemory(ContentResolver contentResolver, Bitmap bitmap, String title, String description) throws IOException {
         // Crea una nuova entrata per l'immagine nella memoria del dispositivo
@@ -100,6 +74,40 @@ public class ModifyModel {
         return uri;
     }
 
+
+    public List<Bitmap> getImageList(Activity act, Context ctx, ContentResolver contentResolver) {
+        List<Image> image = imageDao.getAllImage();
+        for(int i = 0; i < image.size(); i++){
+            if(image.get(i).getDescription().equals("profile")){
+                image.remove(i);
+            }
+        }
+        List<Bitmap> bitmaps = new ArrayList<>();
+        if(image.isEmpty()){
+            return null;
+        }else{
+            for(int i = 0; i < image.size(); i++){
+                try {
+                    bitmaps.add(importImageFromMemory(act, ctx, contentResolver, Uri.parse(image.get(i).getUri())));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            return bitmaps;
+        }
+
+    }
+
+
+    public Bitmap importImageFromMemory(Activity act, Context ctx, ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
+        if(ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(act, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+        }
+        InputStream inputStream = contentResolver.openInputStream(imageUri);
+        return BitmapFactory.decodeStream(inputStream);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String getNameImage(){
         DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern(PATTERN_DATE_FORMAT)
@@ -111,22 +119,5 @@ public class ModifyModel {
         return formatterDate.format(instant)+"__"+timeColonFormatter.format(instant);
     }
 
-    public void createImage(String title, String description, String uri){
-        Image image = new Image(title, description, uri);
-        imageDao.insertImage(image);
-    }
-
-    public Bitmap importImageFromMemory(Activity act, Context ctx, ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
-        InputStream inputStream = contentResolver.openInputStream(imageUri);
-        return BitmapFactory.decodeStream(inputStream);
-    }
-
-    public Account getAccountByID(int id){
-        return accountDao.getAccountID(id);
-    }
-
-    public void upoloadEditAccount(Account account){
-        accountDao.updateAccount(account);
-    }
 
 }

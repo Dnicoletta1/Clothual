@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.CalendarFragment;
+package com.example.clothual.UI.core.Calendar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.clothual.UI.core.PhotoFragment.PhotoModel;
+import com.example.clothual.UI.core.Photo.PhotoModel;
 import com.example.clothual.databinding.FragmentCalendarBinding;
 
 /**

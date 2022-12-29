@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.PersonalFragment;
+package com.example.clothual.UI.core.Personal;
 
 import static com.example.clothual.Util.Constant.ACCESS_PREFERENCE;
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.clothual.R;
+import com.example.clothual.UI.core.Personal.EditProfile.EditProfileActivity;
 import com.example.clothual.UI.welcome.WelcomeActivity;
 import com.example.clothual.databinding.FragmentPersonalBinding;
 
@@ -84,31 +85,23 @@ public class PersonalFragment extends Fragment {
             }
         }
 
-        binding.goOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                editor.putInt(ACCESS_PREFERENCE, 0);
-                editor.apply();
-                Intent intent = new Intent(requireContext(), WelcomeActivity.class);
-                startActivity(intent);
-            }
+        binding.goOut.setOnClickListener(view1 -> {
+            editor.putInt(ACCESS_PREFERENCE, 0);
+            editor.apply();
+            Intent intent = new Intent(requireContext(), WelcomeActivity.class);
+            startActivity(intent);
         });
 
-        binding.editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Intent intent = new Intent(requireContext(), ModifyActivity.class);
-              startActivity(intent);
-            }
+        binding.editProfile.setOnClickListener(view12 -> {
+          Intent intent = new Intent(requireContext(), EditProfileActivity.class);
+          startActivity(intent);
         });
 
-        binding.settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_settingsFragment);
-            }
-        });
+        binding.settings.setOnClickListener(view13 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_settingsFragment));
 
+        binding.information.setOnClickListener(view14 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_informationFragment));
+
+        binding.history.setOnClickListener(view15 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_informationFragment));
 
     }
 

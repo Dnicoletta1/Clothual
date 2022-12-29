@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.PersonalFragment;
+package com.example.clothual.UI.core.Personal;
 
 import android.Manifest;
 import android.app.Activity;

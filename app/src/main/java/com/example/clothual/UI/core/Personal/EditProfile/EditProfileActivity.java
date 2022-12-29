@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.PersonalFragment;
+package com.example.clothual.UI.core.Personal.EditProfile;
 
 import static com.example.clothual.Util.Constant.CREDENTIALS_LOGIN_FILE;
 import static com.example.clothual.Util.Constant.ID_ACCOUNT;
@@ -22,24 +22,24 @@ import com.example.clothual.Model.Account;
 import com.example.clothual.R;
 import com.example.clothual.UI.core.AddDress.AddDressActivity;
 import com.example.clothual.UI.core.CoreActivity;
-import com.example.clothual.databinding.ModifyLayoutBinding;
+import com.example.clothual.databinding.EditProfileLayoutBinding;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @SuppressWarnings("deprecation")
-public class ModifyActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
 
-    private ModifyLayoutBinding binding;
-    private ModifyModel modifyModel;
+    private EditProfileLayoutBinding binding;
+    private EditProfileModel modifyModel;
     public SharedPreferences share;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ModifyLayoutBinding.inflate(getLayoutInflater());
+        binding = EditProfileLayoutBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        modifyModel = new ModifyModel(getApplication());
+        modifyModel = new EditProfileModel(getApplication());
         share = getSharedPreferences(CREDENTIALS_LOGIN_FILE, MODE_PRIVATE);
         SharedPreferences sharedPref = getSharedPreferences(CREDENTIALS_LOGIN_FILE, Context.MODE_PRIVATE);
 
@@ -161,7 +161,7 @@ public class ModifyActivity extends AppCompatActivity {
         });
 
         binding.cancel.setOnClickListener(view1 -> {
-            Intent intent = new Intent(ModifyActivity.this, CoreActivity.class);
+            Intent intent = new Intent(EditProfileActivity.this, CoreActivity.class);
             startActivity(intent);
         });
 

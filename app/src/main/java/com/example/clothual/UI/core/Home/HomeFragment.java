@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.HomeFragment;
+package com.example.clothual.UI.core.Home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

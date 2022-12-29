@@ -1,4 +1,4 @@
-package com.example.clothual.UI.core.MapFragment;
+package com.example.clothual.UI.core.Map;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -98,11 +98,22 @@ public class MapFragment extends Fragment {
         binding.mapView.getOverlayManager().add(locationOverlay);
 
         binding.center.setOnClickListener(view1 -> {
+            /*long pressedTime = 0;
+            if (pressedTime + 2000 > System.currentTimeMillis()) {
+                locationOverlay.enableFollowLocation();
+                mapController.setZoom(17);
+            } else {
+                locationOverlay.enableFollowLocation();
+                Snackbar.make(view, "premi due volte per lo zoom", Snackbar.LENGTH_LONG).show();
+            }
+            pressedTime = System.currentTimeMillis();*/
             locationOverlay.enableFollowLocation();
             mapController.setZoom(17);
         });
 
     }
+
+
 
     public void onResume(){
         super.onResume();

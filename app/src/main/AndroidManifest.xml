@@ -61,7 +61,7 @@
         </activity>
 
         <activity
-            android:name=".UI.core.PersonalFragment.ModifyActivity"
+            android:name=".UI.core.Personal.EditProfile.EditProfileActivity"
             android:exported="false"
             >
             <meta-data

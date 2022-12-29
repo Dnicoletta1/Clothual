@@ -62,4 +62,10 @@
         <item>@string/jeans</item>
     </array>
 
+    <array name="leanguage">
+        <item>@string/italian</item>
+        <item>@string/english</item>
+        <item>@string/french</item>
+    </array>
+
 </resources>
