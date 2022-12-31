@@ -42,20 +42,24 @@
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/imageViewDress"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:layout_below="@id/view">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/view"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintTop_toBottomOf="@id/view">
+            tools:ignore="ScrollViewSize">
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="250dp"
                 android:layout_centerHorizontal="true"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:textAlignment="center"
                 android:entries="@array/type"
                 android:background="@drawable/add_dress_border"/>
@@ -183,5 +187,5 @@
                 android:textStyle="bold"/>
 
         </RelativeLayout>
-    
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

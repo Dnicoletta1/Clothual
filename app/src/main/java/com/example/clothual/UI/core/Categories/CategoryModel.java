@@ -63,11 +63,111 @@ public class CategoryModel {
                 shoes.add(list.get(i));
             }
         }
-       System.out.println("Lughezza shoes: " + shoes.size());
 
        return shoes;
 
     }
+
+    public List<Clothual> getTrousersList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> trousers = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getType() == 2){
+                trousers.add(list.get(i));
+            }
+        }
+        return trousers;
+
+    }
+
+    public List<Image> getImageTrousersList(List<Clothual> clothualList) {
+        List<Image> imageList = imageDao.getAllImage();
+        List<Image> trousers = new ArrayList<>();
+        for(int i = 0; i < clothualList.size(); i++){
+            for(int j = 0; j < imageList.size(); j++){
+                if(clothualList.get(i).getIdImage() == imageList.get(j).getID()){
+                    trousers.add(imageList.get(j));
+                }
+            }
+        }
+        return trousers;
+    }
+
+    public List<Clothual> getJacketsList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> jackets = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getType() == 4){
+                jackets.add(list.get(i));
+            }
+        }
+        return jackets;
+
+    }
+
+    public List<Image> getImageJacketsList(List<Clothual> clothualList) {
+        List<Image> imageList = imageDao.getAllImage();
+        List<Image> jackets = new ArrayList<>();
+        for(int i = 0; i < clothualList.size(); i++){
+            for(int j = 0; j < imageList.size(); j++){
+                if(clothualList.get(i).getIdImage() == imageList.get(j).getID()){
+                    jackets.add(imageList.get(j));
+                }
+            }
+        }
+        return jackets;
+    }
+
+    public List<Clothual> getTShirtList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> tShirt = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getType() == 3){
+                tShirt.add(list.get(i));
+            }
+        }
+        return tShirt;
+
+    }
+
+    public List<Image> getImageTShirtList(List<Clothual> clothualList) {
+        List<Image> imageList = imageDao.getAllImage();
+        List<Image> tShirt = new ArrayList<>();
+        for(int i = 0; i < clothualList.size(); i++){
+            for(int j = 0; j < imageList.size(); j++){
+                if(clothualList.get(i).getIdImage() == imageList.get(j).getID()){
+                    tShirt.add(imageList.get(j));
+                }
+            }
+        }
+        return tShirt;
+    }
+
+    public List<Clothual> getJeansList(){
+        List<Clothual> list = clothualDao.getAllClothual();
+        List<Clothual> jeans = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getType() == 3){
+                jeans.add(list.get(i));
+            }
+        }
+        return jeans;
+
+    }
+
+    public List<Image> getImageJeansList(List<Clothual> clothualList) {
+        List<Image> imageList = imageDao.getAllImage();
+        List<Image> jeans = new ArrayList<>();
+        for(int i = 0; i < clothualList.size(); i++){
+            for(int j = 0; j < imageList.size(); j++){
+                if(clothualList.get(i).getIdImage() == imageList.get(j).getID()){
+                    jeans.add(imageList.get(j));
+                }
+            }
+        }
+        return jeans;
+    }
+
 
     public List<Clothual> getClothualList(){
         return clothualDao.getAllClothual();

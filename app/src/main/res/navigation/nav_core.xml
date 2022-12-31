@@ -22,6 +22,18 @@
         <action
             android:id="@+id/action_homeFragment_to_preferiteFragment"
             app:destination="@id/preferiteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_trousersFragment"
+            app:destination="@id/trousersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_TShirtFragment"
+            app:destination="@id/TShirtFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_jacketsFragment"
+            app:destination="@id/jacketsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_jeansFragment"
+            app:destination="@id/jeansFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -99,6 +111,26 @@
         android:name="com.example.clothual.UI.core.Personal.Information.InformationFragment"
         android:label="fragment_information"
         tools:layout="@layout/fragment_information" />
+    <fragment
+        android:id="@+id/trousersFragment"
+        android:name="com.example.clothual.UI.core.Categories.Trousers.TrousersFragment"
+        android:label="fragment_trousers"
+        tools:layout="@layout/fragment_trousers" />
+    <fragment
+        android:id="@+id/TShirtFragment"
+        android:name="com.example.clothual.UI.core.Categories.TShirt.TShirtFragment"
+        android:label="fragment_t_shirt"
+        tools:layout="@layout/fragment_t_shirt" />
+    <fragment
+        android:id="@+id/jacketsFragment"
+        android:name="com.example.clothual.UI.core.Categories.Jackets.JacketsFragment"
+        android:label="fragment_jackets"
+        tools:layout="@layout/fragment_jackets" />
+    <fragment
+        android:id="@+id/jeansFragment"
+        android:name="com.example.clothual.UI.core.Categories.Jeans.JeansFragment"
+        android:label="fragment_jeans"
+        tools:layout="@layout/fragment_jeans" />
 
 
 </navigation>

@@ -31,6 +31,7 @@ public class ShoesFragment extends Fragment {
 
     private FragmentShoesBinding binding;
     private CategoryModel model;
+
     public ShoesFragment() {
 
     }

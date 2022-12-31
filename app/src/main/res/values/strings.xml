@@ -54,6 +54,10 @@
     <string name="jackets">Jacket</string>
     <string name="jeans" translatable="false">Jeans</string>
 
+    <string name="darkMode" translatable="false">Dark Mode</string>
+    <string name="lightMode" translatable="false">Ligth Mode</string>
+    <string name="systemMode" translatable="false">System Mode</string>
+
     <array name="type">
         <item>@string/shoes</item>
         <item>@string/trousers</item>
@@ -67,5 +71,6 @@
         <item>@string/english</item>
         <item>@string/french</item>
     </array>
+
 
 </resources>

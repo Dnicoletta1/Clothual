@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -98,6 +99,37 @@ public class SettingsFragment extends Fragment {
                 setLocale("fr");
             }
         });
+
+        binding.darkmode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.darkmode.setChecked(true);
+                binding.light.setChecked(false);
+                binding.system.setChecked(false);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES );
+            }
+        });
+
+        binding.light.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.darkmode.setChecked(false);
+                binding.light.setChecked(true);
+                binding.system.setChecked(false);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        });
+
+        binding.system.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.darkmode.setChecked(false);
+                binding.light.setChecked(false);
+                binding.system.setChecked(true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+        });
+
     }
 
     @SuppressWarnings("deprecation")

@@ -101,7 +101,7 @@ public class PersonalFragment extends Fragment {
 
         binding.information.setOnClickListener(view14 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_informationFragment));
 
-        binding.history.setOnClickListener(view15 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_informationFragment));
+        binding.history.setOnClickListener(view15 -> Navigation.findNavController(requireView()).navigate(R.id.action_personalFragment_to_historyFragment));
 
     }
 

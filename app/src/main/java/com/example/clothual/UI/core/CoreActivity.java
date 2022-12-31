@@ -50,25 +50,24 @@ public class CoreActivity extends AppCompatActivity {
 
 
 
+
+
         // For the BottomNavigationView
         NavigationUI.setupWithNavController(bottomNav, navController);
 
-
     }
-
-    /*
+/*
     @Override
     public void onBackPressed() {
-
-        if (pressedTime + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
+        NavBackStackEntry navBackStackEntry = Navigation.findNavController(this, R.id.nav_core).getPreviousBackStackEntry();
+        if(navBackStackEntry != null && (//navBackStackEntry.getDestination().getId() != R.id.homeFragment ||
+                navBackStackEntry.getDestination().getId() == com.google.android.gms.auth.api.R.id.all
+        )) {
             finish();
-        } else {
-            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }else{
+            finish();
         }
-        pressedTime = System.currentTimeMillis();
     }
 
-     */
-
+ */
 }

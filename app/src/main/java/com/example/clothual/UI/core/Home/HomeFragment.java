@@ -90,15 +90,28 @@ public class HomeFragment extends Fragment {
         });
 */
 
-        binding.mappa.setOnClickListener(view12 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_mapFragment));
+        binding.map.setOnClickListener(view12 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_mapFragment));
 
-        binding.scarpe.setOnClickListener(view1 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_shoesFragment));
+        binding.shoes.setOnClickListener(view1 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_shoesFragment));
 
         binding.total.setOnClickListener(view13 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_totalFragment));
 
-        binding.preferiti.setOnClickListener(view14 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_preferiteFragment));
+        binding.favorite.setOnClickListener(view14 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_preferiteFragment));
+
+        binding.trousers.setOnClickListener(view15 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_trousersFragment));
+
+        binding.tShirt.setOnClickListener(view16 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_TShirtFragment));
+
+        binding.jackets.setOnClickListener(view17 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_jacketsFragment));
+
+        binding.jeans.setOnClickListener(view18 -> Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_jeansFragment));
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 
 
 }

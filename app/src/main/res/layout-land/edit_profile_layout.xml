@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/total"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:textStyle="bold"
+        android:layout_marginTop="46dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/close"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/celeste"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"/>
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/modify"
+        android:background="@color/black" />
+
+    <ImageView
+        android:id="@+id/imagePersonal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imagePersonal"
+        android:visibility="invisible"
+        >
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:text="Carica dal dispositivo"/>
+
+        <Button
+            android:id="@+id/makePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:text="Scatta Foto"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/modifyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ediImmage"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/celeste"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/imagePersonal"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/modifyImage"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:scrollbars="none">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:id="@+id/nuovaEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/newEmail"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="@id/inputViewEmail"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/modificaEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/inputViewEmail"
+                app:layout_constraintTop_toTopOf="@id/inputViewEmail"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/mail_48px"
+                app:layout_constraintTop_toBottomOf="@id/nuovaEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:importantForAutofill="no" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/nuovoUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/newUsername"
+                app:layout_constraintStart_toStartOf="@id/inputUsername"
+                app:layout_constraintTop_toTopOf="@id/nuovaEmail"/>
+
+            <TextView
+                android:id="@+id/modificaUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:layout_marginStart="10dp"
+                android:layout_alignParentEnd="true"
+                app:layout_constraintStart_toEndOf="@id/inputUsername"
+                app:layout_constraintTop_toTopOf="@id/modificaEmail"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/inputUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/modificaUsername"
+                app:endIconMode="clear_text"
+                android:layout_marginStart="120dp"
+                app:startIconDrawable="@drawable/account_circle_48px2"
+                app:layout_constraintStart_toEndOf="@id/modificaEmail"
+                app:layout_constraintTop_toTopOf="@id/inputViewEmail"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextUsername"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:hint="@string/username"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textColorHint="@color/black"
+                    android:textStyle="bold"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/vecchiaPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputUsername"
+                android:layout_marginTop="20dp"
+                android:text="@string/oldPassword"
+                app:layout_constraintTop_toBottomOf="@id/inputViewEmail"
+                app:layout_constraintStart_toStartOf="@id/nuovaEmail"/>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/inputPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vecchiaPassword"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/key_48px"
+                app:layout_constraintTop_toBottomOf="@id/vecchiaPassword"
+                app:layout_constraintStart_toStartOf="@id/inputViewEmail"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textColorHint="@color/black"
+                    android:hint="@string/password"
+                    android:textStyle="bold"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/nuovaPasswordView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputPassword"
+                app:layout_constraintTop_toTopOf="@id/vecchiaPassword"
+                app:layout_constraintStart_toStartOf="@id/nuovoUser"
+                android:text="@string/newPassword"
+                android:layout_marginStart="30dp"/>
+
+            <TextView
+                android:id="@+id/modificaPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:layout_below="@id/inputPassword"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@id/modificaUsername"
+                app:layout_constraintTop_toTopOf="@id/nuovaPassword"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/nuovaPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nuovaPasswordView"
+                app:endIconMode="password_toggle"
+                app:layout_constraintStart_toStartOf="@id/inputUsername"
+                app:layout_constraintTop_toTopOf="@id/inputPassword"
+                app:startIconDrawable="@drawable/key_48px"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPasswordNuovo"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textColorHint="@color/black"
+                    android:hint="@string/password"
+                    android:textStyle="bold"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>

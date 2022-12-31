@@ -124,8 +124,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="55dp"
         android:scrollbars="none">
 
@@ -146,7 +146,7 @@
 
 
             <Button
-                android:id="@+id/shoes"
+                android:id="@+id/scarpe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/scarpe"
@@ -156,10 +156,10 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:id="@+id/trousers"
+                android:id="@+id/pantaloni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/shoes"
+                android:layout_below="@id/scarpe"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/pantaloni"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -168,13 +168,13 @@
                 android:id="@+id/t_shirt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/trousers"
+                android:layout_below="@id/pantaloni"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/t_shirt"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:id="@+id/jackets"
+                android:id="@+id/giacche"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/t_shirt"
@@ -184,14 +184,14 @@
 
             <Button
                 android:id="@+id/jeans"
-                android:layout_below="@id/jackets"
+                android:layout_below="@id/giacche"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/jeans"/>
 
             <Button
-                android:id="@+id/favorite"
+                android:id="@+id/preferiti"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_below="@id/jeans"
@@ -199,8 +199,8 @@
                 android:text="Preferiti"/>
 
             <Button
-                android:id="@+id/map"
-                android:layout_below="@id/favorite"
+                android:id="@+id/mappa"
+                android:layout_below="@id/preferiti"
                 android:layout_width="match_parent"
                 android:text="Mappa"
                 android:background="@drawable/mappa"
@@ -212,7 +212,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_below="@id/map">
+                android:layout_below="@id/mappa">
             </LinearLayout>
         </RelativeLayout>
 

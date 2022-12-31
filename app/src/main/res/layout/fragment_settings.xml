@@ -112,11 +112,28 @@
         android:fontFamily="@font/inter_semibold"
         android:layout_below="@id/viewButton"/>
 
-    <Switch
-        android:layout_width="50dp"
+    <RadioButton
+        android:id="@+id/darkmode"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@id/dark_ligth_mode"
-        android:layout_marginStart="20dp"        />
+        android:layout_marginStart="20dp"
+        android:text="@string/darkMode"/>
+        <RadioButton
+            android:id="@+id/light"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/dark_ligth_mode"
+            android:shadowColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:text="@string/lightMode"/>
+        <RadioButton
+            android:id="@+id/system"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/dark_ligth_mode"
+            android:layout_marginStart="20dp"
+            android:text="@string/systemMode"/>
     </LinearLayout>
 
 </RelativeLayout>

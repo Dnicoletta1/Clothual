@@ -53,6 +53,7 @@
 
         <activity
             android:name=".UI.core.CoreActivity"
+            android:configChanges="uiMode"
             android:exported="false"
            >
             <meta-data

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +38,8 @@ public class MapFragment extends Fragment {
 
     public FragmentMapBinding binding;
     private MyLocationNewOverlay locationOverlay;
+    long pressedTime = 0;
+
     public MapFragment() {
 
     }
@@ -82,38 +85,38 @@ public class MapFragment extends Fragment {
 
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
-        binding.mapView.setTileSource(TileSourceFactory.MAPNIK);
-        binding.mapView.setBuiltInZoomControls(true);
-        binding.mapView.setMultiTouchControls(true);
-        binding.mapView.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.NEVER);
-        IMapController mapController = binding.mapView.getController();
-        mapController.setZoom(17);
+
 
         assert ctx != null;
         GpsMyLocationProvider provider = new GpsMyLocationProvider(ctx);
         provider.addLocationSource(LocationManager.NETWORK_PROVIDER);
         locationOverlay = new MyLocationNewOverlay(provider, binding.mapView);
         locationOverlay.enableFollowLocation();
-        locationOverlay.runOnFirstFix(() -> Log.d("MyTag", String.format("First location fix: %s", locationOverlay.getLastFix())));
+        locationOverlay.runOnFirstFix(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("MyTag", String.format("First location fix: %s", locationOverlay.getLastFix()));
+            }
+        });
         binding.mapView.getOverlayManager().add(locationOverlay);
-
+        binding.mapView.setTileSource(TileSourceFactory.MAPNIK);
+        binding.mapView.setBuiltInZoomControls(true);
+        binding.mapView.setMultiTouchControls(true);
+        binding.mapView.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.NEVER);
+        IMapController mapController = binding.mapView.getController();
+        mapController.setZoom(17);
         binding.center.setOnClickListener(view1 -> {
-            /*long pressedTime = 0;
             if (pressedTime + 2000 > System.currentTimeMillis()) {
                 locationOverlay.enableFollowLocation();
                 mapController.setZoom(17);
             } else {
                 locationOverlay.enableFollowLocation();
-                Snackbar.make(view, "premi due volte per lo zoom", Snackbar.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getBaseContext(), "Premi due volte per lo zoom.", Toast.LENGTH_LONG).show();
             }
-            pressedTime = System.currentTimeMillis();*/
-            locationOverlay.enableFollowLocation();
-            mapController.setZoom(17);
+            pressedTime = System.currentTimeMillis();
         });
 
     }
-
-
 
     public void onResume(){
         super.onResume();

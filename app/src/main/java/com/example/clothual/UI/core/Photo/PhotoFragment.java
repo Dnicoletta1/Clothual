@@ -97,8 +97,10 @@ public class PhotoFragment extends Fragment {
             RecyclerViewPhotoAdapter adapter = new RecyclerViewPhotoAdapter(image);
             binding.recyclerView.setLayoutManager(manager);
             binding.recyclerView.setAdapter(adapter);
-            binding.recyclerView.addItemDecoration(new RecyclerViewPhotoAdapter.GridSpacingItemDecoration
-                    (3, 20, true));
+           /* binding.recyclerView.addItemDecoration(new RecyclerViewPhotoAdapter.GridSpacingItemDecoration
+                   (3, 20, true));
+
+            */
 
 
         binding.fab1Upload.setOnClickListener(new View.OnClickListener() {
