@@ -20,8 +20,10 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.clothual.Database.ClothualDao;
 import com.example.clothual.Database.ImageDao;
 import com.example.clothual.Database.RoomDatabase;
+import com.example.clothual.Model.Clothual;
 import com.example.clothual.Model.Image;
 
 import java.io.FileNotFoundException;
@@ -32,7 +34,6 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PhotoModel {
@@ -40,11 +41,13 @@ public class PhotoModel {
     public Application application;
     public RoomDatabase database;
     private final ImageDao imageDao;
+    private final ClothualDao clothualDao;
 
     public PhotoModel(Application application) {
         this.application = application;
         database = RoomDatabase.getDatabase(application);
         imageDao = database.imageDao();
+        clothualDao = database.clothualDao();
     }
 
     public Uri saveImage(ContentResolver contentResolver, Bitmap image, String title, String description) throws IOException {
@@ -75,28 +78,17 @@ public class PhotoModel {
     }
 
 
-    public List<Bitmap> getImageList(Activity act, Context ctx, ContentResolver contentResolver) {
+    public List<Image> getImageList(){//Activity act, Context ctx, ContentResolver contentResolver) {
         List<Image> image = imageDao.getAllImage();
         for(int i = 0; i < image.size(); i++){
             if(image.get(i).getDescription().equals("profile")){
                 image.remove(i);
             }
         }
-        List<Bitmap> bitmaps = new ArrayList<>();
-        if(image.isEmpty()){
-            return null;
-        }else{
-            for(int i = 0; i < image.size(); i++){
-                try {
-                    bitmaps.add(importImageFromMemory(act, ctx, contentResolver, Uri.parse(image.get(i).getUri())));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-            return bitmaps;
-        }
+        return image;
 
     }
+
 
 
     public Bitmap importImageFromMemory(Activity act, Context ctx, ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
@@ -119,5 +111,16 @@ public class PhotoModel {
         return formatterDate.format(instant)+"__"+timeColonFormatter.format(instant);
     }
 
+    public void deliteImage(Image image){
+        imageDao.deleteImage(image);
+    }
+
+    public void deliteClothual(Clothual clothual){
+        clothualDao.deleteClothual(clothual);
+    }
+
+    public List<Clothual> getAllClothual(){
+        return clothualDao.getAllClothual();
+    }
 
 }

@@ -1,7 +1,10 @@
 package com.example.clothual.UI.core.adapter;
 
+import android.app.Application;
+import android.content.ContentResolver;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +13,31 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.clothual.Model.Clothual;
+import com.example.clothual.Model.Image;
 import com.example.clothual.R;
+import com.example.clothual.UI.core.Photo.PhotoModel;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewPhotoAdapter.PhotoViewHolder> {
 
-    private List<Bitmap> imageList;
+    private List<Image> imageList;
+    private final OnItemClickListener onItemClickListener;
+    private final Application application;
+    private final ContentResolver contentResolver;
+    public interface OnItemClickListener{
+        void delete();
+    }
 
-    public RecyclerViewPhotoAdapter(List<Bitmap> imageList){
+    public RecyclerViewPhotoAdapter(List<Image> imageList, OnItemClickListener onItemClickListener,
+                                    Application application, ContentResolver contentResolver){
         this.imageList = imageList;
+        this.application = application;
+        this.onItemClickListener = onItemClickListener;
+        this.contentResolver = contentResolver;
     }
 
     @NonNull
@@ -33,7 +51,7 @@ public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewP
 
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
-        holder.bind(imageList.get(position));
+        holder.bind(imageList.get(position).getUri());
     }
 
     @Override
@@ -44,59 +62,48 @@ public class RecyclerViewPhotoAdapter extends RecyclerView.Adapter<RecyclerViewP
         return 0;
     }
 
-    public class PhotoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class PhotoViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         private final ImageView imageView;
+        private final PhotoModel model;
+
 
         public PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageViewAdapter);
+            model = new PhotoModel(application);
+            itemView.setOnLongClickListener(this);
 
         }
 
-        public void bind(Bitmap image){
-            imageView.setImageBitmap(image);
+        public void bind(String uri){
+            try {
+                imageView.setImageBitmap(importImageFromMemory(contentResolver, Uri.parse(uri)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
+
 
         @Override
-        public void onClick(View view) {
-
+        public boolean onLongClick(View view) {
+            int index = imageList.get(getAdapterPosition()).getID();
+            model.deliteImage(imageList.get(getAdapterPosition()));
+            List<Clothual> listClothual = model.getAllClothual();
+            for(int i = 0; i < listClothual.size(); i++){
+                if(listClothual.get(i).getIdImage() == index){
+                    model.deliteClothual(listClothual.get(i));
+                }
+            }
+            imageList.remove(getAdapterPosition());
+            notifyItemRemoved(getAdapterPosition());
+            return true;
         }
     }
 
-    public static class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
-
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
-
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); // item position
-            int column = position % spanCount; // item column
-
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
-
-                if (position < spanCount) { // top edge
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing; // item bottom
-            } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
-                if (position >= spanCount) {
-                    outRect.top = spacing; // item top
-                }
-            }
-        }
+    public Bitmap importImageFromMemory(ContentResolver contentResolver, Uri imageUri) throws FileNotFoundException {
+        InputStream inputStream = contentResolver.openInputStream(imageUri);
+        return BitmapFactory.decodeStream(inputStream);
     }
 }

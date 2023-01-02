@@ -28,12 +28,14 @@
         android:id="@+id/fab1Upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="35dp"
         android:layout_gravity="end|bottom"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="85dp"
         android:backgroundTint="#D60707"
+        app:fabCustomSize="45dp"
         app:borderWidth="0dp"
         app:fabSize="normal"
+        android:tint="@color/white"
         app:srcCompat="@drawable/upload_48px"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
@@ -54,11 +56,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="85dp"
         android:backgroundTint="#F29203"
         app:borderWidth="0dp"
         app:fabSize="normal"
+        android:tint="@color/white"
+        app:fabCustomSize="45dp"
         app:srcCompat="@drawable/camera_enhance_48px"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
@@ -68,11 +72,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="80dp"
-        android:backgroundTint="@color/celeste"
+        android:backgroundTint="@color/black"
         android:layout_gravity="end|bottom"
         app:srcCompat="@drawable/add_48px"
         app:borderWidth="0dp"
         app:fabSize="normal"
+        app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck"
         android:contentDescription="TODO" />
 

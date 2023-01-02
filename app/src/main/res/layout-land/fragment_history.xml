@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".UI.core.Personal.History.HistoryFragment"
-    android:scrollbars="none"
-    android:layout_marginBottom="55dp">
+    android:scrollbars="none">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,12 +61,12 @@
             android:id="@+id/trousers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:text="@string/trousers"
             style="@style/textView"
+            android:layout_marginStart="50dp"
             android:fontFamily="@font/inter_semibold"
-            app:layout_constraintStart_toStartOf="@id/shoes"
-            app:layout_constraintTop_toTopOf="@id/trousersRate"
+            app:layout_constraintStart_toEndOf="@id/shoesRate"
+            app:layout_constraintTop_toTopOf="@id/shoes"
             android:textSize="20sp"/>
 
 
@@ -75,8 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_marginStart="40dp"
-            app:layout_constraintTop_toBottomOf="@id/shoesRate"
-            app:layout_constraintStart_toEndOf="@id/shoes">
+            app:layout_constraintTop_toTopOf="@id/shoesRate"
+            app:layout_constraintStart_toEndOf="@id/trousers">
 
             <ProgressBar
                 android:id="@+id/trousersCircularProgressbar"
@@ -145,21 +145,19 @@
             android:id="@+id/jackets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:text="@string/jackets"
             style="@style/textView"
             android:fontFamily="@font/inter_semibold"
-            app:layout_constraintStart_toStartOf="@id/shoes"
-            app:layout_constraintTop_toTopOf="@id/jacketsRate"
+            app:layout_constraintStart_toStartOf="@id/trousers"
+            app:layout_constraintTop_toTopOf="@id/tshirt"
             android:textSize="20sp"/>
 
         <RelativeLayout
             android:id="@+id/jacketsRate"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_marginStart="40dp"
-            app:layout_constraintTop_toBottomOf="@id/tShirtRate"
-            app:layout_constraintStart_toEndOf="@id/shoes">
+            app:layout_constraintTop_toBottomOf="@id/trousersRate"
+            app:layout_constraintStart_toStartOf="@id/trousersRate">
 
             <ProgressBar
                 android:id="@+id/jacketsCircularProgressbar"
@@ -224,6 +222,11 @@
                 android:textSize="25sp" />
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintTop_toBottomOf="@id/jeansReate"
+            app:layout_constraintRight_toRightOf="parent"/>
 
 
         <!--

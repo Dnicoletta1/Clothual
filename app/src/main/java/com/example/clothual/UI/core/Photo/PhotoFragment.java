@@ -17,9 +17,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.clothual.Model.Image;
 import com.example.clothual.UI.core.AddDress.AddDressActivity;
 import com.example.clothual.UI.core.adapter.RecyclerViewPhotoAdapter;
 import com.example.clothual.databinding.FragmentPhotoBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -93,8 +95,14 @@ public class PhotoFragment extends Fragment {
 
 
 
-            List<Bitmap> image = photoModel.getImageList(getActivity(), getContext(), getActivity().getContentResolver());
-            RecyclerViewPhotoAdapter adapter = new RecyclerViewPhotoAdapter(image);
+            List<Image> image = photoModel.getImageList();//(getActivity(), getContext(), getActivity().getContentResolver());
+            RecyclerViewPhotoAdapter adapter = new RecyclerViewPhotoAdapter(image, new RecyclerViewPhotoAdapter.OnItemClickListener() {
+                @Override
+                public void delete() {
+                    Snackbar.make(view, "Photo Delite", Snackbar.LENGTH_LONG).show();
+                }
+
+            }, getActivity().getApplication(), getContext().getContentResolver());
             binding.recyclerView.setLayoutManager(manager);
             binding.recyclerView.setAdapter(adapter);
            /* binding.recyclerView.addItemDecoration(new RecyclerViewPhotoAdapter.GridSpacingItemDecoration

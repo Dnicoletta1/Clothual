@@ -13,10 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.clothual.Model.Clothual;
+import com.example.clothual.Model.Image;
 import com.example.clothual.R;
 import com.example.clothual.UI.core.CoreActivity;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 public class AddDressActivity extends AppCompatActivity {
 
@@ -106,5 +108,18 @@ public class AddDressActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        model = new AddDressModel(getApplication());
+        String uri = getIntent().getExtras().getString("uri");
+        List<Image> imageList = model.getAllImage();
+        for(int i = 0; i < imageList.size(); i++){
+            if(imageList.get(i).getUri().equals(uri)){
+                model.deliteImage(imageList.get(i));
+            }
+        }
+        super.onBackPressed();
     }
 }

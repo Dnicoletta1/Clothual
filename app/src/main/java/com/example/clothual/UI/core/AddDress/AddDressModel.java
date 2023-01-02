@@ -10,9 +10,11 @@ import com.example.clothual.Database.ClothualDao;
 import com.example.clothual.Database.ImageDao;
 import com.example.clothual.Database.RoomDatabase;
 import com.example.clothual.Model.Clothual;
+import com.example.clothual.Model.Image;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 
 public class AddDressModel {
 
@@ -51,6 +53,14 @@ public class AddDressModel {
 
     public void update(Clothual clothual){
         clothualDao.updateClothual(clothual);
+    }
+
+    public List<Image> getAllImage(){
+        return imageDao.getAllImage();
+    }
+
+    public void deliteImage(Image image){
+        imageDao.deleteImage(image);
     }
 
 }
