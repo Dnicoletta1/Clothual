@@ -30,7 +30,8 @@
     <string name="save">Salva</string>
     <string name="shoes">Scarpe</string>
     <string name="trousers">Pantaloni</string>
-    <string name="jackets">Giaccha</string>
+    <string name="jackets">Giacche</string>
+    <string name="jacket">Giacca</string>
 
 
 </resources>

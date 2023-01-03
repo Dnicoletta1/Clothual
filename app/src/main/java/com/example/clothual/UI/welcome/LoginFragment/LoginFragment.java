@@ -132,6 +132,7 @@ public class LoginFragment extends Fragment {
        binding.signInButton.setOnClickListener(view1 -> {
            Intent intent = new Intent(requireContext(), CoreActivity.class);
            startActivity(intent);
+
        });
 
 

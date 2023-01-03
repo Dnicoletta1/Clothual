@@ -20,7 +20,7 @@
     <string name="search">Search</string>
 
     <string name="edit_profile">Edit Profile</string>
-    <string name="go_out">Go out</string>
+    <string name="go_out">Logout</string>
 
     <string name="settings">Settings</string>
     <string name="yourClothes">Your clothes</string>
@@ -51,7 +51,8 @@
     <string name="shoes">Shoes</string>
     <string name="trousers">Trousers</string>
     <string name="tshirt" translatable="false">T-Shirt</string>
-    <string name="jackets">Jacket</string>
+    <string name="jackets">Jackets</string>
+    <string name="jacket">Jacket</string>
     <string name="jeans" translatable="false">Jeans</string>
 
     <string name="darkMode" translatable="false">Dark Mode</string>
