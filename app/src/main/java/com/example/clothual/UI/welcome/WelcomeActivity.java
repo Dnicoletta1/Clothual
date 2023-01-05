@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.clothual.R;
 
+import android.widget.Toast;
+
 public class WelcomeActivity extends AppCompatActivity {
 
 
@@ -14,5 +16,10 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
 
+    }
+    //disable backButton
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(getApplicationContext(),"Premi il tasto home per uscire da Clothual", Toast.LENGTH_SHORT).show();
     }
 }
