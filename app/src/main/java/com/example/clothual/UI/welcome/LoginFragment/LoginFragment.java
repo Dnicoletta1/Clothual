@@ -114,6 +114,7 @@ public class LoginFragment extends Fragment {
                     check = false;
                     Intent intent = new Intent(requireContext(), CoreActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 }else{
                     binding.inputViewUsername.setError("Errore");
                     binding.inputViewPassword.setError("Errore");
@@ -132,6 +133,7 @@ public class LoginFragment extends Fragment {
        binding.signInButton.setOnClickListener(view1 -> {
            Intent intent = new Intent(requireContext(), CoreActivity.class);
            startActivity(intent);
+           getActivity().finish();
        });
 
 
