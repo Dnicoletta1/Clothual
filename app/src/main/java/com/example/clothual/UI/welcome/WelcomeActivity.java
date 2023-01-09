@@ -20,6 +20,6 @@ public class WelcomeActivity extends AppCompatActivity {
     //disable backButton
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(),"Premi il tasto home per uscire da Clothual", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),R.string.close_app, Toast.LENGTH_SHORT).show();
     }
 }
