@@ -145,14 +145,14 @@ public class PhotoFragment extends Fragment {
 
     private void showFABMenu1() {
         isFABOpen = true;
-        binding.fab2Make.animate().translationY(-205);
+        binding.fab2Make.animate().translationY(-305);
         binding.makePhoto.setVisibility(View.VISIBLE);
         showFABMenu2();
     }
 
     private void showFABMenu2() {
         isFABOpen = true;
-        binding.fab1Upload.animate().translationY(-415);
+        binding.fab1Upload.animate().translationY(-555);
         binding.upload.setVisibility(View.VISIBLE);
     }
 
