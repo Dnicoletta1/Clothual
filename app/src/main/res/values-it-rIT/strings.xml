@@ -31,6 +31,7 @@
     <string name="shoes">Scarpe</string>
     <string name="trousers">Pantaloni</string>
     <string name="jackets">Giacca</string>
+    <string name="close_app">Premere il tasto Home per uscire da Clothual</string>
 
 
 </resources>

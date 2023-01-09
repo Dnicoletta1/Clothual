@@ -57,6 +57,7 @@
     <string name="darkMode" translatable="false">Dark Mode</string>
     <string name="lightMode" translatable="false">Ligth Mode</string>
     <string name="systemMode" translatable="false">System Mode</string>
+    <string name="close_app" >Press home button to exit Clothual</string>
 
     <array name="type">
         <item>@string/shoes</item>
