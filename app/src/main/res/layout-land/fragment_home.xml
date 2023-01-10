@@ -135,11 +135,12 @@
 
             <Button
                 android:id="@+id/total"
-                android:layout_width="500dp"
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:text="Tutto"
                 android:textColor="@color/white"
                 android:textSize="30sp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -213,7 +214,7 @@
 
             <Button
                 android:id="@+id/map"
-                android:layout_width="500dp"
+                android:layout_width="match_parent"
                 android:text="Mappa"
                 android:background="@drawable/mappa"
                 android:textColor="@color/white"
@@ -233,8 +234,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-
-
 
 </RelativeLayout>
